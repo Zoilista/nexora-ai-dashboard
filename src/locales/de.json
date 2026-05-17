@@ -1,0 +1,144 @@
+{
+  "nav": {
+    "dashboard": "Kommandozentrale",
+    "inbox": "KI-Posteingang",
+    "campaigns": "Kampagnen",
+    "appointments": "Termine",
+    "analytics": "Einblicke",
+    "settings": "Einstellungen",
+    "logout": "Abmelden",
+    "readiness": "KI-Bereitschaft",
+    "optimized": "optimiert",
+    "knowledgeBase": "Wissensdatenbank"
+  },
+  "topbar": {
+    "greeting": "Guten {{time}}",
+    "morning": "Morgen",
+    "afternoon": "Tag",
+    "evening": "Abend",
+    "subtitle": "Hier ist, was Nexora AI heute für Sie vorbereitet hat.",
+    "searchPlaceholder": "Suchen Sie nach Befehlen, Kunden..."
+  },
+  "dashboard": {
+    "dailyStats": "Tägliche Statistiken",
+    "totalRevenue": "Heutiger Umsatz",
+    "newCustomers": "Neue Kunden",
+    "pendingMessages": "Ausstehende Nachrichten",
+    "aiActionRequired": "KI-Aktion Erforderlich",
+    "aiActionDesc": "12 Kunden warten auf Antworten. Ich habe Entwürfe vorbereitet. Jetzt senden?",
+    "reviewAndSend": "Überprüfen & Alle Senden",
+    "upcoming": "Anstehende Termine",
+    "noAppointments": "Keine weiteren Termine heute."
+  },
+  "inbox": {
+    "search": "Unterhaltungen durchsuchen...",
+    "all": "Alle",
+    "waiting": "Wartend",
+    "handled": "Von KI Bearbeitet",
+    "autopilot": "Autopilot",
+    "lastVisit": "Letzter Besuch",
+    "aiDraft": "Nexora AI Entwurf",
+    "approveSend": "Genehmigen & Senden",
+    "editDraft": "Entwurf Bearbeiten",
+    "typeMessage": "Schreiben Sie Ihre Nachricht..."
+  },
+  "campaigns": {
+    "title": "Kampagnen-Generator",
+    "subtitle": "Erstellen Sie plattformspezifische Kampagnen in Sekunden.",
+    "platform": "Plattform",
+    "goal": "Kampagnenziel",
+    "goalPlaceholder": "z.B. Neues Sommerpaket bewerben",
+    "recommended": "Empfohlen",
+    "keyPoints": "Wichtigste Verkaufsargumente",
+    "keyPointsPlaceholder": "z.B. Inklusive LSF 50, 20% Rabatt.",
+    "generate": "Beitrag Erzeugen",
+    "livePreview": "Live-Vorschau",
+    "sponsored": "Gesponsert",
+    "shopNow": "Jetzt Einkaufen"
+  },
+  "appointments": {
+    "today": "Heutiger Zeitplan",
+    "newBooking": "Neue Buchung",
+    "newClient": "Neukunde",
+    "aiSuggestion": "Terminlücke Entdeckt",
+    "aiSuggestionDesc": "Heute Nachmittag gibt es eine Lücke von 2,5 Stunden. Last-Minute-Angebot senden?",
+    "sendCampaign": "Kampagne Senden",
+    "quickStats": "Schnelle Statistiken",
+    "totalBookings": "Gesamte Buchungen",
+    "utilization": "Auslastung",
+    "estRevenue": "Geschätzter Umsatz"
+  },
+  "insights": {
+    "title": "KI-Zusammenfassung",
+    "subtitle": "Die Geschichte Ihres Unternehmens der letzten 30 Tage.",
+    "growth": "Wachstums-Highlight",
+    "growthDesc": "Ihre KI-gesteuerten SMS-Kampagnen führten zu einem Anstieg der Wiederholungsbuchungen um 24%.",
+    "improvement": "Verbesserungspotenzial",
+    "improvementDesc": "Termine am Dienstagmorgen zeigen einen Rückgang der Auslastung um 15%.",
+    "generateCampaign": "Zielgerichtete Kampagne Erstellen",
+    "recommendation": "KI-Empfehlung",
+    "recommendationDesc": "Fügen Sie 'Paarmassage' hinzu. 14 Anfragen diese Woche erkannt.",
+    "performance": "Kanal-Performance",
+    "performanceSub": "Reichweite vs. Konversion nach Plattform",
+    "reach": "Gesamtreichweite",
+    "conversions": "Konversionen"
+  },
+  "settings": {
+    "title": "KI-Einstellungen & Wissen",
+    "subtitle": "Trainieren Sie Ihren Copiloten und konfigurieren Sie Regeln.",
+    "tabs": {
+      "knowledge": "Wissensdatenbank",
+      "rules": "Automatisierungsregeln",
+      "integrations": "Integrationen",
+      "security": "Sicherheit"
+    },
+    "uploadTitle": "Dokumente Hochladen",
+    "uploadDesc": "Laden Sie Ihre Menüs, Preise und FAQs hoch, damit Nexora antworten kann.",
+    "uploadBox": "Klicken oder ziehen Sie Dateien hierher",
+    "uploadSub": "PDF, DOCX oder TXT (max. 10MB)",
+    "activeSources": "Aktive Quellen",
+    "comingSoon": "Demnächst",
+    "comingSoonDesc": "Dieser Bereich wird überarbeitet und ist im nächsten Update verfügbar."
+  },
+  "onboarding": {
+    "welcome": "Willkommen bei Nexora.",
+    "welcomeDesc": "Personalisieren wir Ihren KI-Copiloten. Welche Art von Unternehmen betreiben Sie?",
+    "types": {
+      "salon": "Schönheitssalon",
+      "clinic": "Zahnklinik",
+      "gym": "Fitnessstudio",
+      "cafe": "Café / Restaurant"
+    },
+    "goal": "Was ist Ihr Hauptziel?",
+    "goalDesc": "Nexora optimiert das Dashboard basierend auf Ihrer Priorität.",
+    "goals": {
+      "bookings": "Buchungen Steigern",
+      "bookingsDesc": "Fokus auf Lead-Generierung.",
+      "time": "Zeit Sparen",
+      "timeDesc": "Fokus auf automatisierte Antworten.",
+      "retention": "Kundenbindung Verbessern",
+      "retentionDesc": "Fokus auf Kundenfeedback."
+    },
+    "back": "Zurück",
+    "continue": "Weiter"
+  },
+  "login": {
+    "subtitle": "Ihr intelligenter Unternehmens-Copilot.",
+    "continueGoogle": "Weiter mit Google",
+    "enterpriseReady": "Bereit für Unternehmen",
+    "terms": "Bedingungen",
+    "privacy": "Datenschutz",
+    "security": "Sicherheit"
+  },
+  "aiPanel": {
+    "feed": "Intelligenz-Feed",
+    "newOpp": "Neue Gelegenheit",
+    "newOppDesc": "Sie haben am Dienstag eine Lücke von 2 Stunden. Soll ich eine Flash-Sale-SMS entwerfen?",
+    "draftSms": "SMS Entwerfen",
+    "ignore": "Ignorieren",
+    "campResult": "Kampagnenergebnis",
+    "campResultDesc": "Ihr Wochenend-Instagram-Beitrag performt 24% besser als der Durchschnitt.",
+    "suggestedPrompts": "Vorgeschlagene Fragen",
+    "askAnything": "Fragen Sie Nexora alles..."
+  }
+}

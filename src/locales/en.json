@@ -1,0 +1,209 @@
+{
+  "nav": {
+    "dashboard": "Command Center",
+    "inbox": "AI Inbox",
+    "campaigns": "Campaigns",
+    "campaignResults": "Campaign Results",
+    "appointments": "Appointments",
+    "analytics": "Insights",
+    "customers": "Customers",
+    "services": "Services",
+    "ecommerce": "Online Store",
+    "settings": "Settings",
+    "logout": "Logout",
+    "readiness": "AI Readiness",
+    "optimized": "optimized",
+    "knowledgeBase": "Knowledge base"
+  },
+  "topbar": {
+    "greeting": "Good {{time}}",
+    "morning": "morning",
+    "afternoon": "afternoon",
+    "evening": "evening",
+    "subtitle": "Here's what Nexora AI has prepared for you today.",
+    "searchPlaceholder": "Search commands, customers, or campaigns..."
+  },
+  "dashboard": {
+    "dailyStats": "Daily Stats",
+    "totalRevenue": "Today's Revenue",
+    "newCustomers": "New Customers",
+    "pendingMessages": "Pending Msgs",
+    "aiActionRequired": "AI Action Required",
+    "aiActionDesc": "You have 12 customers waiting for replies. I have drafted responses. Send now?",
+    "reviewAndSend": "Review & Send All",
+    "upcoming": "Upcoming Appointments",
+    "noAppointments": "No more appointments today."
+  },
+  "inbox": {
+    "search": "Search conversations...",
+    "all": "All",
+    "waiting": "Waiting",
+    "handled": "AI Handled",
+    "autopilot": "Autopilot",
+    "lastVisit": "Last visit",
+    "aiDraft": "Nexora AI Draft",
+    "approveSend": "Approve & Send",
+    "editDraft": "Edit Draft",
+    "typeMessage": "Type your message..."
+  },
+  "campaigns": {
+    "title": "Campaign Generator",
+    "subtitle": "Create platform-specific campaigns in seconds.",
+    "platform": "Platform",
+    "goal": "Campaign Goal",
+    "goalPlaceholder": "e.g., Promote new summer skincare bundle",
+    "recommended": "Recommended",
+    "keyPoints": "Key Selling Points",
+    "keyPointsPlaceholder": "e.g., Includes SPF 50, 20% off for existing customers.",
+    "generate": "Generate Post",
+    "livePreview": "Live Preview",
+    "sponsored": "Sponsored",
+    "shopNow": "Shop Now"
+  },
+  "appointments": {
+    "today": "Today's Schedule",
+    "newBooking": "New Booking",
+    "newClient": "New Client",
+    "aiSuggestion": "Schedule Gap Detected",
+    "aiSuggestionDesc": "There is a 2.5 hour gap this afternoon. Send a 15% off last-minute offer to regulars?",
+    "sendCampaign": "Send Campaign",
+    "quickStats": "Quick Stats",
+    "totalBookings": "Total Bookings",
+    "utilization": "Utilization Rate",
+    "estRevenue": "Est. Revenue"
+  },
+  "insights": {
+    "title": "AI Executive Summary",
+    "subtitle": "Your business narrative for the past 30 days.",
+    "growth": "Growth Highlight",
+    "growthDesc": "Your AI-driven SMS campaigns resulted in a 24% increase in repeat bookings this month.",
+    "improvement": "Area for Improvement",
+    "improvementDesc": "Tuesday morning appointments are showing a 15% drop in utilization.",
+    "generateCampaign": "Generate Targeted Campaign",
+    "recommendation": "AI Recommendation",
+    "recommendationDesc": "Add 'Couples Massage' to your service list. Detected 14 inquiries this week.",
+    "performance": "Channel Performance",
+    "performanceSub": "Reach vs Conversion across platforms",
+    "reach": "Total Reach",
+    "conversions": "Conversions"
+  },
+  "settings": {
+    "title": "AI Settings & Knowledge",
+    "subtitle": "Train your copilot and configure automation rules.",
+    "tabs": {
+      "knowledge": "Knowledge Base",
+      "rules": "Automation Rules",
+      "integrations": "Integrations",
+      "security": "Security"
+    },
+    "uploadTitle": "Upload Documents",
+    "uploadDesc": "Upload your service menus, pricing, and FAQ documents so Nexora can answer customer questions accurately.",
+    "uploadBox": "Click to upload or drag and drop",
+    "uploadSub": "PDF, DOCX, or TXT (max. 10MB)",
+    "activeSources": "Active Sources",
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "This section is being polished and will be available in the next update.",
+    "rules": {
+      "title": "Automation Rules",
+      "desc": "Configure how Nexora handles tasks automatically on your behalf.",
+      "rule1Title": "Auto-reply to Out-of-Hours DMs",
+      "rule1Desc": "Send a predefined message to Instagram/Facebook DMs received outside business hours.",
+      "rule2Title": "Appointment Reminders",
+      "rule2Desc": "Send a WhatsApp reminder 24 hours before any scheduled appointment.",
+      "rule3Title": "Post-Visit Review Request",
+      "rule3Desc": "Automatically ask for a Google Review 1 hour after a completed service."
+    }
+  },
+  "onboarding": {
+    "welcome": "Welcome to Nexora.",
+    "welcomeDesc": "Let's personalize your AI copilot. What type of business do you run?",
+    "types": {
+      "salon": "Beauty Salon",
+      "clinic": "Dental Clinic",
+      "gym": "Fitness Studio",
+      "cafe": "Cafe / Restaurant",
+      "shop": "Online Store"
+    },
+    "goal": "What's your main goal?",
+    "goalDesc": "Nexora will optimize its dashboard based on your priority.",
+    "goals": {
+      "bookings": "Increase Bookings",
+      "bookingsDesc": "Focus on lead generation and retargeting.",
+      "time": "Save Time",
+      "timeDesc": "Focus on automated replies and AI scheduling.",
+      "retention": "Improve Retention",
+      "retentionDesc": "Focus on customer feedback and loyalty."
+    },
+    "back": "Back",
+    "continue": "Continue"
+  },
+  "login": {
+    "subtitle": "Your intelligent business copilot.",
+    "continueGoogle": "Continue with Google",
+    "enterpriseReady": "Enterprise Ready",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "security": "Security"
+  },
+  "aiPanel": {
+    "feed": "Intelligence Feed",
+    "newOpp": "New Opportunity",
+    "newOppDesc": "You have a 2-hour gap on Tuesday. Should I draft a flash-sale SMS for past clients?",
+    "draftSms": "Draft SMS",
+    "ignore": "Ignore",
+    "campResult": "Campaign Result",
+    "campResultDesc": "Your weekend Instagram post is performing 24% better than average.",
+    "suggestedPrompts": "Suggested Prompts",
+    "askAnything": "Ask Nexora anything..."
+  },
+  "customers": {
+    "title": "Customers",
+    "total": "total",
+    "search": "Search customers...",
+    "visits": "Total Visits",
+    "spent": "Total Spent",
+    "lastVisit": "Last Visit",
+    "aiNote": "AI Customer Note",
+    "favoriteService": "Favorite Service",
+    "sendMessage": "Send Message",
+    "bookAppointment": "Book Appointment"
+  },
+  "services": {
+    "title": "Service Catalog",
+    "subtitle": "Manage your services and pricing. Nexora AI learns from these automatically.",
+    "addService": "Add Service",
+    "serviceName": "Service Name",
+    "namePlaceholder": "e.g. Hydrating Facial",
+    "category": "Category",
+    "duration": "Duration (min)",
+    "price": "Price ($)",
+    "status": "Status",
+    "cancel": "Cancel",
+    "confirm": "Add Service",
+    "all": "All"
+  },
+  "campaignResults": {
+    "title": "Campaign Results",
+    "subtitle": "Track the performance of your sent and scheduled campaigns.",
+    "newCampaign": "New Campaign",
+    "reach": "Total Reach",
+    "clicks": "Clicks",
+    "conversions": "Conversions",
+    "aiAnalysis": "AI Analysis",
+    "convRate": "rate"
+  },
+  "ecommerce": {
+    "title": "Online Store",
+    "subtitle": "Manage your orders, products, and store performance.",
+    "newOrder": "New Order",
+    "totalOrders": "Total Orders",
+    "pendingShipment": "Pending Shipment",
+    "revenue": "Revenue",
+    "refunds": "Refunds",
+    "orders": "Orders",
+    "products": "Products",
+    "aiSuggestion": "AI Restock Alert",
+    "aiSuggestionDesc": "'Face Serum Bundle' is almost out of stock (3 left). Reorder now to avoid lost sales.",
+    "reorderNow": "Reorder Now"
+  }
+}

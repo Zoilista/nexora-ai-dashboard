@@ -1,0 +1,144 @@
+{
+  "nav": {
+    "dashboard": "Centre de Contrôle",
+    "inbox": "Boîte de réception IA",
+    "campaigns": "Campagnes",
+    "appointments": "Rendez-vous",
+    "analytics": "Statistiques",
+    "settings": "Paramètres",
+    "logout": "Déconnexion",
+    "readiness": "Préparation IA",
+    "optimized": "optimisé",
+    "knowledgeBase": "Base de connaissances"
+  },
+  "topbar": {
+    "greeting": "Bon{{time}}",
+    "morning": "jour",
+    "afternoon": "ne après-midi",
+    "evening": "soir",
+    "subtitle": "Voici ce que Nexora AI a préparé pour vous aujourd'hui.",
+    "searchPlaceholder": "Rechercher des commandes, clients..."
+  },
+  "dashboard": {
+    "dailyStats": "Statistiques Quotidiennes",
+    "totalRevenue": "Revenu du Jour",
+    "newCustomers": "Nouveaux Clients",
+    "pendingMessages": "Messages en Attente",
+    "aiActionRequired": "Action IA Requise",
+    "aiActionDesc": "12 clients attendent des réponses. J'ai rédigé des brouillons. Envoyer maintenant ?",
+    "reviewAndSend": "Réviser et Tout Envoyer",
+    "upcoming": "Prochains Rendez-vous",
+    "noAppointments": "Aucun autre rendez-vous aujourd'hui."
+  },
+  "inbox": {
+    "search": "Rechercher des conversations...",
+    "all": "Tout",
+    "waiting": "En Attente",
+    "handled": "Géré par IA",
+    "autopilot": "Pilote Automatique",
+    "lastVisit": "Dernière visite",
+    "aiDraft": "Brouillon Nexora AI",
+    "approveSend": "Approuver et Envoyer",
+    "editDraft": "Modifier le Brouillon",
+    "typeMessage": "Tapez votre message..."
+  },
+  "campaigns": {
+    "title": "Générateur de Campagnes",
+    "subtitle": "Créez des campagnes spécifiques en quelques secondes.",
+    "platform": "Plateforme",
+    "goal": "Objectif de la Campagne",
+    "goalPlaceholder": "ex: Promouvoir le pack été",
+    "recommended": "Recommandé",
+    "keyPoints": "Points Clés",
+    "keyPointsPlaceholder": "ex: Inclut SPF 50, -20%.",
+    "generate": "Générer la Publication",
+    "livePreview": "Aperçu en Direct",
+    "sponsored": "Sponsorisé",
+    "shopNow": "Acheter"
+  },
+  "appointments": {
+    "today": "Planning du Jour",
+    "newBooking": "Nouvelle Réservation",
+    "newClient": "Nouveau Client",
+    "aiSuggestion": "Trou dans le Planning",
+    "aiSuggestionDesc": "Il y a un creux de 2.5h. Envoyer une offre de dernière minute ?",
+    "sendCampaign": "Envoyer la Campagne",
+    "quickStats": "Statistiques Rapides",
+    "totalBookings": "Réservations Totales",
+    "utilization": "Taux d'Occupation",
+    "estRevenue": "Revenu Est."
+  },
+  "insights": {
+    "title": "Résumé Exécutif IA",
+    "subtitle": "Le récit de votre entreprise sur 30 jours.",
+    "growth": "Point de Croissance",
+    "growthDesc": "Les campagnes SMS ont généré une augmentation de 24% des réservations.",
+    "improvement": "Domaine d'Amélioration",
+    "improvementDesc": "Les rendez-vous du mardi matin affichent une baisse de 15%.",
+    "generateCampaign": "Générer une Campagne",
+    "recommendation": "Recommandation IA",
+    "recommendationDesc": "Ajoutez 'Massage en Duo'. 14 demandes détectées cette semaine.",
+    "performance": "Performance des Canaux",
+    "performanceSub": "Portée vs Conversion par plateforme",
+    "reach": "Portée Totale",
+    "conversions": "Conversions"
+  },
+  "settings": {
+    "title": "Paramètres et Connaissances",
+    "subtitle": "Entraînez votre copilote et configurez vos règles.",
+    "tabs": {
+      "knowledge": "Base de Connaissances",
+      "rules": "Règles d'Automatisation",
+      "integrations": "Intégrations",
+      "security": "Sécurité"
+    },
+    "uploadTitle": "Téléverser des Documents",
+    "uploadDesc": "Téléversez vos menus, prix et FAQ pour que Nexora puisse répondre.",
+    "uploadBox": "Cliquez ou glissez-déposez",
+    "uploadSub": "PDF, DOCX ou TXT (max. 10MB)",
+    "activeSources": "Sources Actives",
+    "comingSoon": "Bientôt Disponible",
+    "comingSoonDesc": "Cette section sera disponible lors de la prochaine mise à jour."
+  },
+  "onboarding": {
+    "welcome": "Bienvenue sur Nexora.",
+    "welcomeDesc": "Personnalisons votre copilote. Quel est votre type d'entreprise ?",
+    "types": {
+      "salon": "Salon de Beauté",
+      "clinic": "Clinique Dentaire",
+      "gym": "Studio de Fitness",
+      "cafe": "Café / Restaurant"
+    },
+    "goal": "Quel est votre objectif principal ?",
+    "goalDesc": "Nexora optimisera votre tableau de bord en conséquence.",
+    "goals": {
+      "bookings": "Augmenter les Réservations",
+      "bookingsDesc": "Génération de leads.",
+      "time": "Gagner du Temps",
+      "timeDesc": "Réponses automatiques.",
+      "retention": "Améliorer la Rétention",
+      "retentionDesc": "Fidélisation client."
+    },
+    "back": "Retour",
+    "continue": "Continuer"
+  },
+  "login": {
+    "subtitle": "Votre copilote d'entreprise intelligent.",
+    "continueGoogle": "Continuer avec Google",
+    "enterpriseReady": "Prêt pour les Entreprises",
+    "terms": "Conditions",
+    "privacy": "Confidentialité",
+    "security": "Sécurité"
+  },
+  "aiPanel": {
+    "feed": "Flux d'Intelligence",
+    "newOpp": "Nouvelle Opportunité",
+    "newOppDesc": "Vous avez un creux de 2h mardi. Dois-je préparer un SMS promotionnel ?",
+    "draftSms": "Rédiger le SMS",
+    "ignore": "Ignorer",
+    "campResult": "Résultat de la Campagne",
+    "campResultDesc": "Votre publication Instagram performe 24% mieux que la moyenne.",
+    "suggestedPrompts": "Suggestions",
+    "askAnything": "Demandez quoi que ce soit..."
+  }
+}

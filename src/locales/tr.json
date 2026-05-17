@@ -1,0 +1,209 @@
+{
+  "nav": {
+    "dashboard": "Komuta Merkezi",
+    "inbox": "Yapay Zeka Gelen Kutusu",
+    "campaigns": "Kampanyalar",
+    "campaignResults": "Kampanya Sonuçları",
+    "appointments": "Randevular",
+    "analytics": "İçgörüler",
+    "customers": "Müşteriler",
+    "services": "Hizmetler",
+    "ecommerce": "Online Mağaza",
+    "settings": "Ayarlar",
+    "logout": "Çıkış Yap",
+    "readiness": "YZ Hazırlık Seviyesi",
+    "optimized": "optimize edildi",
+    "knowledgeBase": "Bilgi bankası"
+  },
+  "topbar": {
+    "greeting": "İyi {{time}}",
+    "morning": "sabahlar",
+    "afternoon": "günler",
+    "evening": "akşamlar",
+    "subtitle": "İşte Nexora AI'nin bugün sizin için hazırladıkları.",
+    "searchPlaceholder": "Komutları, müşterileri veya kampanyaları arayın..."
+  },
+  "dashboard": {
+    "dailyStats": "Günlük İstatistikler",
+    "totalRevenue": "Bugünün Geliri",
+    "newCustomers": "Yeni Müşteriler",
+    "pendingMessages": "Bekleyen Mesajlar",
+    "aiActionRequired": "YZ Aksiyonu Gerekiyor",
+    "aiActionDesc": "12 müşteri yanıt bekliyor. Taslak cevapları hazırladım. Şimdi gönderilsin mi?",
+    "reviewAndSend": "İncele ve Hepsini Gönder",
+    "upcoming": "Yaklaşan Randevular",
+    "noAppointments": "Bugün için başka randevu yok."
+  },
+  "inbox": {
+    "search": "Görüşmelerde ara...",
+    "all": "Tümü",
+    "waiting": "Bekleyenler",
+    "handled": "YZ Tarafından Çözülenler",
+    "autopilot": "Otopilot",
+    "lastVisit": "Son ziyaret",
+    "aiDraft": "Nexora AI Taslağı",
+    "approveSend": "Onayla & Gönder",
+    "editDraft": "Taslağı Düzenle",
+    "typeMessage": "Mesajınızı yazın..."
+  },
+  "campaigns": {
+    "title": "Kampanya Oluşturucu",
+    "subtitle": "Saniyeler içinde platforma özel kampanyalar yaratın.",
+    "platform": "Platform",
+    "goal": "Kampanya Hedefi",
+    "goalPlaceholder": "örn. Yeni yaz cilt bakımı paketini tanıt",
+    "recommended": "Önerilen",
+    "keyPoints": "Temel Satış Noktaları",
+    "keyPointsPlaceholder": "örn. 50 faktör güneş kremi dahil, mevcut müşterilere %20 indirim.",
+    "generate": "Gönderi Oluştur",
+    "livePreview": "Canlı Önizleme",
+    "sponsored": "Sponsorlu",
+    "shopNow": "Şimdi Alışveriş Yap"
+  },
+  "appointments": {
+    "today": "Bugünün Programı",
+    "newBooking": "Yeni Rezervasyon",
+    "newClient": "Yeni Müşteri",
+    "aiSuggestion": "Program Boşluğu Tespit Edildi",
+    "aiSuggestionDesc": "Bu öğleden sonra 2.5 saatlik bir boşluk var. Müdavimlere son dakika %15 indirim teklifi gönderilsin mi?",
+    "sendCampaign": "Kampanyayı Gönder",
+    "quickStats": "Hızlı İstatistikler",
+    "totalBookings": "Toplam Rezervasyon",
+    "utilization": "Kapasite Kullanım Oranı",
+    "estRevenue": "Tahmini Gelir"
+  },
+  "insights": {
+    "title": "Yapay Zeka Yönetici Özeti",
+    "subtitle": "Son 30 günün işletme hikayesi.",
+    "growth": "Büyüme Özeti",
+    "growthDesc": "YZ destekli SMS kampanyalarınız bu ay tekrarlanan rezervasyonlarda %24 artış sağladı.",
+    "improvement": "Gelişim Alanı",
+    "improvementDesc": "Salı sabahı randevularında kapasite kullanımında %15'lik bir düşüş görülüyor.",
+    "generateCampaign": "Hedefli Kampanya Oluştur",
+    "recommendation": "YZ Önerisi",
+    "recommendationDesc": "Hizmet listenize 'Çift Masajı' ekleyin. Bu hafta 14 talep tespit edildi.",
+    "performance": "Kanal Performansı",
+    "performanceSub": "Platformlara göre Erişim vs Dönüşüm",
+    "reach": "Toplam Erişim",
+    "conversions": "Dönüşümler"
+  },
+  "settings": {
+    "title": "YZ Ayarları ve Bilgi",
+    "subtitle": "Asistanınızı eğitin ve otomasyon kurallarını yapılandırın.",
+    "tabs": {
+      "knowledge": "Bilgi Bankası",
+      "rules": "Otomasyon Kuralları",
+      "integrations": "Entegrasyonlar",
+      "security": "Güvenlik"
+    },
+    "uploadTitle": "Belge Yükle",
+    "uploadDesc": "Nexora'nın müşteri sorularını doğru yanıtlayabilmesi için hizmet menülerinizi, fiyatlarınızı ve SSS belgelerinizi yükleyin.",
+    "uploadBox": "Yüklemek için tıklayın veya sürükleyip bırakın",
+    "uploadSub": "PDF, DOCX veya TXT (maks. 10MB)",
+    "activeSources": "Aktif Kaynaklar",
+    "comingSoon": "Çok Yakında",
+    "comingSoonDesc": "Bu bölüm cilalanıyor ve bir sonraki güncellemede kullanıma sunulacak.",
+    "rules": {
+      "title": "Otomasyon Kuralları",
+      "desc": "Nexora'nın görevleri sizin adınıza otomatik olarak nasıl yürüteceğini yapılandırın.",
+      "rule1Title": "Mesai Dışı DM'lere Otomatik Yanıt",
+      "rule1Desc": "Mesai saatleri dışında alınan Instagram/Facebook DM'lerine önceden tanımlanmış bir mesaj gönderin.",
+      "rule2Title": "Randevu Hatırlatıcıları",
+      "rule2Desc": "Planlanmış herhangi bir randevudan 24 saat önce WhatsApp hatırlatıcısı gönderin.",
+      "rule3Title": "Ziyaret Sonrası İnceleme İsteği",
+      "rule3Desc": "Tamamlanan bir hizmetten 1 saat sonra otomatik olarak Google Değerlendirmesi isteyin."
+    }
+  },
+  "onboarding": {
+    "welcome": "Nexora'ya Hoş Geldiniz.",
+    "welcomeDesc": "YZ asistanınızı kişiselleştirelim. Ne tür bir işletme yönetiyorsunuz?",
+    "types": {
+      "salon": "Güzellik Salonu",
+      "clinic": "Diş Kliniği",
+      "gym": "Fitness Stüdyosu",
+      "cafe": "Kafe / Restoran",
+      "shop": "Online Mağaza"
+    },
+    "goal": "Ana hedefiniz nedir?",
+    "goalDesc": "Nexora, gösterge panelini önceliğinize göre optimize edecektir.",
+    "goals": {
+      "bookings": "Rezervasyonları Artırmak",
+      "bookingsDesc": "Müşteri bulmaya ve yeniden hedeflemeye odaklanın.",
+      "time": "Zaman Tasarrufu",
+      "timeDesc": "Otomatik yanıtlara ve YZ planlamasına odaklanın.",
+      "retention": "Müşteri Sadakatini Artırmak",
+      "retentionDesc": "Müşteri geri bildirimlerine ve sadakate odaklanın."
+    },
+    "back": "Geri",
+    "continue": "Devam Et"
+  },
+  "login": {
+    "subtitle": "Akıllı işletme asistanınız.",
+    "continueGoogle": "Google ile Devam Et",
+    "enterpriseReady": "Kurumsala Hazır",
+    "terms": "Şartlar",
+    "privacy": "Gizlilik",
+    "security": "Güvenlik"
+  },
+  "aiPanel": {
+    "feed": "İstihbarat Akışı",
+    "newOpp": "Yeni Fırsat",
+    "newOppDesc": "Salı günü 2 saatlik boşluğunuz var. Eski müşteriler için kısa süreli bir SMS indirimi taslağı hazırlayayım mı?",
+    "draftSms": "SMS Taslağı Hazırla",
+    "ignore": "Yoksay",
+    "campResult": "Kampanya Sonucu",
+    "campResultDesc": "Hafta sonu Instagram gönderiniz ortalamadan %24 daha iyi performans gösteriyor.",
+    "suggestedPrompts": "Önerilen Komutlar",
+    "askAnything": "Nexora'ya herhangi bir şey sorun..."
+  },
+  "customers": {
+    "title": "Müşteriler",
+    "total": "toplam",
+    "search": "Müşteri ara...",
+    "visits": "Toplam Ziyaret",
+    "spent": "Toplam Harcama",
+    "lastVisit": "Son Ziyaret",
+    "aiNote": "YZ Müşteri Notu",
+    "favoriteService": "Favori Hizmet",
+    "sendMessage": "Mesaj Gönder",
+    "bookAppointment": "Randevu Al"
+  },
+  "services": {
+    "title": "Hizmet Kataloğu",
+    "subtitle": "Hizmetlerinizi ve fiyatlarınızı yönetin. Nexora AI bunları otomatik olarak öğrenir.",
+    "addService": "Hizmet Ekle",
+    "serviceName": "Hizmet Adı",
+    "namePlaceholder": "örn. Nemlendirici Yüz Bakımı",
+    "category": "Kategori",
+    "duration": "Süre (dk)",
+    "price": "Fiyat (₺)",
+    "status": "Durum",
+    "cancel": "İptal",
+    "confirm": "Hizmet Ekle",
+    "all": "Tümü"
+  },
+  "campaignResults": {
+    "title": "Kampanya Sonuçları",
+    "subtitle": "Gönderilen ve zamanlanmış kampanyalarınızın performansını takip edin.",
+    "newCampaign": "Yeni Kampanya",
+    "reach": "Toplam Erişim",
+    "clicks": "Tıklamalar",
+    "conversions": "Dönüşümler",
+    "aiAnalysis": "YZ Analizi",
+    "convRate": "oran"
+  },
+  "ecommerce": {
+    "title": "Online Mağaza",
+    "subtitle": "Siparişlerinizi, ürünlerinizi ve mağaza performansınızı yönetin.",
+    "newOrder": "Yeni Sipariş",
+    "totalOrders": "Toplam Sipariş",
+    "pendingShipment": "Bekleyen Kargo",
+    "revenue": "Gelir",
+    "refunds": "İadeler",
+    "orders": "Siparişler",
+    "products": "Ürünler",
+    "aiSuggestion": "YZ Stok Uyarısı",
+    "aiSuggestionDesc": "'Yüz Serumu Seti' neredeyse tükendi (3 adet kaldı). Satış kaybetmemek için yeniden sipariş verin.",
+    "reorderNow": "Şimdi Sipariş Ver"
+  }
+}

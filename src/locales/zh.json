@@ -1,0 +1,144 @@
+{
+  "nav": {
+    "dashboard": "控制中心",
+    "inbox": "AI 收件箱",
+    "campaigns": "营销活动",
+    "appointments": "预约",
+    "analytics": "数据洞察",
+    "settings": "设置",
+    "logout": "退出登录",
+    "readiness": "AI 就绪度",
+    "optimized": "已优化",
+    "knowledgeBase": "知识库"
+  },
+  "topbar": {
+    "greeting": "{{time}}好",
+    "morning": "早晨",
+    "afternoon": "下午",
+    "evening": "晚上",
+    "subtitle": "这是 Nexora AI 今天为您准备的内容。",
+    "searchPlaceholder": "搜索命令、客户或活动..."
+  },
+  "dashboard": {
+    "dailyStats": "每日统计",
+    "totalRevenue": "今日收入",
+    "newCustomers": "新客户",
+    "pendingMessages": "待处理消息",
+    "aiActionRequired": "需要 AI 处理",
+    "aiActionDesc": "有12位客户正在等待回复。我已经起草了回复。现在发送吗？",
+    "reviewAndSend": "查看并全部发送",
+    "upcoming": "即将到来的预约",
+    "noAppointments": "今天没有更多预约。"
+  },
+  "inbox": {
+    "search": "搜索对话...",
+    "all": "全部",
+    "waiting": "等待中",
+    "handled": "AI已处理",
+    "autopilot": "自动驾驶",
+    "lastVisit": "上次访问",
+    "aiDraft": "Nexora AI 草稿",
+    "approveSend": "批准并发送",
+    "editDraft": "编辑草稿",
+    "typeMessage": "输入您的消息..."
+  },
+  "campaigns": {
+    "title": "营销活动生成器",
+    "subtitle": "几秒钟内创建特定平台的营销活动。",
+    "platform": "平台",
+    "goal": "活动目标",
+    "goalPlaceholder": "例如，推广新的夏季护肤套餐",
+    "recommended": "推荐",
+    "keyPoints": "主要卖点",
+    "keyPointsPlaceholder": "例如，包含SPF 50，老客户享受8折优惠。",
+    "generate": "生成帖子",
+    "livePreview": "实时预览",
+    "sponsored": "赞助内容",
+    "shopNow": "立即购买"
+  },
+  "appointments": {
+    "today": "今日日程",
+    "newBooking": "新预订",
+    "newClient": "新客户",
+    "aiSuggestion": "检测到日程空档",
+    "aiSuggestionDesc": "今天下午有2.5小时的空档。是否向常客发送15%的最后一分钟优惠？",
+    "sendCampaign": "发送活动",
+    "quickStats": "快速统计",
+    "totalBookings": "总预订量",
+    "utilization": "利用率",
+    "estRevenue": "预计收入"
+  },
+  "insights": {
+    "title": "AI 高管摘要",
+    "subtitle": "您过去30天的业务表现。",
+    "growth": "增长亮点",
+    "growthDesc": "您的 AI 驱动 SMS 营销活动使本月的重复预订增加了24%。",
+    "improvement": "改进领域",
+    "improvementDesc": "周二早上的预约使用率下降了15%。",
+    "generateCampaign": "生成定向活动",
+    "recommendation": "AI 推荐",
+    "recommendationDesc": "将“情侣按摩”添加到您的服务列表中。本周检测到14次相关咨询。",
+    "performance": "渠道表现",
+    "performanceSub": "各平台的覆盖率与转化率",
+    "reach": "总覆盖人数",
+    "conversions": "转化次数"
+  },
+  "settings": {
+    "title": "AI 设置与知识库",
+    "subtitle": "训练您的副驾驶并配置自动化规则。",
+    "tabs": {
+      "knowledge": "知识库",
+      "rules": "自动化规则",
+      "integrations": "集成",
+      "security": "安全"
+    },
+    "uploadTitle": "上传文件",
+    "uploadDesc": "上传您的服务菜单、定价和常见问题解答，以便 Nexora 能够准确回答。",
+    "uploadBox": "点击上传或拖放文件",
+    "uploadSub": "PDF, DOCX 或 TXT (最大 10MB)",
+    "activeSources": "活跃来源",
+    "comingSoon": "即将推出",
+    "comingSoonDesc": "此部分正在完善中，将在下次更新中提供。"
+  },
+  "onboarding": {
+    "welcome": "欢迎来到 Nexora。",
+    "welcomeDesc": "让我们个性化您的 AI 副驾驶。您经营什么类型的企业？",
+    "types": {
+      "salon": "美容院",
+      "clinic": "牙科诊所",
+      "gym": "健身房",
+      "cafe": "咖啡馆 / 餐厅"
+    },
+    "goal": "您的主要目标是什么？",
+    "goalDesc": "Nexora 将根据您的优先级优化仪表板。",
+    "goals": {
+      "bookings": "增加预订",
+      "bookingsDesc": "专注于潜在客户生成。",
+      "time": "节省时间",
+      "timeDesc": "专注于自动回复。",
+      "retention": "提高客户留存率",
+      "retentionDesc": "专注于客户反馈。"
+    },
+    "back": "返回",
+    "continue": "继续"
+  },
+  "login": {
+    "subtitle": "您的智能商业副驾驶。",
+    "continueGoogle": "使用 Google 登录",
+    "enterpriseReady": "企业级就绪",
+    "terms": "条款",
+    "privacy": "隐私",
+    "security": "安全"
+  },
+  "aiPanel": {
+    "feed": "智能信息流",
+    "newOpp": "新机会",
+    "newOppDesc": "您在周二有2小时的空档。我应该起草一条限时抢购短信吗？",
+    "draftSms": "起草短信",
+    "ignore": "忽略",
+    "campResult": "活动结果",
+    "campResultDesc": "您的周末 Instagram 帖子表现比平均水平好 24%。",
+    "suggestedPrompts": "建议提问",
+    "askAnything": "向 Nexora 提问..."
+  }
+}
