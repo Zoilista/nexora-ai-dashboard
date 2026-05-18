@@ -51,10 +51,33 @@
     "handled": "YZ Tarafından Çözülenler",
     "autopilot": "Otopilot",
     "lastVisit": "Son ziyaret",
-    "aiDraft": "Nexora AI Taslağı",
+    "aiDraft": "Nexora YZ Taslağı",
     "approveSend": "Onayla & Gönder",
     "editDraft": "Taslağı Düzenle",
-    "typeMessage": "Mesajınızı yazın..."
+    "typeMessage": "Mesajınızı yazın...",
+    "yesterday": "Dün",
+    "tags": {
+      "vip": "VIP",
+      "question": "Soru",
+      "feedback": "Geri Bildirim"
+    },
+    "threads": {
+      "t1": {
+        "name": "Seda Yılmaz",
+        "lastMsg": "Cumartesi günü için gelin cilt bakımı yaptırmak istiyorum...",
+        "draft": "Merhaba Seda Hanım! Sizi ağırlamaktan mutluluk duyarız. Bu Cumartesi saat 14:00'te gelin cilt bakımı için uygun bir yerimiz var. Rezervasyonunuzu onaylamamı ister misiniz?"
+      },
+      "t2": {
+        "name": "Can Demir",
+        "lastMsg": "Derin doku masajı ne kadar?",
+        "draft": "Merhaba Can Bey! Derin doku masajımız 90 dakika için 150$'dır. Bu öğleden sonraki müsait saatlerimize bakmak ister misiniz?"
+      },
+      "t3": {
+        "name": "Ebru Şahin",
+        "lastMsg": "Bugünkü harika hizmet için çok teşekkürler!",
+        "draft": "Merhaba Ebru Hanım! Güzel sözleriniz için çok teşekkür ederiz! Sizi en kısa sürede tekrar görmeyi sabırsızlıkla bekliyoruz."
+      }
+    }
   },
   "campaigns": {
     "title": "Kampanya Oluşturucu",
@@ -80,7 +103,51 @@
     "quickStats": "Hızlı İstatistikler",
     "totalBookings": "Toplam Rezervasyon",
     "utilization": "Kapasite Kullanım Oranı",
-    "estRevenue": "Tahmini Gelir"
+    "estRevenue": "Tahmini Gelir",
+    "clientName": "Müşteri Adı",
+    "service": "Hizmet / Rezervasyon Türü",
+    "date": "Tarih",
+    "time": "Saat",
+    "cancel": "İptal",
+    "confirm": "Rezervasyonu Onayla",
+    "clientPlaceholder": "Örn. Ahmet Yılmaz",
+    "status": {
+      "confirmed": "Onaylandı",
+      "arrived": "Geldi",
+      "pending": "Beklemede"
+    },
+    "services": {
+      "salon": {
+        "facial": "İmza Cilt Bakımı",
+        "massage": "Derin Doku Masajı",
+        "nails": "Manikür & Pedikür",
+        "hair": "Lazer Epilasyon"
+      },
+      "clinic": {
+        "checkup": "Diş Kontrolü",
+        "cleaning": "Derin Temizlik",
+        "extraction": "Diş Çekimi",
+        "rootcanal": "Kanal Tedavisi Konsültasyonu"
+      },
+      "gym": {
+        "personal": "Bireysel Antrenman",
+        "yoga": "Hatha Yoga Dersi",
+        "hiit": "HIIT Boot Camp",
+        "spinning": "Spinning Dersi"
+      },
+      "cafe": {
+        "booth": "Pencere Kenarı Rezervasyon",
+        "patio": "Veranda Masa Rezervasyonu",
+        "chef": "Şefin Masası Akşam Yemeği",
+        "party": "Özel Parti Odası"
+      },
+      "shop": {
+        "style": "Tarz Danışmanlığı",
+        "bulk": "Toplu Sipariş Sorgusu",
+        "fitting": "Özel Prova Seansı",
+        "registry": "Hediye Kaydı Danışmanlığı"
+      }
+    }
   },
   "insights": {
     "title": "Yapay Zeka Yönetici Özeti",
@@ -132,6 +199,22 @@
     "uploadBox": "Yüklemek için tıklayın veya sürükleyip bırakın",
     "uploadSub": "PDF, DOCX veya TXT (maks. 10MB)",
     "activeSources": "Aktif Kaynaklar",
+    "sandbox": {
+      "title": "YZ Eğitim Simülatörü",
+      "subtitle": "Yüklediğiniz belgelere göre yapay zekanın soruları nasıl yanıtladığını test edin.",
+      "placeholder": "Nexora YZ'ye bir şey sorun...",
+      "typing": "Nexora YZ düşünüyor...",
+      "defaultWelcome": "Merhaba! Yüklediğiniz belgelerle eğitildim. Yanıtlarımı test etmek için bana istediğiniz soruyu sorun!",
+      "suggestions": {
+        "prices": "Hizmet fiyatlarınız nedir?",
+        "policy": "İptal politikanız nedir?"
+      },
+      "replies": {
+        "services": "Yüklediğiniz 'Services & Pricing.pdf' belgesine göre şu hizmetleri sunuyorsunuz: 1. İmza Cilt Bakımı ($120), 2. Derin Doku Masajı ($150) ve 3. Manikür & Pedikür ($80). Randevular doğrudan alınabilir.",
+        "policy": "Yüklediğiniz 'Cancellation Policy.txt' belgesine göre, randevudan en az 24 saat öncesine kadar yapılan iptaller ücretsizdir. Son 24 saat içindeki iptallerde %50, randevuya gelinmediğinde ise %100 hizmet ücreti yansıtılır.",
+        "fallback": "Yüklediğiniz bilgi kaynaklarında ('Services & Pricing.pdf' ve 'Cancellation Policy.txt') bu soruya doğrudan bir yanıt bulamadım. Ancak müşteriye şu şekilde profesyonel bir yanıt verebilirim: 'Size bu konuda yardımcı olmaktan memnuniyet duyarız! Lütfen doğrudan resepsiyonumuzla iletişime geçin.' Bu bilgiyi belgelerinize eklemek ister misiniz?"
+      }
+    },
     "comingSoon": "Çok Yakında",
     "comingSoonDesc": "Bu bölüm cilalanıyor ve bir sonraki güncellemede kullanıma sunulacak.",
     "rules": {
@@ -203,7 +286,61 @@
     "aiProfile": "Müşteri Karakter Profili",
     "aiBehavior": "Satın Alma Davranışları",
     "aiUpsells": "YZ Tavsiye Edilen Fırsatlar",
-    "aiStrategy": "Özel İletişim Stratejisi"
+    "aiStrategy": "Özel İletişim Stratejisi",
+    "close": "Kapat",
+    "tags": {
+      "vip": "VIP",
+      "regular": "Müdavim",
+      "new": "Yeni",
+      "atRisk": "Risk Altında"
+    },
+    "profiles": {
+      "c1": {
+        "name": "Seda Yılmaz",
+        "favorite": "facial",
+        "aiNote": "Genellikle Cuma günleri rezervasyon yapar. Lüks paketi tercih eder.",
+        "personality": "Sadık ve Kalite Odaklı",
+        "analysis": "Sadakat campaigns'e son derece duyarlıdır. Birinci sınıf cilt bakım ürünlerini tercih eder ve sunulması durumunda cilt gençleştirme serumlarını satın alma olasılığı yüksektir.",
+        "upsells": ["Premium Gençleştirme Serumu", "Altın Cilt Terapisi Desteği"],
+        "strategy": "Zarif, profesyonel, premium avantajlara ve uzun vadeli sonuçlara odaklanın."
+      },
+      "c2": {
+        "name": "Can Demir",
+        "favorite": "massage",
+        "aiNote": "Yoğun kokulara duyarlıdır. Her zaman aynı terapisti ister.",
+        "personality": "Rutin Odaklı ve Kokuya Duyarlı",
+        "analysis": "Tam olarak iki haftada bir ziyaret eder. Yoğun aromatik yağlara karşı son derece hassastır. Minimum sohbet içeren sakin ve huzurlu ortamları tercih eder.",
+        "upsells": ["Kokusuz Aloe Maske Bakımı", "Uzatılmış Derin Doku Seansı"],
+        "strategy": "Doğrudan, öz, kibar, sakinlik tercihine saygı duyarak."
+      },
+      "c3": {
+        "name": "Ebru Şahin",
+        "favorite": "nails",
+        "aiNote": "Yakın zamanda yaklaşan bir düğün etkinliğinden bahsetti. Harika bir ek satış fırsatı.",
+        "personality": "Etkinlik Odaklı Planlayıcı",
+        "analysis": "Düğün etkinliğine hazırlanıyor. Grup etkinliği paket rezervasyon indirimleri (örn. nedime paketleri) için mükemmel bir aday.",
+        "upsells": ["Gelin Partisi Paket Anlaşması", "Gelişmiş Jel Pedikür Yükseltmesi"],
+        "strategy": "Neşeli, kutlama havasında, grup organizasyonunun kolaylığını vurgulayın."
+      },
+      "c4": {
+        "name": "Yasemin Kaya",
+        "favorite": "hair",
+        "aiNote": "3 haftadır ziyaret etmedi. Yeniden katılım teklifi göndermeyi düşünün.",
+        "personality": "Müşteri Kaybı Riski / Geri Kazanım Adayı",
+        "analysis": "3 haftadır ziyaret etmedi. Son lazer seansındaki 3 yıldızlı değerlendirmeden sonra ilgi düştü. Özel bir kontrol mesajıyla birlikte geri kazanım kuponu sunulması önemle tavsiye edilir.",
+        "upsells": ["Ücretsiz Cilt Yatıştırıcı Paket", "%25 Geri Kazanım Teklifi"],
+        "strategy": "Son derece empatik, güven verici, hizmet kurtarma odaklı."
+      },
+      "c5": {
+        "name": "Deniz Öztürk",
+        "favorite": "facial",
+        "aiNote": "Yüksek değerli müşteri. Doğum günü gelecek ay — özel bir teklif için harika bir fırsat.",
+        "personality": "Yüksek Harcama Yapan / Doğum Günü VIP'si",
+        "analysis": "Ortalama sepet tutarı yüksek. Doğum günü gelecek ay. Bir sonraki cilt bakımında özel bir ücretsiz baş masajı hediye edilmesi şiddetle önerilir.",
+        "upsells": ["Premium Baş Masajı İkramı", "VIP Havyar Maskesi Yükseltmesi"],
+        "strategy": "Ayrıcalıklı, saygılı, VIP ayrıcalıklarını vurgulayan."
+      }
+    }
   },
   "services": {
     "title": "Hizmet Kataloğu",
@@ -217,7 +354,22 @@
     "status": "Durum",
     "cancel": "İptal",
     "confirm": "Hizmet Ekle",
-    "all": "Tümü"
+    "all": "Tümü",
+    "min": "dk",
+    "categories": {
+      "all": "Tümü",
+      "hair": "Saç Bakımı",
+      "skinCare": "Cilt Bakımı",
+      "massage": "Masaj",
+      "nails": "Tırnak Bakımı"
+    },
+    "items": {
+      "facial": "İmza Cilt Bakımı",
+      "massage": "Derin Doku Masajı",
+      "nails": "Manikür & Pedikür",
+      "laser": "Lazer Epilasyon",
+      "hair": "Balyaj & Işıltı"
+    }
   },
   "campaignResults": {
     "title": "Kampanya Sonuçları",
@@ -227,7 +379,34 @@
     "clicks": "Tıklamalar",
     "conversions": "Dönüşümler",
     "aiAnalysis": "YZ Analizi",
-    "convRate": "oran"
+    "convRate": "oran",
+    "statuses": {
+      "published": "Gönderildi",
+      "scheduled": "Zamanlandı",
+      "draft": "Taslak"
+    },
+    "scores": {
+      "excellent": "Kusursuz",
+      "aboveAverage": "Ortalama Üstü",
+      "average": "Ortalama"
+    },
+    "history": {
+      "c1": {
+        "title": "Yaz Cilt Bakımı Paket Kampanyası",
+        "aiNote": "Bu gönderi 48 yeni rezervasyon oluşturdu — ortalamanızın %24 üzerinde.",
+        "date": "15 Mayıs 2026"
+      },
+      "c2": {
+        "title": "Son Dakika Salı Fırsatı",
+        "aiNote": "SMS kampanyaları, son dakika boş slotları doldurmak için 3 kat daha fazla dönüşüm sağlar. Haftalık tekrarlamayı düşünün.",
+        "date": "13 Mayıs 2026"
+      },
+      "c3": {
+        "title": "Anneler Günü Özel Fırsatı",
+        "aiNote": "Yarın sabah saat 08:00'de canlı yayına geçmesi planlandı.",
+        "date": "18 Mayıs 2026"
+      }
+    }
   },
   "ecommerce": {
     "title": "Online Mağaza",
@@ -241,7 +420,23 @@
     "products": "Ürünler",
     "aiSuggestion": "YZ Stok Uyarısı",
     "aiSuggestionDesc": "'Yüz Serumu Seti' neredeyse tükendi (3 adet kaldı). Satış kaybetmemek için yeniden sipariş verin.",
-    "reorderNow": "Şimdi Sipariş Ver"
+    "reorderNow": "Şimdi Sipariş Ver",
+    "orderId": "Sipariş Kodu",
+    "customer": "Müşteri",
+    "product": "Ürün",
+    "amount": "Tutar",
+    "status": "Durum",
+    "price": "Fiyat",
+    "stock": "Stok",
+    "sold": "Satılan",
+    "low": "Azaldı",
+    "units": "adet",
+    "statuses": {
+      "delivered": "Teslim Edildi",
+      "shipped": "Kargoya Verildi",
+      "processing": "Hazırlanıyor",
+      "refunded": "İade Edildi"
+    }
   },
   "healthScore": {
     "title": "İşletme Sağlığı Skoru",

@@ -1,34 +1,44 @@
 import React, { useState } from 'react';
-import { Plus, Trash2, Clock, Scissors, X } from 'lucide-react';
+import { Plus, Trash2, Clock, Scissors, X, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const initialServices = [
-  { id: 1, name: 'Signature Facial', category: 'Skin Care', duration: 60, price: 120, active: true },
-  { id: 2, name: 'Deep Tissue Massage', category: 'Massage', duration: 90, price: 150, active: true },
-  { id: 3, name: 'Manicure & Pedicure', category: 'Nails', duration: 90, price: 80, active: true },
-  { id: 4, name: 'Laser Hair Removal', category: 'Skin Care', duration: 45, price: 200, active: true },
-  { id: 5, name: 'Balayage & Highlights', category: 'Hair', duration: 180, price: 220, active: false },
+  { id: 1, nameKey: 'services.items.facial', categoryKey: 'skinCare', duration: 60, price: 120, active: true },
+  { id: 2, nameKey: 'services.items.massage', categoryKey: 'massage', duration: 90, price: 150, active: true },
+  { id: 3, nameKey: 'services.items.nails', categoryKey: 'nails', duration: 90, price: 80, active: true },
+  { id: 4, nameKey: 'services.items.laser', categoryKey: 'skinCare', duration: 45, price: 200, active: true },
+  { id: 5, nameKey: 'services.items.hair', categoryKey: 'hair', duration: 180, price: 220, active: false },
 ];
-
-const categories = ['All', 'Hair', 'Skin Care', 'Massage', 'Nails'];
 
 export const ServiceCatalog = () => {
   const { t } = useTranslation();
   const [services, setServices] = useState(initialServices);
   const [activeCategory, setActiveCategory] = useState('All');
   const [showModal, setShowModal] = useState(false);
-  const [form, setForm] = useState({ name: '', category: 'Hair', duration: '', price: '' });
+  const [form, setForm] = useState({ name: '', category: 'hair', duration: '', price: '' });
+  const [isCatDropdownOpen, setIsCatDropdownOpen] = useState(false);
 
-  const filtered = activeCategory === 'All' ? services : services.filter(s => s.category === activeCategory);
+  const categories = [
+    { key: 'All', transKey: 'services.all' },
+    { key: 'hair', transKey: 'services.categories.hair' },
+    { key: 'skinCare', transKey: 'services.categories.skinCare' },
+    { key: 'massage', transKey: 'services.categories.massage' },
+    { key: 'nails', transKey: 'services.categories.nails' }
+  ];
+
+  const filtered = activeCategory === 'All' ? services : services.filter(s => s.categoryKey === activeCategory || s.category === activeCategory);
 
   const toggleActive = (id) => setServices(services.map(s => s.id === id ? { ...s, active: !s.active } : s));
 
   const addService = () => {
     if (!form.name || !form.price) return;
     setServices([...services, { id: Date.now(), name: form.name, category: form.category, duration: Number(form.duration) || 60, price: Number(form.price), active: true }]);
-    setForm({ name: '', category: 'Hair', duration: '', price: '' });
+    setForm({ name: '', category: 'hair', duration: '', price: '' });
     setShowModal(false);
   };
+
+  const getServiceName = (service) => service.nameKey ? t(service.nameKey) : service.name;
+  const getServiceCategory = (service) => service.categoryKey ? t(`services.categories.${service.categoryKey}`) : service.category;
 
   return (
     <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in duration-500">
@@ -43,15 +53,12 @@ export const ServiceCatalog = () => {
       </div>
 
       <div className="flex gap-2 overflow-x-auto pb-1">
-        {[t('services.all'), ...categories.slice(1)].map((cat, i) => {
-          const key = i === 0 ? 'All' : cat;
-          return (
-            <button key={cat} onClick={() => setActiveCategory(key)}
-              className={`px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all border ${activeCategory === key ? 'bg-purple-500/10 border-purple-500/30 text-white' : 'bg-white/5 border-transparent text-zinc-400 hover:text-white'}`}>
-              {cat}
-            </button>
-          );
-        })}
+        {categories.map((cat) => (
+          <button key={cat.key} onClick={() => setActiveCategory(cat.key)}
+            className={`px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all border ${activeCategory === cat.key ? 'bg-purple-500/10 border-purple-500/30 text-white' : 'bg-white/5 border-transparent text-zinc-400 hover:text-white'}`}>
+            {t(cat.transKey)}
+          </button>
+        ))}
       </div>
 
       <div className="bg-[#111] border border-white/10 rounded-2xl overflow-hidden shadow-lg">
@@ -66,10 +73,16 @@ export const ServiceCatalog = () => {
           <div key={service.id} className="grid grid-cols-12 gap-4 px-6 py-4 items-center border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors group">
             <div className="col-span-4 flex items-center gap-3">
               <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400 shrink-0"><Scissors size={16} /></div>
-              <span className="text-sm font-bold text-white">{service.name}</span>
+              <span className="text-sm font-bold text-white">{getServiceName(service)}</span>
             </div>
-            <div className="col-span-2"><span className="text-xs px-2.5 py-1 rounded-full bg-white/10 text-zinc-300 font-medium">{service.category}</span></div>
-            <div className="col-span-2 flex items-center gap-1 text-sm text-zinc-400"><Clock size={14} />{service.duration} min</div>
+            <div className="col-span-2">
+              <span className="text-xs px-2.5 py-1 rounded-full bg-white/10 text-zinc-300 font-medium">
+                {getServiceCategory(service)}
+              </span>
+            </div>
+            <div className="col-span-2 flex items-center gap-1 text-sm text-zinc-400">
+              <Clock size={14} />{service.duration} {t('services.min')}
+            </div>
             <div className="col-span-2 text-sm font-bold text-emerald-400">${service.price}</div>
             <div className="col-span-2 flex items-center justify-between">
               <button onClick={() => toggleActive(service.id)}
@@ -98,10 +111,48 @@ export const ServiceCatalog = () => {
               </div>
               <div>
                 <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 block">{t('services.category')}</label>
-                <select value={form.category} onChange={e => setForm({...form, category: e.target.value})}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors appearance-none">
-                  {['Hair', 'Skin Care', 'Massage', 'Nails'].map(c => <option key={c} className="bg-[#111]">{c}</option>)}
-                </select>
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setIsCatDropdownOpen(!isCatDropdownOpen)}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white flex items-center justify-between hover:bg-white/10 hover:border-purple-500/50 transition-all cursor-pointer shadow-md"
+                  >
+                    <span>{t(`services.categories.${form.category}`)}</span>
+                    <ChevronDown size={18} className={`text-zinc-400 transition-transform duration-300 ${isCatDropdownOpen ? 'rotate-180 text-purple-400' : ''}`} />
+                  </button>
+
+                  {isCatDropdownOpen && (
+                    <>
+                      <div className="fixed inset-0 z-10" onClick={() => setIsCatDropdownOpen(false)} />
+                      <div className="absolute left-0 mt-2 w-full bg-[#161616] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-20 animate-in fade-in slide-in-from-top-2 duration-200">
+                        <div className="p-1 space-y-1">
+                          {[
+                            { key: 'hair', label: t('services.categories.hair') },
+                            { key: 'skinCare', label: t('services.categories.skinCare') },
+                            { key: 'massage', label: t('services.categories.massage') },
+                            { key: 'nails', label: t('services.categories.nails') }
+                          ].map(c => (
+                            <button
+                              key={c.key}
+                              type="button"
+                              onClick={() => {
+                                setForm({ ...form, category: c.key });
+                                setIsCatDropdownOpen(false);
+                              }}
+                              className={`w-full px-3 py-2.5 rounded-lg flex items-center gap-3 text-sm text-left transition-all ${
+                                form.category === c.key 
+                                  ? 'bg-purple-600 text-white font-bold' 
+                                  : 'text-zinc-300 hover:text-white hover:bg-white/5'
+                              }`}
+                            >
+                              <span>{c.label}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>

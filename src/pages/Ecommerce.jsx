@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Package, DollarSign, RefreshCw, Plus, AlertCircle, ChevronDown, Truck, Check, Clock, X } from 'lucide-react';
+import { ShoppingBag, Package, DollarSign, RefreshCw, Plus, AlertCircle, Truck, Check, Clock, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const orders = [
-  { id: '#ORD-1042', customer: 'Ayşe Kara', product: 'Face Serum Bundle', amount: 89.90, status: 'Delivered', date: 'May 17' },
-  { id: '#ORD-1041', customer: 'Mehmet Yılmaz', product: 'Hair Care Set', amount: 64.50, status: 'Shipped', date: 'May 17' },
-  { id: '#ORD-1040', customer: 'Fatma Demir', product: 'Vitamin C Cream', amount: 45.00, status: 'Processing', date: 'May 16' },
-  { id: '#ORD-1039', customer: 'Ali Çelik', product: 'Premium Nail Kit', amount: 32.00, status: 'Delivered', date: 'May 16' },
-  { id: '#ORD-1038', customer: 'Zeynep Arslan', product: 'Face Serum Bundle', amount: 89.90, status: 'Refunded', date: 'May 15' },
+  { id: '#ORD-1042', customer: 'Ayşe Kara', product: 'Face Serum Bundle', amount: 89.90, status: 'delivered', date: 'May 17' },
+  { id: '#ORD-1041', customer: 'Mehmet Yılmaz', product: 'Hair Care Set', amount: 64.50, status: 'shipped', date: 'May 17' },
+  { id: '#ORD-1040', customer: 'Fatma Demir', product: 'Vitamin C Cream', amount: 45.00, status: 'processing', date: 'May 16' },
+  { id: '#ORD-1039', customer: 'Ali Çelik', product: 'Premium Nail Kit', amount: 32.00, status: 'delivered', date: 'May 16' },
+  { id: '#ORD-1038', customer: 'Zeynep Arslan', product: 'Face Serum Bundle', amount: 89.90, status: 'refunded', date: 'May 15' },
 ];
 
 const products = [
@@ -18,10 +18,10 @@ const products = [
 ];
 
 const statusConfig = {
-  Delivered: { color: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30', icon: Check },
-  Shipped: { color: 'bg-blue-500/10 text-blue-400 border-blue-500/30', icon: Truck },
-  Processing: { color: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/30', icon: Clock },
-  Refunded: { color: 'bg-red-500/10 text-red-400 border-red-500/30', icon: X },
+  delivered: { color: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30', icon: Check },
+  shipped: { color: 'bg-blue-500/10 text-blue-400 border-blue-500/30', icon: Truck },
+  processing: { color: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/30', icon: Clock },
+  refunded: { color: 'bg-red-500/10 text-red-400 border-red-500/30', icon: X },
 };
 
 export const Ecommerce = () => {
@@ -84,14 +84,14 @@ export const Ecommerce = () => {
       {activeTab === 'orders' && (
         <div className="bg-[#111] border border-white/10 rounded-2xl overflow-hidden shadow-lg">
           <div className="grid grid-cols-12 gap-4 px-6 py-3 border-b border-white/5">
-            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">Order ID</span>
-            <span className="col-span-3 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">Customer</span>
-            <span className="col-span-3 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">Product</span>
-            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">Amount</span>
-            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">Status</span>
+            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.orderId')}</span>
+            <span className="col-span-3 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.customer')}</span>
+            <span className="col-span-3 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.product')}</span>
+            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.amount')}</span>
+            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.status')}</span>
           </div>
           {orders.map(order => {
-            const cfg = statusConfig[order.status];
+            const cfg = statusConfig[order.status] || statusConfig.delivered;
             return (
               <div key={order.id} className="grid grid-cols-12 gap-4 px-6 py-4 items-center border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors">
                 <div className="col-span-2 text-xs font-mono text-purple-400 font-bold">{order.id}</div>
@@ -99,7 +99,7 @@ export const Ecommerce = () => {
                 <div className="col-span-3 text-sm text-zinc-400">{order.product}</div>
                 <div className="col-span-2 text-sm font-bold text-emerald-400">${order.amount}</div>
                 <div className="col-span-2">
-                  <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${cfg.color}`}>{order.status}</span>
+                  <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${cfg.color}`}>{t(`ecommerce.statuses.${order.status}`)}</span>
                 </div>
               </div>
             );
@@ -110,11 +110,11 @@ export const Ecommerce = () => {
       {activeTab === 'products' && (
         <div className="bg-[#111] border border-white/10 rounded-2xl overflow-hidden shadow-lg">
           <div className="grid grid-cols-12 gap-4 px-6 py-3 border-b border-white/5">
-            <span className="col-span-4 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">Product</span>
-            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">Category</span>
-            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">Price</span>
-            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">Stock</span>
-            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">Sold</span>
+            <span className="col-span-4 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.product')}</span>
+            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.category')}</span>
+            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.price')}</span>
+            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.stock')}</span>
+            <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.sold')}</span>
           </div>
           {products.map(product => (
             <div key={product.id} className="grid grid-cols-12 gap-4 px-6 py-4 items-center border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors">
@@ -126,9 +126,9 @@ export const Ecommerce = () => {
               <div className="col-span-2 text-sm font-bold text-emerald-400">${product.price}</div>
               <div className="col-span-2">
                 <span className={`text-sm font-bold ${product.stock <= 5 ? 'text-red-400' : 'text-white'}`}>{product.stock}</span>
-                {product.stock <= 5 && <span className="ml-1 text-[10px] text-red-400">Low</span>}
+                {product.stock <= 5 && <span className="ml-1 text-[10px] text-red-400">{t('ecommerce.low')}</span>}
               </div>
-              <div className="col-span-2 text-sm text-zinc-400">{product.sold} units</div>
+              <div className="col-span-2 text-sm text-zinc-400">{product.sold} {t('ecommerce.units')}</div>
             </div>
           ))}
         </div>

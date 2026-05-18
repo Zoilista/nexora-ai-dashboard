@@ -50,7 +50,30 @@
     "aiDraft": "Nexora AI 草稿",
     "approveSend": "批准并发送",
     "editDraft": "编辑草稿",
-    "typeMessage": "输入您的消息..."
+    "typeMessage": "输入您的消息...",
+    "yesterday": "昨天",
+    "tags": {
+      "vip": "VIP",
+      "question": "问题",
+      "feedback": "反馈"
+    },
+    "threads": {
+      "t1": {
+        "name": "Sarah Johnson",
+        "lastMsg": "我想预订周六的新娘面部护理...",
+        "draft": "你好，Sarah！我们很乐意为您服务。本周六下午2点我们有一个新娘面部护理空档。您需要我为您预订吗？"
+      },
+      "t2": {
+        "name": "Mike Ross",
+        "lastMsg": "深层组织按摩多少钱？",
+        "draft": "你好，Mike！我们的深层组织按摩为90分钟150美元。您想查看我们今天下午的日程表吗？"
+      },
+      "t3": {
+        "name": "Emma Watson",
+        "lastMsg": "谢谢今天提供的极好服务！",
+        "draft": "你好，Emma！非常感谢您的赞美！我们期待很快再次见到您。"
+      }
+    }
   },
   "campaigns": {
     "title": "营销活动生成器",
@@ -76,7 +99,51 @@
     "quickStats": "快速统计",
     "totalBookings": "总预订量",
     "utilization": "利用率",
-    "estRevenue": "预计收入"
+    "estRevenue": "预计收入",
+    "clientName": "客户姓名",
+    "service": "服务 / 预约类型",
+    "date": "日期",
+    "time": "时间",
+    "cancel": "取消",
+    "confirm": "确认预订",
+    "clientPlaceholder": "例如：张三",
+    "status": {
+      "confirmed": "已确认",
+      "arrived": "已到达",
+      "pending": "候补中"
+    },
+    "services": {
+      "salon": {
+        "facial": "招牌面部护理",
+        "massage": "深层组织按摩",
+        "nails": "美甲与美睫",
+        "hair": "激光脱毛服务"
+      },
+      "clinic": {
+        "checkup": "牙齿全面检查",
+        "cleaning": "超声波洗牙",
+        "extraction": "专业拔牙",
+        "rootcanal": "根管治疗咨询"
+      },
+      "gym": {
+        "personal": "私教一对一",
+        "yoga": "哈他瑜伽课程",
+        "hiit": "HIIT 高燃团课",
+        "spinning": "动感单车课"
+      },
+      "cafe": {
+        "booth": "靠窗卡座预订",
+        "patio": "户外露台预订",
+        "chef": "主厨特设晚宴",
+        "party": "独立派对包房"
+      },
+      "shop": {
+        "style": "专属搭配顾问",
+        "bulk": "大宗采购咨询",
+        "fitting": "高端成衣试穿",
+        "registry": "礼品清单指导"
+      }
+    }
   },
   "insights": {
     "title": "AI 高管摘要",
@@ -189,7 +256,61 @@
     "aiProfile": "客户性格画像",
     "aiBehavior": "购买行为分析",
     "aiUpsells": "AI 推荐增值机会",
-    "aiStrategy": "专属沟通策略"
+    "aiStrategy": "专属沟通策略",
+    "close": "关闭",
+    "tags": {
+      "vip": "VIP",
+      "regular": "常客",
+      "new": "新客",
+      "atRisk": "流失风险"
+    },
+    "profiles": {
+      "c1": {
+        "name": "Sarah Johnson",
+        "favorite": "facial",
+        "aiNote": "通常在周五预约。倾向于选择豪华套餐。",
+        "personality": "忠诚度高且重品质",
+        "analysis": "对忠诚度营销活动响应度极高。偏爱高端面部护理产品，如果推荐，购买皮肤年轻化精华液的概率极大。",
+        "upsells": ["高端年轻化精华液", "黄金面部疗法升级"],
+        "strategy": "专业、优雅，重点突出高端权益与长期效果。"
+      },
+      "c2": {
+        "name": "Michael Chen",
+        "favorite": "massage",
+        "aiNote": "对浓烈气味敏感。总是点名要求同一位理疗师。",
+        "personality": "习惯主导且气味敏感",
+        "analysis": "每两周固定光顾一次。对强烈的香薰油极为敏感。喜欢安静、舒适的环境，尽量少做交谈。",
+        "upsells": ["无香精芦荟面膜护理", "延长深层组织按摩时长"],
+        "strategy": "直接、精炼、礼貌，尊重其安静休养的偏好。"
+      },
+      "c3": {
+        "name": "Emma Thompson",
+        "favorite": "nails",
+        "aiNote": "最近提到即将举办婚礼活动。极好的推荐机会。",
+        "personality": "目标主导型规划者",
+        "analysis": "正在筹备婚礼活动。非常适合推荐团体活动预订折扣（例如伴娘团特惠套餐）。",
+        "upsells": ["婚礼派对专属特惠套餐", "高级凝胶美甲升级护理"],
+        "strategy": "充满热情、喜庆，着重强调多人团体组织的高效与便捷。"
+      },
+      "c4": {
+        "name": "Jessica Alba",
+        "favorite": "hair",
+        "aiNote": "已有3周未光顾。建议发送老客召回特惠。",
+        "personality": "流失风险 / 挽回候选人",
+        "analysis": "已有3周没有光顾。自上次激光脱毛给出3星评价后参与度下滑。强烈建议通过个性化关怀短信提供挽回优惠券。",
+        "upsells": ["免费赠送皮肤舒缓包", "七五折专属挽回优惠"],
+        "strategy": "高度同理心，给予保障和补偿，以纠正服务体验为主。"
+      },
+      "c5": {
+        "name": "David Park",
+        "favorite": "facial",
+        "aiNote": "高价值客户。下个月过生日 — 绝佳的专属活动推荐机会。",
+        "personality": "高消费力 / 生日 VIP",
+        "analysis": "客单价非常高。下个月过生日。强烈建议在其下一次做面部护理时，赠送专属的免费头部按摩。",
+        "upsells": ["免费赠送高端头部按摩", "VIP 鱼子酱面膜护理升级"],
+        "strategy": "尊贵、尊重，重点彰显其 VIP 特权待遇。"
+      }
+    }
   },
   "services": {
     "title": "服务目录管理",
@@ -203,7 +324,22 @@
     "status": "状态",
     "cancel": "取消",
     "confirm": "确认新增",
-    "all": "全部"
+    "all": "全部",
+    "min": "分钟",
+    "categories": {
+      "all": "全部",
+      "hair": "美发",
+      "skinCare": "美容美体",
+      "massage": "按摩理疗",
+      "nails": "美甲美睫"
+    },
+    "items": {
+      "facial": "招牌面部护理",
+      "massage": "深层组织按摩",
+      "nails": "精美美甲与足疗",
+      "laser": "激光脱毛",
+      "hair": "创意染发与挑染"
+    }
   },
   "campaignResults": {
     "title": "营销效果看板",
@@ -213,7 +349,34 @@
     "clicks": "点击量",
     "conversions": "转化量",
     "aiAnalysis": "AI 分析洞察",
-    "convRate": "率"
+    "convRate": "率",
+    "statuses": {
+      "published": "已发布",
+      "scheduled": "计划中",
+      "draft": "草稿"
+    },
+    "scores": {
+      "excellent": "优秀",
+      "aboveAverage": "高于平均水平",
+      "average": "普通"
+    },
+    "history": {
+      "c1": {
+        "title": "夏季皮肤护理套餐优惠",
+        "aiNote": "此推送带来48个新预订 — 高于平均水平24%。",
+        "date": "2026年5月15日"
+      },
+      "c2": {
+        "title": "周二最后一刻限时特惠",
+        "aiNote": "短信推广在最后一刻空闲时段的转化效果提高3倍。建议每周重复此活动。",
+        "date": "2026年5月13日"
+      },
+      "c3": {
+        "title": "母亲节特别活动",
+        "aiNote": "计划于明天早晨8:00正式上线发布。",
+        "date": "2026年5月18日"
+      }
+    }
   },
   "ecommerce": {
     "title": "在线商店",

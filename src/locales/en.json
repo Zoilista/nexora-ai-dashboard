@@ -54,7 +54,30 @@
     "aiDraft": "Nexora AI Draft",
     "approveSend": "Approve & Send",
     "editDraft": "Edit Draft",
-    "typeMessage": "Type your message..."
+    "typeMessage": "Type your message...",
+    "yesterday": "Yesterday",
+    "tags": {
+      "vip": "VIP",
+      "question": "Question",
+      "feedback": "Feedback"
+    },
+    "threads": {
+      "t1": {
+        "name": "Sarah Johnson",
+        "lastMsg": "I want to book a bridal facial for Saturday...",
+        "draft": "Hi Sarah! We'd love to have you. We have a bridal facial slot available this Saturday at 2 PM. Would you like me to book that for you?"
+      },
+      "t2": {
+        "name": "Mike Ross",
+        "lastMsg": "How much for the deep tissue massage?",
+        "draft": "Hi Mike! Our deep tissue massage is $150 for 90 minutes. Would you like to check our schedule for this afternoon?"
+      },
+      "t3": {
+        "name": "Emma Watson",
+        "lastMsg": "Thanks for the great service today!",
+        "draft": "Hi Emma! Thank you so much for your kind words! We look forward to seeing you again soon."
+      }
+    }
   },
   "campaigns": {
     "title": "Campaign Generator",
@@ -80,7 +103,51 @@
     "quickStats": "Quick Stats",
     "totalBookings": "Total Bookings",
     "utilization": "Utilization Rate",
-    "estRevenue": "Est. Revenue"
+    "estRevenue": "Est. Revenue",
+    "clientName": "Client Name",
+    "service": "Service",
+    "date": "Date",
+    "time": "Time",
+    "cancel": "Cancel",
+    "confirm": "Confirm Booking",
+    "clientPlaceholder": "e.g. Jane Doe",
+    "status": {
+      "confirmed": "Confirmed",
+      "arrived": "Arrived",
+      "pending": "Pending"
+    },
+    "services": {
+      "salon": {
+        "facial": "Signature Facial",
+        "massage": "Deep Tissue Massage",
+        "nails": "Manicure & Pedicure",
+        "hair": "Laser Hair Removal"
+      },
+      "clinic": {
+        "checkup": "Dental Checkup",
+        "cleaning": "Deep Cleaning",
+        "extraction": "Tooth Extraction",
+        "rootcanal": "Root Canal Consultation"
+      },
+      "gym": {
+        "personal": "Personal Training",
+        "yoga": "Hatha Yoga Class",
+        "hiit": "HIIT Boot Camp",
+        "spinning": "Spinning Class"
+      },
+      "cafe": {
+        "booth": "Window Booth Reservation",
+        "patio": "Patio Table Booking",
+        "chef": "Chef Table Dinner",
+        "party": "Private Party Room"
+      },
+      "shop": {
+        "style": "Style Consultation",
+        "bulk": "Bulk Order Inquiry",
+        "fitting": "Custom Fitting Session",
+        "registry": "Gift Registry Advisory"
+      }
+    }
   },
   "insights": {
     "title": "AI Executive Summary",
@@ -132,6 +199,22 @@
     "uploadBox": "Click to upload or drag and drop",
     "uploadSub": "PDF, DOCX, or TXT (max. 10MB)",
     "activeSources": "Active Sources",
+    "sandbox": {
+      "title": "YZ Eğitim Simülatörü",
+      "subtitle": "Test how your AI answers questions based on your documents.",
+      "placeholder": "Ask Nexora AI anything...",
+      "typing": "Nexora AI is thinking...",
+      "defaultWelcome": "Hello! I am trained on your loaded files. Ask me any question to test my answers!",
+      "suggestions": {
+        "prices": "What are your services?",
+        "policy": "What is the cancellation policy?"
+      },
+      "replies": {
+        "services": "Based on your uploaded 'Services & Pricing.pdf', you offer: 1. Signature Facial ($120), 2. Deep Tissue Massage ($150), and 3. Manicure & Pedicure ($80). Bookings can be made directly.",
+        "policy": "According to your 'Cancellation Policy.txt', appointments cancelled less than 24 hours in advance incur a 50% late fee. No-shows are charged 100% of the service price.",
+        "fallback": "I've checked your knowledge sources ('Services & Pricing.pdf' and 'Cancellation Policy.txt') but couldn't find a direct answer. However, I will answer the customer professionally: 'We would love to help you with that! Please contact our reception directly.' Would you like to add this details to your files?"
+      }
+    },
     "comingSoon": "Coming Soon",
     "comingSoonDesc": "This section is being polished and will be available in the next update.",
     "rules": {
@@ -203,7 +286,61 @@
     "aiProfile": "Client Personality Profile",
     "aiBehavior": "Buying Behaviors",
     "aiUpsells": "AI Recommended Upsells",
-    "aiStrategy": "Communication Strategy"
+    "aiStrategy": "Communication Strategy",
+    "close": "Close",
+    "tags": {
+      "vip": "VIP",
+      "regular": "Regular",
+      "new": "New",
+      "atRisk": "At Risk"
+    },
+    "profiles": {
+      "c1": {
+        "name": "Sarah Johnson",
+        "favorite": "facial",
+        "aiNote": "Usually books on Fridays. Prefers the deluxe package.",
+        "personality": "Loyal & Quality-oriented",
+        "analysis": "Highly responsive to loyalty campaigns. Prefers premium facial products and is highly likely to purchase skin rejuvenation serums if offered.",
+        "upsells": ["Premium Rejuvenation Serum", "Gold Facial Therapy Boost"],
+        "strategy": "Elegant, professional, focus on premium benefits and long-term results."
+      },
+      "c2": {
+        "name": "Michael Chen",
+        "favorite": "massage",
+        "aiNote": "Sensitive to strong scents. Always asks for the same therapist.",
+        "personality": "Routine-driven & Scent-sensitive",
+        "analysis": "Visits exactly once every two weeks. Highly sensitive to strong aromatic oils. Quiet, calm environments with minimal conversation are appreciated.",
+        "upsells": ["Unscented Aloe Mask Care", "Extended Deep Tissue Session"],
+        "strategy": "Direct, concise, polite, respecting their preference for calm silence."
+      },
+      "c3": {
+        "name": "Emma Thompson",
+        "favorite": "nails",
+        "aiNote": "Recently mentioned a bridal event coming up. Great upsell opportunity.",
+        "personality": "Event-focused Planner",
+        "analysis": "Preparing for a bridal event. Excellent candidate for group event package booking discounts (e.g. bridesmaids bundles).",
+        "upsells": ["Bridal Party Package Deal", "Advanced Gel Pedicure Upgrade"],
+        "strategy": "Cheerful, celebratory, highlight ease of group organization."
+      },
+      "c4": {
+        "name": "Jessica Alba",
+        "favorite": "hair",
+        "aiNote": "Has not visited in 3 weeks. Consider sending a re-engagement offer.",
+        "personality": "Churn Risk / Recovery candidate",
+        "analysis": "Has not visited in 3 weeks. Engagement dropped after a 3-star rating on laser session. Highly recommend offering a recovery coupon with a custom check-in message.",
+        "upsells": ["Complimentary Skin Soothing Pack", "25% Churn Recovery Offer"],
+        "strategy": "Highly empathetic, reassuring, service-recovery oriented."
+      },
+      "c5": {
+        "name": "David Park",
+        "favorite": "facial",
+        "aiNote": "High-value customer. Birthday is next month — great opportunity for a special offer.",
+        "personality": "High-Spender / Birthday VIP",
+        "analysis": "High average ticket value. Birthday is next month. Highly recommends presenting an exclusive complimentary birthday head massage with his next facial.",
+        "upsells": ["Premium Head Massage Complement", "VIP Caviar Mask Upgrade"],
+        "strategy": "Exclusive, respectful, highlighting VIP privileges."
+      }
+    }
   },
   "services": {
     "title": "Service Catalog",
@@ -217,7 +354,22 @@
     "status": "Status",
     "cancel": "Cancel",
     "confirm": "Add Service",
-    "all": "All"
+    "all": "All",
+    "min": "min",
+    "categories": {
+      "all": "All",
+      "hair": "Hair",
+      "skinCare": "Skin Care",
+      "massage": "Massage",
+      "nails": "Nails"
+    },
+    "items": {
+      "facial": "Signature Facial",
+      "massage": "Deep Tissue Massage",
+      "nails": "Manicure & Pedicure",
+      "laser": "Laser Hair Removal",
+      "hair": "Balayage & Highlights"
+    }
   },
   "campaignResults": {
     "title": "Campaign Results",
@@ -227,7 +379,34 @@
     "clicks": "Clicks",
     "conversions": "Conversions",
     "aiAnalysis": "AI Analysis",
-    "convRate": "rate"
+    "convRate": "rate",
+    "statuses": {
+      "published": "Published",
+      "scheduled": "Scheduled",
+      "draft": "Draft"
+    },
+    "scores": {
+      "excellent": "Excellent",
+      "aboveAverage": "Above Average",
+      "average": "Average"
+    },
+    "history": {
+      "c1": {
+        "title": "Summer Skincare Bundle Promo",
+        "aiNote": "This post generated 48 new bookings — 24% above your average.",
+        "date": "May 15, 2026"
+      },
+      "c2": {
+        "title": "Last-Minute Tuesday Flash Sale",
+        "aiNote": "SMS campaigns convert 3x better for last-minute slots. Consider repeating weekly.",
+        "date": "May 13, 2026"
+      },
+      "c3": {
+        "title": "Mother's Day Special Offer",
+        "aiNote": "Scheduled to go live tomorrow morning at 8:00 AM.",
+        "date": "May 18, 2026"
+      }
+    }
   },
   "ecommerce": {
     "title": "Online Store",
@@ -241,7 +420,23 @@
     "products": "Products",
     "aiSuggestion": "AI Restock Alert",
     "aiSuggestionDesc": "'Face Serum Bundle' is almost out of stock (3 left). Reorder now to avoid lost sales.",
-    "reorderNow": "Reorder Now"
+    "reorderNow": "Reorder Now",
+    "orderId": "Order ID",
+    "customer": "Customer",
+    "product": "Product",
+    "amount": "Amount",
+    "status": "Status",
+    "price": "Price",
+    "stock": "Stock",
+    "sold": "Sold",
+    "low": "Low",
+    "units": "units",
+    "statuses": {
+      "delivered": "Delivered",
+      "shipped": "Shipped",
+      "processing": "Processing",
+      "refunded": "Refunded"
+    }
   },
   "healthScore": {
     "title": "Business Health Score",

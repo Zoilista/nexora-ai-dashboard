@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, FileText, CheckCircle, BrainCircuit, Sliders, Shield, Zap, Building2, Scissors, Dumbbell, Coffee, ShoppingBag, ChevronDown } from 'lucide-react';
+import { Upload, FileText, CheckCircle, BrainCircuit, Sliders, Shield, Zap, Building2, Scissors, Dumbbell, Coffee, ShoppingBag, ChevronDown, Bot, User as UserIcon, Send } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useBusiness } from '../context/BusinessContext';
 
@@ -8,6 +8,50 @@ export const Settings = () => {
   const { businessType, setBusinessType } = useBusiness();
   const [activeTab, setActiveTab] = useState('business');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // Chatbot Sandbox State
+  const [messages, setMessages] = useState([
+    { id: 1, sender: 'bot', text: t('settings.sandbox.defaultWelcome') || 'Hello! I am trained on your loaded files. Ask me any question to test my answers!' }
+  ]);
+  const [inputText, setInputText] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+
+  const handleSendMessage = (e) => {
+    e.preventDefault();
+    if (!inputText.trim()) return;
+    const text = inputText;
+    setInputText('');
+    executeSandboxReply(text);
+  };
+
+  const handleSendSuggestion = (text) => {
+    executeSandboxReply(text);
+  };
+
+  const executeSandboxReply = (text) => {
+    const userMsg = { id: Date.now(), sender: 'user', text };
+    setMessages(prev => [...prev, userMsg]);
+    setIsTyping(true);
+
+    setTimeout(() => {
+      let replyText = '';
+      let sourceFile = '';
+      const tKey = text.toLowerCase();
+
+      if (tKey.includes('fiyat') || tKey.includes('hizmet') || tKey.includes('price') || tKey.includes('pricing') || tKey.includes('service')) {
+        replyText = t('settings.sandbox.replies.services') || "Based on your uploaded 'Services & Pricing.pdf', you offer: 1. Signature Facial ($120), 2. Deep Tissue Massage ($150), and 3. Manicure & Pedicure ($80). Bookings can be made directly.";
+        sourceFile = 'Services & Pricing.pdf';
+      } else if (tKey.includes('iptal') || tKey.includes('politika') || tKey.includes('cancel') || tKey.includes('policy')) {
+        replyText = t('settings.sandbox.replies.policy') || "According to your 'Cancellation Policy.txt', appointments cancelled less than 24 hours in advance incur a 50% late fee. No-shows are charged 100% of the service price.";
+        sourceFile = 'Cancellation Policy.txt';
+      } else {
+        replyText = t('settings.sandbox.replies.fallback') || "I've checked your knowledge sources ('Services & Pricing.pdf' and 'Cancellation Policy.txt') but couldn't find a direct answer. However, I will answer the customer professionally: 'We would love to help you with that! Please contact our reception directly.' Would you like to add this details to your files?";
+      }
+
+      setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'bot', text: replyText, source: sourceFile }]);
+      setIsTyping(false);
+    }, 1200);
+  };
 
   const businessOptions = [
     { id: 'salon', label: t('onboarding.types.salon'), icon: Scissors },
@@ -119,45 +163,125 @@ export const Settings = () => {
 
       {activeTab === 'knowledge' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-[#111] p-6 rounded-2xl border border-white/10 shadow-lg">
-            <h3 className="text-lg font-bold text-white mb-2">{t('settings.uploadTitle')}</h3>
-            <p className="text-sm text-zinc-400 mb-6">{t('settings.uploadDesc')}</p>
-            
-            <div className="border-2 border-dashed border-white/20 rounded-xl p-8 flex flex-col items-center justify-center text-center hover:border-purple-500/50 hover:bg-purple-500/5 transition-colors cursor-pointer bg-white/5">
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-4">
-                <Upload size={24} className="text-zinc-300" />
+          {/* Left Column: Upload & Active Sources */}
+          <div className="space-y-6">
+            <div className="bg-[#111] p-6 rounded-2xl border border-white/10 shadow-lg">
+              <h3 className="text-lg font-bold text-white mb-2">{t('settings.uploadTitle')}</h3>
+              <p className="text-sm text-zinc-400 mb-6">{t('settings.uploadDesc')}</p>
+              
+              <div className="border-2 border-dashed border-white/20 rounded-xl p-8 flex flex-col items-center justify-center text-center hover:border-purple-500/50 hover:bg-purple-500/5 transition-colors cursor-pointer bg-white/5">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-4">
+                  <Upload size={24} className="text-zinc-300" />
+                </div>
+                <p className="text-sm font-bold text-white mb-1">{t('settings.uploadBox')}</p>
+                <p className="text-xs text-zinc-500">{t('settings.uploadSub')}</p>
               </div>
-              <p className="text-sm font-bold text-white mb-1">{t('settings.uploadBox')}</p>
-              <p className="text-xs text-zinc-500">{t('settings.uploadSub')}</p>
+            </div>
+
+            <div className="bg-[#111] p-6 rounded-2xl border border-white/10 shadow-lg">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-lg font-bold text-white">{t('settings.activeSources')}</h3>
+                <span className="text-xs px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold">80% Optimized</span>
+              </div>
+              
+              <div className="space-y-3">
+                {[
+                  { name: 'Services & Pricing.pdf', date: 'Added May 10', size: '2.4 MB' },
+                  { name: 'Cancellation Policy.txt', date: 'Added May 01', size: '12 KB' },
+                  { name: 'Website Scrape', date: 'Auto-sync', size: 'Live' },
+                ].map((doc, i) => (
+                  <div key={i} className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                    <div className="flex items-center gap-4">
+                      <div className="p-2.5 rounded-lg bg-blue-500/20 text-blue-400">
+                        <FileText size={20} />
+                      </div>
+                      <div>
+                        <p className="text-sm font-bold text-white">{doc.name}</p>
+                        <p className="text-[10px] text-zinc-400 mt-0.5">{doc.date} • {doc.size}</p>
+                      </div>
+                    </div>
+                    <CheckCircle size={20} className="text-emerald-400" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="bg-[#111] p-6 rounded-2xl border border-white/10 shadow-lg">
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-lg font-bold text-white">{t('settings.activeSources')}</h3>
-              <span className="text-xs px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold">80% Optimized</span>
+          {/* Right Column: Chatbot Simulator */}
+          <div className="bg-[#111] p-6 rounded-2xl border border-white/10 shadow-lg flex flex-col h-[520px]">
+            <div className="flex items-center gap-2.5 mb-2 shrink-0">
+              <div className="p-2 rounded-xl bg-purple-500/10 text-purple-400"><Bot size={20} /></div>
+              <div>
+                <h3 className="text-lg font-bold text-white leading-tight">{t('settings.sandbox.title')}</h3>
+                <p className="text-xs text-zinc-400">{t('settings.sandbox.subtitle')}</p>
+              </div>
             </div>
             
-            <div className="space-y-3">
-              {[
-                { name: 'Services & Pricing.pdf', date: 'Added May 10', size: '2.4 MB' },
-                { name: 'Cancellation Policy.txt', date: 'Added May 01', size: '12 KB' },
-                { name: 'Website Scrape', date: 'Auto-sync', size: 'Live' },
-              ].map((doc, i) => (
-                <div key={i} className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                  <div className="flex items-center gap-4">
-                    <div className="p-2.5 rounded-lg bg-blue-500/20 text-blue-400">
-                      <FileText size={20} />
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-white">{doc.name}</p>
-                      <p className="text-[10px] text-zinc-400 mt-0.5">{doc.date} • {doc.size}</p>
-                    </div>
+            {/* Messages Area */}
+            <div className="flex-1 overflow-y-auto space-y-4 my-4 pr-1 min-h-0 text-sm scrollbar-thin">
+              {messages.map(msg => (
+                <div key={msg.id} className={`flex items-start gap-2.5 ${msg.sender === 'user' ? 'flex-row-reverse' : ''}`}>
+                  <div className={`p-2 rounded-xl shrink-0 ${msg.sender === 'user' ? 'bg-purple-600 text-white' : 'bg-white/5 text-zinc-300 border border-white/5'}`}>
+                    {msg.sender === 'user' ? <UserIcon size={14} /> : <Bot size={14} className="text-purple-400" />}
                   </div>
-                  <CheckCircle size={20} className="text-emerald-400" />
+                  <div className={`px-4 py-2.5 rounded-2xl max-w-[80%] leading-relaxed ${msg.sender === 'user' ? 'bg-purple-600 text-white rounded-tr-none' : 'bg-white/5 text-zinc-200 border border-white/10 rounded-tl-none'}`}>
+                    <p>{msg.text}</p>
+                    {msg.source && (
+                      <span className="inline-block mt-2 text-[10px] bg-purple-500/10 text-purple-400 px-2 py-0.5 rounded-full border border-purple-500/20 font-semibold uppercase tracking-wider">
+                        Source: {msg.source}
+                      </span>
+                    )}
+                  </div>
                 </div>
               ))}
+              {isTyping && (
+                <div className="flex items-start gap-2.5">
+                  <div className="p-2 rounded-xl bg-white/5 text-zinc-300 border border-white/5 shrink-0">
+                    <Bot size={14} className="text-purple-400" />
+                  </div>
+                  <div className="px-4 py-2.5 rounded-2xl bg-white/5 text-zinc-400 border border-white/10 rounded-tl-none italic flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                    <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                    <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                  </div>
+                </div>
+              )}
             </div>
+
+            {/* Quick Suggestions */}
+            <div className="flex gap-2 mb-3 overflow-x-auto pb-1 shrink-0">
+              <button 
+                type="button"
+                onClick={() => handleSendSuggestion(t('settings.sandbox.suggestions.prices'))}
+                className="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1.5 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap cursor-pointer"
+              >
+                {t('settings.sandbox.suggestions.prices')}
+              </button>
+              <button 
+                type="button"
+                onClick={() => handleSendSuggestion(t('settings.sandbox.suggestions.policy'))}
+                className="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1.5 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap cursor-pointer"
+              >
+                {t('settings.sandbox.suggestions.policy')}
+              </button>
+            </div>
+
+            {/* Input Form */}
+            <form onSubmit={handleSendMessage} className="flex gap-2 shrink-0">
+              <input 
+                type="text"
+                value={inputText}
+                onChange={e => setInputText(e.target.value)}
+                placeholder={t('settings.sandbox.placeholder')}
+                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors"
+              />
+              <button 
+                type="submit"
+                className="p-2.5 bg-purple-600 hover:bg-purple-500 text-white rounded-xl transition-colors shrink-0 shadow-lg cursor-pointer"
+              >
+                <Send size={16} />
+              </button>
+            </form>
           </div>
         </div>
       )}

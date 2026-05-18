@@ -50,7 +50,30 @@
     "aiDraft": "Borrador de Nexora AI",
     "approveSend": "Aprobar y Enviar",
     "editDraft": "Editar Borrador",
-    "typeMessage": "Escribe tu mensaje..."
+    "typeMessage": "Escribe tu mensaje...",
+    "yesterday": "Ayer",
+    "tags": {
+      "vip": "VIP",
+      "question": "Pregunta",
+      "feedback": "Opinión"
+    },
+    "threads": {
+      "t1": {
+        "name": "Sarah Johnson",
+        "lastMsg": "Quiero reservar un facial de novia para el sábado...",
+        "draft": "¡Hola Sarah! Nos encantaría tenerte. Tenemos un hueco para facial de novia este sábado a las 2 PM. ¿Quieres que lo reserve?"
+      },
+      "t2": {
+        "name": "Mike Ross",
+        "lastMsg": "¿Cuánto cuesta el masaje de tejido profundo?",
+        "draft": "¡Hola Mike! Nuestro masaje de tejido profundo cuesta $150 por 90 minutos. ¿Te gustaría ver nuestro horario para esta tarde?"
+      },
+      "t3": {
+        "name": "Emma Watson",
+        "lastMsg": "¡Gracias por el excelente servicio hoy!",
+        "draft": "¡Hola Emma! ¡Muchísimas gracias por tus amables palabras! Esperamos verte de nuevo pronto."
+      }
+    }
   },
   "campaigns": {
     "title": "Generador de Campañas",
@@ -76,7 +99,51 @@
     "quickStats": "Estadísticas Rápidas",
     "totalBookings": "Total de Reservas",
     "utilization": "Tasa de Ocupación",
-    "estRevenue": "Ingresos Est."
+    "estRevenue": "Ingresos Est.",
+    "clientName": "Nombre del Cliente",
+    "service": "Servicio / Tipo de Reserva",
+    "date": "Fecha",
+    "time": "Hora",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar Reserva",
+    "clientPlaceholder": "ej. Juan Pérez",
+    "status": {
+      "confirmed": "Confirmado",
+      "arrived": "Llegado",
+      "pending": "Pendiente"
+    },
+    "services": {
+      "salon": {
+        "facial": "Facial de Firma",
+        "massage": "Masaje de Tejido Profundo",
+        "nails": "Manicura y Pedicura",
+        "hair": "Depilación Láser"
+      },
+      "clinic": {
+        "checkup": "Chequeo Dental",
+        "cleaning": "Limpieza Profunda",
+        "extraction": "Extracción Dental",
+        "rootcanal": "Consulta de Endodoncia"
+      },
+      "gym": {
+        "personal": "Entrenamiento Personal",
+        "yoga": "Clase de Hatha Yoga",
+        "hiit": "Campamento HIIT",
+        "spinning": "Clase de Spinning"
+      },
+      "cafe": {
+        "booth": "Reserva de Mesa con Ventana",
+        "patio": "Reserva de Mesa en Terraza",
+        "chef": "Cena en la Mesa del Chef",
+        "party": "Sala de Fiesta Privada"
+      },
+      "shop": {
+        "style": "Consulta de Estilo",
+        "bulk": "Consulta de Pedido al Por Mayor",
+        "fitting": "Sesión de Prueba Personalizada",
+        "registry": "Asesoramiento de Registro de Regalos"
+      }
+    }
   },
   "insights": {
     "title": "Resumen Ejecutivo de IA",
@@ -189,7 +256,61 @@
     "aiProfile": "Perfil de Personalidad del Cliente",
     "aiBehavior": "Comportamientos de Compra",
     "aiUpsells": "Ventas Adicionales Recomendadas por IA",
-    "aiStrategy": "Estrategia de Comunicación"
+    "aiStrategy": "Estrategia de Comunicación",
+    "close": "Cerrar",
+    "tags": {
+      "vip": "VIP",
+      "regular": "Regular",
+      "new": "Nuevo",
+      "atRisk": "En Riesgo"
+    },
+    "profiles": {
+      "c1": {
+        "name": "Sarah Johnson",
+        "favorite": "facial",
+        "aiNote": "Normalmente reserva los viernes. Prefiere el paquete de lujo.",
+        "personality": "Fiel y Enfocada en la Calidad",
+        "analysis": "Muy receptiva a las campañas de fidelización. Prefiere productos faciales de primera calidad y es muy probable que compre sueros de rejuvenecimiento si se le ofrecen.",
+        "upsells": ["Suero de Rejuvenecimiento Premium", "Impulso de Terapia Facial de Oro"],
+        "strategy": "Elegante, profesional, enfoque en los beneficios premium y resultados a largo plazo."
+      },
+      "c2": {
+        "name": "Michael Chen",
+        "favorite": "massage",
+        "aiNote": "Sensible a los olores fuertes. Siempre pide el mismo terapeuta.",
+        "personality": "Orientado a la Rutina y Sensible a Olores",
+        "analysis": "Visita exactamente una vez cada dos semanas. Muy sensible a los aceites aromáticos fuertes. Se aprecian ambientes tranquilos y calmados con una conversación mínima.",
+        "upsells": ["Cuidado de Mascarilla de Aloe Sin Olor", "Sesión Extendida de Tejido Profundo"],
+        "strategy": "Directo, conciso, educado, respetando su preferencia por el silencio tranquilo."
+      },
+      "c3": {
+        "name": "Emma Thompson",
+        "favorite": "nails",
+        "aiNote": "Mencionó recientemente un evento nupcial próximo. Gran oportunidad de venta.",
+        "personality": "Planificador Enfocado en Eventos",
+        "analysis": "Preparándose para un evento nupcial. Excelente candidata para descuentos de reserva de paquetes de eventos grupales (por ejemplo, paquetes de damas de honor).",
+        "upsells": ["Paquete Especial de Fiesta de Bodas", "Actualización de Pedicura de Gel Avanzada"],
+        "strategy": "Alegre, festivo, resaltar la facilidad de organización grupal."
+      },
+      "c4": {
+        "name": "Jessica Alba",
+        "favorite": "hair",
+        "aiNote": "No ha visitado en 3 semanas. Considere enviar una oferta de re-engagement.",
+        "personality": "Riesgo de Churn / Candidata de Recuperación",
+        "analysis": "No ha visitado en 3 semanas. El compromiso cayó después de una calificación de 3 estrellas en la sesión láser. Recomendar encarecidamente ofrecer un cupón de recuperación con un mensaje de registro personalizado.",
+        "upsells": ["Paquete Suavizante de Piel de Cortesía", "Oferta de Recuperación del 25%"],
+        "strategy": "Altamente empática, reconfortante, orientada a la recuperación del servicio."
+      },
+      "c5": {
+        "name": "David Park",
+        "favorite": "facial",
+        "aiNote": "Cliente de alto valor. El cumpleaños es el próximo mes: gran oportunidad para una oferta especial.",
+        "personality": "Alto Consumo / VIP de Cumpleaños",
+        "analysis": "Alto valor de ticket promedio. El cumpleaños es el próximo mes. Recomienda encarecidamente presentar un masaje de cabeza de cortesía exclusivo con su próximo facial.",
+        "upsells": ["Masaje de Cabeza Premium de Cortesía", "Actualización de Mascarilla de Caviar VIP"],
+        "strategy": "Exclusivo, respetuoso, destacando los privilegios VIP."
+      }
+    }
   },
   "services": {
     "title": "Catálogo de Servicios",
@@ -203,7 +324,22 @@
     "status": "Estado",
     "cancel": "Cancelar",
     "confirm": "Añadir Servicio",
-    "all": "Todos"
+    "all": "Todos",
+    "min": "min",
+    "categories": {
+      "all": "Todos",
+      "hair": "Cabello",
+      "skinCare": "Cuidado de Piel",
+      "massage": "Masaje",
+      "nails": "Uñas"
+    },
+    "items": {
+      "facial": "Facial de Firma",
+      "massage": "Masaje de Tejido Profundo",
+      "nails": "Manicura y Pedicura",
+      "laser": "Depilación Láser",
+      "hair": "Balayage y Reflejos"
+    }
   },
   "campaignResults": {
     "title": "Resultados de Campaña",
@@ -213,7 +349,34 @@
     "clicks": "Clics",
     "conversions": "Conversiones",
     "aiAnalysis": "Análisis de IA",
-    "convRate": "tasa"
+    "convRate": "tasa",
+    "statuses": {
+      "published": "Publicado",
+      "scheduled": "Programado",
+      "draft": "Borrador"
+    },
+    "scores": {
+      "excellent": "Excelente",
+      "aboveAverage": "Por Encima del Promedio",
+      "average": "Promedio"
+    },
+    "history": {
+      "c1": {
+        "title": "Promo de Paquete de Cuidado de Piel de Verano",
+        "aiNote": "Esta publicación generó 48 nuevas reservas — un 24% por encima de tu promedio.",
+        "date": "15 de mayo de 2026"
+      },
+      "c2": {
+        "title": "Venta Flash de Último Minuto del Martes",
+        "aiNote": "Las campañas de SMS convierten 3 veces mejor para espacios de último minuto. Considera repetirlas semanalmente.",
+        "date": "13 de mayo de 2026"
+      },
+      "c3": {
+        "title": "Oferta Especial del Día de la Madre",
+        "aiNote": "Programado para entrar en vivo mañana por la mañana a las 8:00 AM.",
+        "date": "18 de mayo de 2026"
+      }
+    }
   },
   "ecommerce": {
     "title": "Tienda Online",

@@ -1,17 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Send, ShieldCheck, Tag, Sparkles, Check, Edit2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-const contacts = [
-  { id: 1, name: 'Sarah Johnson', source: 'Instagram', lastMsg: 'I want to book a bridal facial for Saturday...', time: '12:45', tags: ['VIP'], status: 'waiting' },
-  { id: 2, name: 'Mike Ross', source: 'WhatsApp', lastMsg: 'How much for the deep tissue massage?', time: '10:30', tags: ['Question'], status: 'waiting' },
-  { id: 3, name: 'Emma Watson', source: 'GMB', lastMsg: 'Thanks for the great service today!', time: 'Yesterday', tags: ['Feedback'], status: 'replied' },
+const contactMetadata = [
+  { id: 1, key: 't1', source: 'Instagram', time: '12:45', status: 'waiting', tagKey: 'vip' },
+  { id: 2, key: 't2', source: 'WhatsApp', time: '10:30', status: 'waiting', tagKey: 'question' },
+  { id: 3, key: 't3', source: 'GMB', time: 'yesterday', status: 'replied', tagKey: 'feedback' },
 ];
 
 export const AIInbox = () => {
   const { t } = useTranslation();
-  const [activeContact, setActiveContact] = useState(contacts[0]);
+  
+  // Dynamically map contacts list from i18n
+  const contactsList = contactMetadata.map(c => ({
+    ...c,
+    name: t(`inbox.threads.${c.key}.name`),
+    lastMsg: t(`inbox.threads.${c.key}.lastMsg`),
+    draft: t(`inbox.threads.${c.key}.draft`),
+    time: c.time === 'yesterday' ? t('inbox.yesterday') : c.time,
+    tagName: t(`inbox.tags.${c.tagKey}`),
+  }));
+
+  const [activeContact, setActiveContact] = useState(contactsList[0]);
   const [autopilot, setAutopilot] = useState(false);
+  const [activeTab, setActiveTab] = useState('all');
+
+  // Update active contact details on language switch to remain in sync
+  useEffect(() => {
+    const updatedActive = contactsList.find(c => c.id === activeContact.id);
+    if (updatedActive) {
+      setActiveContact(updatedActive);
+    }
+  }, [t]);
+
+  const filtered = contactsList.filter(c => {
+    if (activeTab === 'waiting') return c.status === 'waiting';
+    if (activeTab === 'handled') return c.status === 'replied';
+    return true;
+  });
 
   return (
     <div className="h-[calc(100vh-140px)] flex gap-6 animate-in fade-in duration-500">
@@ -28,7 +54,11 @@ export const AIInbox = () => {
           </div>
           <div className="flex gap-2 p-1 bg-white/5 rounded-lg">
             {['all', 'waiting', 'handled'].map(tabKey => (
-              <button key={tabKey} className={`flex-1 text-[11px] py-1.5 rounded-md font-semibold transition-all ${tabKey === 'all' ? 'bg-[#222] text-white shadow-sm' : 'text-zinc-500 hover:text-white'}`}>
+              <button 
+                key={tabKey} 
+                onClick={() => setActiveTab(tabKey)}
+                className={`flex-grow text-[11px] py-1.5 rounded-md font-semibold transition-all ${tabKey === activeTab ? 'bg-[#222] text-white shadow-sm' : 'text-zinc-500 hover:text-white'}`}
+              >
                 {t(`inbox.${tabKey}`)}
               </button>
             ))}
@@ -36,7 +66,7 @@ export const AIInbox = () => {
         </div>
         
         <div className="flex-1 overflow-y-auto p-2 space-y-1">
-          {contacts.map(contact => (
+          {filtered.map(contact => (
             <button 
               key={contact.id}
               onClick={() => setActiveContact(contact)}
@@ -47,9 +77,18 @@ export const AIInbox = () => {
                 <span className={`text-[10px] font-semibold ${activeContact.id === contact.id ? 'text-purple-400' : 'text-zinc-500'}`}>{contact.time}</span>
               </div>
               <p className={`text-xs truncate mb-2 ${activeContact.id === contact.id ? 'text-zinc-300' : 'text-zinc-500'}`}>{contact.lastMsg}</p>
-              <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${activeContact.id === contact.id ? 'bg-purple-500/20 text-purple-300' : 'bg-white/10 text-zinc-400'}`}>
-                {contact.source}
-              </span>
+              <div className="flex justify-between items-center">
+                <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${activeContact.id === contact.id ? 'bg-purple-500/20 text-purple-300' : 'bg-white/10 text-zinc-400'}`}>
+                  {contact.source}
+                </span>
+                <span className={`text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded border ${
+                  contact.tagKey === 'vip' ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' :
+                  contact.tagKey === 'question' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' :
+                  'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                }`}>
+                  {contact.tagName}
+                </span>
+              </div>
             </button>
           ))}
         </div>
@@ -60,7 +99,7 @@ export const AIInbox = () => {
         {/* Chat Header */}
         <div className="p-4 border-b border-white/10 flex justify-between items-center bg-[#0a0a0a]/50">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-sm font-bold text-white">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500/40 to-blue-500/40 flex items-center justify-center text-sm font-bold text-white border border-white/10">
               {activeContact.name[0]}
             </div>
             <div>
@@ -91,7 +130,7 @@ export const AIInbox = () => {
              <div className="bg-[#222] p-3.5 rounded-xl rounded-tl-sm text-sm text-zinc-200 border border-white/5 leading-relaxed">
                {activeContact.lastMsg}
              </div>
-             <span className="text-[10px] font-medium text-zinc-500 mt-1.5 pl-1">12:45 • {activeContact.source}</span>
+             <span className="text-[10px] font-medium text-zinc-500 mt-1.5 pl-1">{activeContact.time} • {activeContact.source}</span>
            </div>
 
            {/* Draft UI */}
@@ -104,7 +143,7 @@ export const AIInbox = () => {
              </div>
              
              <p className="text-sm text-zinc-300 mb-5 leading-relaxed">
-               "Hi Sarah! We'd love to have you. We have a bridal facial slot available this Saturday at 2 PM. Would you like me to book that for you?"
+               "{activeContact.draft}"
              </p>
              
              <div className="flex gap-3">

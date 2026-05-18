@@ -50,7 +50,30 @@
     "aiDraft": "Nexora AI Entwurf",
     "approveSend": "Genehmigen & Senden",
     "editDraft": "Entwurf Bearbeiten",
-    "typeMessage": "Schreiben Sie Ihre Nachricht..."
+    "typeMessage": "Schreiben Sie Ihre Nachricht...",
+    "yesterday": "Gestern",
+    "tags": {
+      "vip": "VIP",
+      "question": "Frage",
+      "feedback": "Feedback"
+    },
+    "threads": {
+      "t1": {
+        "name": "Sarah Johnson",
+        "lastMsg": "Ich möchte eine Braut-Gesichtsbehandlung für Samstag buchen...",
+        "draft": "Hallo Sarah! Wir würden uns freuen, Sie bei uns begrüßen zu dürfen. Wir haben diesen Samstag um 14:00 Uhr einen Termin für eine Braut-Gesichtsbehandlung frei. Möchten Sie, dass ich diesen für Sie buche?"
+      },
+      "t2": {
+        "name": "Mike Ross",
+        "lastMsg": "Wie viel kostet die Tiefengewebe-Massage?",
+        "draft": "Hallo Mike! Unsere Tiefengewebe-Massage kostet $150 für 90 Minuten. Möchten Sie unseren Zeitplan für heute Nachmittag einsehen?"
+      },
+      "t3": {
+        "name": "Emma Watson",
+        "lastMsg": "Vielen Dank für den tollen Service heute!",
+        "draft": "Hallo Emma! Vielen Dank für Ihre lieben Worte! Wir freuen uns darauf, Sie bald wiederzusehen."
+      }
+    }
   },
   "campaigns": {
     "title": "Kampagnen-Generator",
@@ -76,7 +99,51 @@
     "quickStats": "Schnelle Statistiken",
     "totalBookings": "Gesamte Buchungen",
     "utilization": "Auslastung",
-    "estRevenue": "Geschätzter Umsatz"
+    "estRevenue": "Geschätzter Umsatz",
+    "clientName": "Kundenname",
+    "service": "Dienstleistung / Buchungsart",
+    "date": "Datum",
+    "time": "Uhrzeit",
+    "cancel": "Abbrechen",
+    "confirm": "Buchung Bestätigen",
+    "clientPlaceholder": "z.B. Max Mustermann",
+    "status": {
+      "confirmed": "Bestätigt",
+      "arrived": "Eingetroffen",
+      "pending": "Ausstehend"
+    },
+    "services": {
+      "salon": {
+        "facial": "Signature Gesichtsbehandlung",
+        "massage": "Tiefengewebe-Massage",
+        "nails": "Maniküre & Pediküre",
+        "hair": "Laser-Haarentfernung"
+      },
+      "clinic": {
+        "checkup": "Zahnärztliche Kontrolle",
+        "cleaning": "Professionelle Zahnreinigung",
+        "extraction": "Zahnextraktion",
+        "rootcanal": "Wurzelbehandlung-Beratung"
+      },
+      "gym": {
+        "personal": "Personal Training",
+        "yoga": "Hatha Yoga Kurs",
+        "hiit": "HIIT Boot Camp",
+        "spinning": "Spinning-Kurs"
+      },
+      "cafe": {
+        "booth": "Fensterplatz-Reservierung",
+        "patio": "Terrassentisch-Reservierung",
+        "chef": "Chef's Table Abendessen",
+        "party": "Privater Feierraum"
+      },
+      "shop": {
+        "style": "Stilberatung",
+        "bulk": "Großbestellung-Anfrage",
+        "fitting": "Individuelle Anprobe-Sitzung",
+        "registry": "Geschenkregister-Beratung"
+      }
+    }
   },
   "insights": {
     "title": "KI-Zusammenfassung",
@@ -189,7 +256,61 @@
     "aiProfile": "Kundenpersönlichkeitsprofil",
     "aiBehavior": "Kaufverhalten",
     "aiUpsells": "Von KI empfohlene Zusatzangebote",
-    "aiStrategy": "Kommunikationsstrategie"
+    "aiStrategy": "Kommunikationsstrategie",
+    "close": "Schließen",
+    "tags": {
+      "vip": "VIP",
+      "regular": "Stammkunde",
+      "new": "Neu",
+      "atRisk": "Abwanderungsgefährdet"
+    },
+    "profiles": {
+      "c1": {
+        "name": "Sarah Johnson",
+        "favorite": "facial",
+        "aiNote": "Bucht normalerweise freitags. Bevorzugt das Deluxe-Paket.",
+        "personality": "Loyal & Qualitätsorientiert",
+        "analysis": "Reagiert sehr gut auf Treuekampagnen. Bevorzugt Premium-Gesichtsprodukte und kauft mit hoher Wahrscheinlichkeit Hautverjüngungsseren, wenn sie angeboten werden.",
+        "upsells": ["Premium-Verjüngungsserum", "Gold-Gesichtstherapie-Upgrade"],
+        "strategy": "Elegant, professionell, Fokus auf Premium-Vorteile und langfristige Ergebnisse."
+      },
+      "c2": {
+        "name": "Michael Chen",
+        "favorite": "massage",
+        "aiNote": "Empfindlich gegenüber starken Düften. Frägt immer nach demselben Therapeuten.",
+        "personality": "Routineorientiert & Duftempfindlich",
+        "analysis": "Besucht uns genau alle zwei Wochen. Sehr empfindlich gegenüber starken aromatischen Ölen. Ruhige, friedliche Umgebungen mit minimalem Gespräch werden geschätzt.",
+        "upsells": ["Parfümfreie Aloe-Maskenpflege", "Verlängerte Tiefengewebe-Sitzung"],
+        "strategy": "Direkt, prägnant, höflich, respektiert die Vorliebe für ruhiges Schweigen."
+      },
+      "c3": {
+        "name": "Emma Thompson",
+        "favorite": "nails",
+        "aiNote": "Erwähnte kürzlich eine bevorstehende Hochzeit. Tolle Zusatzverkaufs-Chance.",
+        "personality": "Ereignisorientierter Planer",
+        "analysis": "Bereitet sich auf eine Hochzeit vor. Hervorragende Kandidatin für Buchungsrabatte für Gruppenveranstaltungen (z. B. Brautjungfern-Pakete).",
+        "upsells": ["Brautparty-Paketangebot", "Erweitertes Gel-Pediküre-Upgrade"],
+        "strategy": "Fröhlich, festlich, hebt die einfache Organisation von Gruppen hervor."
+      },
+      "c4": {
+        "name": "Jessica Alba",
+        "favorite": "hair",
+        "aiNote": "Hat uns seit 3 Wochen nicht besucht. Erwägen Sie ein Reaktivierungsangebot.",
+        "personality": "Abwanderungsrisiko / Rückgewinnungskandidat",
+        "analysis": "Hat uns seit 3 Wochen nicht besucht. Das Engagement ging nach einer 3-Sterne-Bewertung bei der Lasersitzung zurück. Es wird dringend empfohlen, einen Rückgewinnungsgutschein mit einer persönlichen Nachricht anzubieten.",
+        "upsells": ["Kostenloses Hautberuhigungspaket", "25% Rückgewinnungsangebot"],
+        "strategy": "Sehr empathisch, beruhigend, auf Service-Wiederherstellung ausgerichtet."
+      },
+      "c5": {
+        "name": "David Park",
+        "favorite": "facial",
+        "aiNote": "Sehr wertvoller Kunde. Geburtstag ist nächsten Monat – tolle Gelegenheit für ein besonderes Angebot.",
+        "personality": "Vielzahler / Geburtstags-VIP",
+        "analysis": "Hoher durchschnittlicher Einkaufswert. Geburtstag ist nächsten Monat. Empfiehlt dringend, bei seiner nächsten Gesichtsbehandlung eine exklusive kostenlose Kopfmassage anzubieten.",
+        "upsells": ["Kostenlose Premium-Kopfmassage", "VIP-Kaviar-Masken-Upgrade"],
+        "strategy": "Exklusiv, respektvoll, hebt VIP-Privilegien hervor."
+      }
+    }
   },
   "services": {
     "title": "Servicekatalog",
@@ -203,7 +324,22 @@
     "status": "Status",
     "cancel": "Abbrechen",
     "confirm": "Service Hinzufügen",
-    "all": "Alle"
+    "all": "Alle",
+    "min": "Min",
+    "categories": {
+      "all": "Alle",
+      "hair": "Haare",
+      "skinCare": "Hautpflege",
+      "massage": "Massage",
+      "nails": "Nägel"
+    },
+    "items": {
+      "facial": "Signatur-Gesichtsbehandlung",
+      "massage": "Tiefengewebe-Massage",
+      "nails": "Maniküre & Pediküre",
+      "laser": "Laser-Haarentfernung",
+      "hair": "Balayage & Strähnchen"
+    }
   },
   "campaignResults": {
     "title": "Kampagnenergebnisse",
@@ -213,7 +349,34 @@
     "clicks": "Klicks",
     "conversions": "Konversionen",
     "aiAnalysis": "KI-Analyse",
-    "convRate": "rate"
+    "convRate": "rate",
+    "statuses": {
+      "published": "Veröffentlicht",
+      "scheduled": "Geplant",
+      "draft": "Entwurf"
+    },
+    "scores": {
+      "excellent": "Hervorragend",
+      "aboveAverage": "Über dem Durchschnitt",
+      "average": "Durchschnittlich"
+    },
+    "history": {
+      "c1": {
+        "title": "Sommer-Hautpflege-Paket-Promo",
+        "aiNote": "Dieser Beitrag generierte 48 neue Buchungen — 24 % über Ihrem Durchschnitt.",
+        "date": "15. Mai 2026"
+      },
+      "c2": {
+        "title": "Last-Minute Dienstag Flash-Sale",
+        "aiNote": "SMS-Kampagnen konvertieren bei Last-Minute-Terminen 3x besser. Erwägen Sie eine wöchentliche Wiederholung.",
+        "date": "13. Mai 2026"
+      },
+      "c3": {
+        "title": "Muttertags-Sonderangebot",
+        "aiNote": "Geplant für morgen früh um 8:00 Uhr.",
+        "date": "18. Mai 2026"
+      }
+    }
   },
   "ecommerce": {
     "title": "Online-Shop",
