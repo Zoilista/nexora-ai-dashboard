@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, User, Phone, Mail, Star, ChevronRight, MessageSquare, Calendar, DollarSign } from 'lucide-react';
+import { Search, User, Phone, Mail, Star, ChevronRight, MessageSquare, Calendar, DollarSign, Sparkles, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const customers = [
@@ -17,10 +17,44 @@ const tagColors = {
   'At Risk': 'bg-red-500/10 text-red-400 border-red-500/20',
 };
 
+const customerAIProfiles = {
+  1: {
+    personality: 'Loyal & Quality-oriented',
+    analysis: 'Highly responsive to loyalty campaigns. Prefers premium facial products and is highly likely to purchase skin rejuvenation serums if offered.',
+    upsells: ['Premium Rejuvenation Serum', 'Gold Facial Therapy Boost'],
+    strategy: 'Elegant, professional, focus on premium benefits and long-term results.'
+  },
+  2: {
+    personality: 'Routine-driven & Scent-sensitive',
+    analysis: 'Visits exactly once every two weeks. Highly sensitive to strong aromatic oils. Quiet, calm environments with minimal conversation are appreciated.',
+    upsells: ['Unscented Aloe Mask Care', 'Extended Deep Tissue Session'],
+    strategy: 'Direct, concise, polite, respecting their preference for calm silence.'
+  },
+  3: {
+    personality: 'Event-focused Planner',
+    analysis: 'Preparing for a bridal event. Excellent candidate for group event package booking discounts (e.g. bridesmaids bundles).',
+    upsells: ['Bridal Party Package Deal', 'Advanced Gel Pedicure Upgrade'],
+    strategy: 'Cheerful, celebratory, highlight ease of group organization.'
+  },
+  4: {
+    personality: 'Churn Risk / Recovery candidate',
+    analysis: 'Has not visited in 3 weeks. Engagement dropped after a 3-star rating on laser session. Highly recommend offering a recovery coupon with a custom check-in message.',
+    upsells: ['Complimentary Skin Soothing Pack', '25% Churn Recovery Offer'],
+    strategy: 'Highly empathetic, reassuring, service-recovery oriented.'
+  },
+  5: {
+    personality: 'High-Spender / Birthday VIP',
+    analysis: 'High average ticket value. Birthday is next month. Highly recommends presenting an exclusive complimentary birthday head massage with his next facial.',
+    upsells: ['Premium Head Massage Complement', 'VIP Caviar Mask Upgrade'],
+    strategy: 'Exclusive, respectful, highlighting VIP privileges.'
+  }
+};
+
 export const Customers = () => {
   const { t } = useTranslation();
   const [search, setSearch] = useState('');
   const [selected, setSelected] = useState(customers[0]);
+  const [showAIModal, setShowAIModal] = useState(false);
 
   const filtered = customers.filter(c =>
     c.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -82,7 +116,14 @@ export const Customers = () => {
                 <span className="flex items-center gap-1"><Phone size={14} />{selected.phone}</span>
               </div>
             </div>
-            <div className="flex gap-2 shrink-0">
+            <div className="flex gap-2 shrink-0 items-center">
+              <button 
+                onClick={() => setShowAIModal(true)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold transition-all text-xs mr-2 shadow-md hover:shadow-purple-500/10"
+              >
+                <Sparkles size={14} className="animate-pulse" />
+                <span>{t('customers.aiAnalysisBtn')}</span>
+              </button>
               <button className="p-2 rounded-xl bg-white/5 border border-white/10 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors" title={t('customers.sendMessage')}><MessageSquare size={18} /></button>
               <button className="p-2 rounded-xl bg-white/5 border border-white/10 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors" title={t('customers.bookAppointment')}><Calendar size={18} /></button>
             </div>
@@ -126,6 +167,76 @@ export const Customers = () => {
           </div>
         </div>
       </div>
+      
+      {/* AI Analysis Report Modal */}
+      {showAIModal && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-200 text-left">
+          <div className="bg-[#111] border border-white/10 w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden">
+             <div className="p-6 border-b border-white/10 flex items-center justify-between">
+               <div className="flex items-center gap-3">
+                 <div className="p-2 rounded-lg bg-purple-500/20 text-purple-400 animate-pulse">
+                   <Sparkles size={20} />
+                 </div>
+                 <h3 className="text-xl font-bold text-white">{t('customers.aiAnalysisTitle')}</h3>
+               </div>
+               <button onClick={() => setShowAIModal(false)} className="text-zinc-500 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors">
+                 <X size={20} />
+               </button>
+             </div>
+             
+             <div className="p-6 space-y-6 overflow-y-auto max-h-[70vh]">
+               {/* Client Name & Profile Tag */}
+               <div className="flex items-center justify-between border-b border-white/5 pb-4">
+                 <div>
+                   <h4 className="text-lg font-bold text-white">{selected.name}</h4>
+                   <p className="text-xs text-zinc-400 mt-0.5">{selected.email} • {selected.phone}</p>
+                 </div>
+                 <div className="px-3 py-1.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-xs font-bold text-purple-300">
+                   {customerAIProfiles[selected.id]?.personality || 'VIP'}
+                 </div>
+               </div>
+
+               {/* Detailed AI Analysis */}
+               <div className="space-y-2">
+                 <h5 className="text-xs font-bold uppercase tracking-wider text-purple-400">{t('customers.aiNote')}</h5>
+                 <p className="text-sm text-zinc-300 bg-white/5 border border-white/5 p-4 rounded-xl leading-relaxed">
+                   {customerAIProfiles[selected.id]?.analysis || selected.aiNote}
+                 </p>
+               </div>
+
+               {/* Upsells / Recommendations */}
+               <div className="space-y-3">
+                 <h5 className="text-xs font-bold uppercase tracking-wider text-purple-400">{t('customers.aiUpsells')}</h5>
+                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                   {(customerAIProfiles[selected.id]?.upsells || []).map((item, idx) => (
+                     <div key={idx} className="flex items-center gap-2 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
+                       <div className="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
+                       <span className="text-xs font-semibold text-purple-200">{item}</span>
+                     </div>
+                   ))}
+                 </div>
+               </div>
+
+               {/* Communication Strategy */}
+               <div className="space-y-2">
+                 <h5 className="text-xs font-bold uppercase tracking-wider text-purple-400">{t('customers.aiStrategy')}</h5>
+                 <div className="p-4 rounded-xl bg-white/5 border border-white/5 text-sm text-zinc-300 leading-relaxed flex gap-3">
+                   <div className="p-1 rounded-full bg-blue-500/10 text-blue-400 shrink-0 h-fit mt-0.5">
+                     <Star size={14} />
+                   </div>
+                   <span>{customerAIProfiles[selected.id]?.strategy || 'Maintain professional, highly personalized communication.'}</span>
+                 </div>
+               </div>
+             </div>
+
+             <div className="p-6 border-t border-white/10 bg-[#0a0a0a] flex justify-end">
+               <button onClick={() => setShowAIModal(false)} className="px-6 py-2.5 rounded-xl font-bold text-sm bg-white text-black hover:bg-zinc-200 transition-colors">
+                 Close
+               </button>
+             </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

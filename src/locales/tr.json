@@ -32,7 +32,17 @@
     "aiActionDesc": "12 müşteri yanıt bekliyor. Taslak cevapları hazırladım. Şimdi gönderilsin mi?",
     "reviewAndSend": "İncele ve Hepsini Gönder",
     "upcoming": "Yaklaşan Randevular",
-    "noAppointments": "Bugün için başka randevu yok."
+    "noAppointments": "Bugün için başka randevu yok.",
+    "totalRevenueShop": "Bugünün Satışı",
+    "newCustomersShop": "Bugünün Siparişleri",
+    "pendingMessagesShop": "Bekleyen Kargolar",
+    "aiActionDescShop": "Gönderilmeyi bekleyen 4 siparişiniz var. Kargo etiketlerini hazırlayıp müşterilere otomatik WhatsApp takip mesajı göndereyim mi?",
+    "upcomingShop": "Son Siparişler",
+    "totalRevenueCafe": "Bugünün Hasılatı",
+    "newCustomersCafe": "Bugünün Misafirleri",
+    "pendingMessagesCafe": "Aktif Siparişler",
+    "aiActionDescCafe": "Mutfakta onay bekleyen 3 dijital siparişiniz var. Bunları inceleyip şefe ileteyim mi?",
+    "upcomingCafe": "Mutfak Siparişleri"
   },
   "inbox": {
     "search": "Görüşmelerde ara...",
@@ -187,7 +197,13 @@
     "aiNote": "YZ Müşteri Notu",
     "favoriteService": "Favori Hizmet",
     "sendMessage": "Mesaj Gönder",
-    "bookAppointment": "Randevu Al"
+    "bookAppointment": "Randevu Al",
+    "aiAnalysisBtn": "YZ Akıllı Analizi",
+    "aiAnalysisTitle": "YZ Akıllı İstihbarat Raporu",
+    "aiProfile": "Müşteri Karakter Profili",
+    "aiBehavior": "Satın Alma Davranışları",
+    "aiUpsells": "YZ Tavsiye Edilen Fırsatlar",
+    "aiStrategy": "Özel İletişim Stratejisi"
   },
   "services": {
     "title": "Hizmet Kataloğu",

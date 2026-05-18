@@ -12,6 +12,36 @@ const appointments = [
 export const Appointments = () => {
   const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
+  const [appointmentList, setAppointmentList] = useState(appointments);
+
+  // Form State
+  const [clientName, setClientName] = useState('');
+  const [service, setService] = useState('Signature Facial');
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
+
+  const handleConfirmBooking = (e) => {
+    e.preventDefault();
+    if (!clientName || !time) return;
+
+    const newApt = {
+      id: appointmentList.length + 1,
+      time: time,
+      client: clientName,
+      service: service,
+      duration: '60 min',
+      status: 'confirmed'
+    };
+
+    setAppointmentList([...appointmentList, newApt]);
+    setShowModal(false);
+    
+    // Reset form
+    setClientName('');
+    setService('Signature Facial');
+    setDate('');
+    setTime('');
+  };
 
   return (
     <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in duration-500 relative">
@@ -53,7 +83,7 @@ export const Appointments = () => {
 
       {/* List View */}
       <div className="bg-[#111] border border-white/10 rounded-2xl overflow-hidden shadow-lg">
-        {appointments.map((apt, i) => (
+        {appointmentList.map((apt, i) => (
           <div key={apt.id} className="flex items-center gap-6 p-6 border-b border-white/10 last:border-0 hover:bg-white/5 transition-colors">
             <div className="text-xl font-bold text-white w-16">{apt.time}</div>
             
@@ -84,42 +114,65 @@ export const Appointments = () => {
       {/* New Booking Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-[#111] border border-white/10 w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden">
+          <form onSubmit={handleConfirmBooking} className="bg-[#111] border border-white/10 w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden">
              <div className="p-6 border-b border-white/10 flex items-center justify-between">
                <h3 className="text-xl font-bold text-white">{t('appointments.newBooking')}</h3>
-               <button onClick={() => setShowModal(false)} className="text-zinc-500 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors">
+               <button type="button" onClick={() => setShowModal(false)} className="text-zinc-500 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors">
                  <X size={20} />
                </button>
              </div>
              <div className="p-6 space-y-4">
                <div>
                  <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 block">Client Name</label>
-                 <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors" placeholder="e.g. Jane Doe" />
+                 <input 
+                   type="text" 
+                   required
+                   value={clientName}
+                   onChange={(e) => setClientName(e.target.value)}
+                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors" 
+                   placeholder="e.g. Jane Doe" 
+                 />
                </div>
                <div>
                  <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 block">Service</label>
-                 <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors appearance-none">
-                   <option className="bg-[#111]">Signature Facial</option>
-                   <option className="bg-[#111]">Deep Tissue Massage</option>
-                   <option className="bg-[#111]">Manicure & Pedicure</option>
+                 <select 
+                   value={service}
+                   onChange={(e) => setService(e.target.value)}
+                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors appearance-none cursor-pointer"
+                 >
+                   <option value="Signature Facial" className="bg-[#111]">Signature Facial</option>
+                   <option value="Deep Tissue Massage" className="bg-[#111]">Deep Tissue Massage</option>
+                   <option value="Manicure & Pedicure" className="bg-[#111]">Manicure & Pedicure</option>
+                   <option value="Laser Hair Removal" className="bg-[#111]">Laser Hair Removal</option>
                  </select>
                </div>
                <div className="grid grid-cols-2 gap-4">
                  <div>
                    <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 block">Date</label>
-                   <input type="date" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors" />
+                   <input 
+                     type="date" 
+                     value={date}
+                     onChange={(e) => setDate(e.target.value)}
+                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors" 
+                   />
                  </div>
                  <div>
                    <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 block">Time</label>
-                   <input type="time" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors" />
+                   <input 
+                     type="time" 
+                     required
+                     value={time}
+                     onChange={(e) => setTime(e.target.value)}
+                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors" 
+                   />
                  </div>
                </div>
              </div>
              <div className="p-6 border-t border-white/10 bg-[#0a0a0a] flex justify-end gap-3">
-               <button onClick={() => setShowModal(false)} className="px-6 py-2.5 rounded-xl font-bold text-sm text-zinc-300 hover:bg-white/5 transition-colors">Cancel</button>
-               <button onClick={() => setShowModal(false)} className="px-6 py-2.5 rounded-xl font-bold text-sm bg-purple-600 text-white hover:bg-purple-500 transition-colors">Confirm Booking</button>
+               <button type="button" onClick={() => setShowModal(false)} className="px-6 py-2.5 rounded-xl font-bold text-sm text-zinc-300 hover:bg-white/5 transition-colors">Cancel</button>
+               <button type="submit" className="px-6 py-2.5 rounded-xl font-bold text-sm bg-purple-600 text-white hover:bg-purple-500 transition-colors">Confirm Booking</button>
              </div>
-          </div>
+          </form>
         </div>
       )}
     </div>

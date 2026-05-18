@@ -32,7 +32,17 @@
     "aiActionDesc": "You have 12 customers waiting for replies. I have drafted responses. Send now?",
     "reviewAndSend": "Review & Send All",
     "upcoming": "Upcoming Appointments",
-    "noAppointments": "No more appointments today."
+    "noAppointments": "No more appointments today.",
+    "totalRevenueShop": "Today's Sales",
+    "newCustomersShop": "Today's Orders",
+    "pendingMessagesShop": "Pending Shipments",
+    "aiActionDescShop": "You have 4 orders pending shipment. Let me draft shipping labels and send automated tracking WhatsApp messages to customers?",
+    "upcomingShop": "Recent Orders",
+    "totalRevenueCafe": "Today's Revenue",
+    "newCustomersCafe": "Today's Guests",
+    "pendingMessagesCafe": "Active Orders",
+    "aiActionDescCafe": "You have 3 digital orders pending approval in the kitchen. Let me review and dispatch them to the chef?",
+    "upcomingCafe": "Active Kitchen Orders"
   },
   "inbox": {
     "search": "Search conversations...",
@@ -187,7 +197,13 @@
     "aiNote": "AI Customer Note",
     "favoriteService": "Favorite Service",
     "sendMessage": "Send Message",
-    "bookAppointment": "Book Appointment"
+    "bookAppointment": "Book Appointment",
+    "aiAnalysisBtn": "AI Smart Insights",
+    "aiAnalysisTitle": "AI Smart Insights Report",
+    "aiProfile": "Client Personality Profile",
+    "aiBehavior": "Buying Behaviors",
+    "aiUpsells": "AI Recommended Upsells",
+    "aiStrategy": "Communication Strategy"
   },
   "services": {
     "title": "Service Catalog",
