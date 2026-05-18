@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Sparkles, Building2, Scissors, Dumbbell, Coffee, ShoppingBag, ArrowRight, ChevronLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
+import { useBusiness } from '../context/BusinessContext';
+
 const businessTypes = [
   { id: 'salon', icon: Scissors, labelKey: 'onboarding.types.salon' },
   { id: 'clinic', icon: Building2, labelKey: 'onboarding.types.clinic' },
@@ -18,12 +20,17 @@ const goals = [
 
 export const OnboardingModal = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
+  const { setBusinessType: setBusinessTypeContext } = useBusiness();
   const [step, setStep] = useState(1);
   const [businessType, setBusinessType] = useState('');
 
   const handleNext = () => {
     if (step < 2) setStep(step + 1);
-    else onClose();
+  };
+
+  const handleComplete = () => {
+    setBusinessTypeContext(businessType);
+    onClose();
   };
 
   if (!isOpen) return null;
@@ -88,7 +95,7 @@ export const OnboardingModal = ({ isOpen, onClose }) => {
                 {goals.map((goal) => (
                   <button
                     key={goal.id}
-                    onClick={onClose}
+                    onClick={handleComplete}
                     className="p-6 rounded-2xl bg-white/5 border border-white/10 text-left hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300 group"
                   >
                     <h3 className="text-lg font-bold text-white group-hover:text-purple-400 transition-colors mb-1">{t(goal.titleKey)}</h3>

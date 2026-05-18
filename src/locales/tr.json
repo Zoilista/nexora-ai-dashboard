@@ -107,7 +107,15 @@
       "knowledge": "Bilgi Bankası",
       "rules": "Otomasyon Kuralları",
       "integrations": "Entegrasyonlar",
-      "security": "Güvenlik"
+      "security": "Güvenlik",
+      "business": "İşletme Detayları"
+    },
+    "business": {
+      "title": "İşletme Yapılandırması",
+      "desc": "İşletme detaylarınızı yönetin ve YZ asistanınızı sektörünüze göre uyarlayın.",
+      "typeLabel": "İşletme Türü",
+      "tipTitle": "Dinamik SaaS Deneyimi",
+      "tipDesc": "İşletme türünüzü değiştirmek, menülerinizi, gösterge paneli bileşenlerinizi ve YZ özelliklerini sektörünüze göre anında ve dinamik olarak özelleştirir."
     },
     "uploadTitle": "Belge Yükle",
     "uploadDesc": "Nexora'nın müşteri sorularını doğru yanıtlayabilmesi için hizmet menülerinizi, fiyatlarınızı ve SSS belgelerinizi yükleyin.",

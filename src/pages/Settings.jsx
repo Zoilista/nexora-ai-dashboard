@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Upload, FileText, CheckCircle, BrainCircuit, Sliders, Shield, Zap } from 'lucide-react';
+import { Upload, FileText, CheckCircle, BrainCircuit, Sliders, Shield, Zap, Building2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useBusiness } from '../context/BusinessContext';
 
 export const Settings = () => {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState('knowledge');
+  const { businessType, setBusinessType } = useBusiness();
+  const [activeTab, setActiveTab] = useState('business');
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500 max-w-4xl mx-auto">
@@ -15,6 +17,7 @@ export const Settings = () => {
 
       <div className="flex gap-2 border-b border-white/10 pb-px overflow-x-auto">
         {[
+          { id: 'business', label: t('settings.tabs.business'), icon: Building2 },
           { id: 'knowledge', label: t('settings.tabs.knowledge'), icon: BrainCircuit },
           { id: 'rules', label: t('settings.tabs.rules'), icon: Sliders },
           { id: 'integrations', label: t('settings.tabs.integrations'), icon: Zap },
@@ -34,6 +37,36 @@ export const Settings = () => {
           </button>
         ))}
       </div>
+
+      {activeTab === 'business' && (
+        <div className="bg-[#111] p-6 rounded-2xl border border-white/10 shadow-lg max-w-xl">
+          <div className="mb-6">
+            <h3 className="text-lg font-bold text-white">{t('settings.business.title')}</h3>
+            <p className="text-sm text-zinc-400">{t('settings.business.desc')}</p>
+          </div>
+          
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-xs font-bold uppercase tracking-wider text-zinc-400">{t('settings.business.typeLabel')}</label>
+              <select
+                value={businessType}
+                onChange={(e) => setBusinessType(e.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors cursor-pointer"
+              >
+                <option value="salon">{t('onboarding.types.salon')}</option>
+                <option value="clinic">{t('onboarding.types.clinic')}</option>
+                <option value="gym">{t('onboarding.types.gym')}</option>
+                <option value="cafe">{t('onboarding.types.cafe')}</option>
+                <option value="shop">{t('onboarding.types.shop')}</option>
+              </select>
+            </div>
+
+            <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 text-sm text-purple-200 leading-relaxed">
+              <strong>💡 {t('settings.business.tipTitle')}</strong>: {t('settings.business.tipDesc')}
+            </div>
+          </div>
+        </div>
+      )}
 
       {activeTab === 'knowledge' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

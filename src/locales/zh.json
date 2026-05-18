@@ -103,7 +103,15 @@
       "knowledge": "知识库",
       "rules": "自动化规则",
       "integrations": "集成",
-      "security": "安全"
+      "security": "安全",
+      "business": "商业详情"
+    },
+    "business": {
+      "title": "商业配置",
+      "desc": "管理您的商业详情并量身定制您的助手。",
+      "typeLabel": "商业类型",
+      "tipTitle": "动态 SaaS 环境",
+      "tipDesc": "更改您的商业类型将动态定制您的侧边栏菜单、仪表盘组件和 AI 功能，以完美契合您的行业。"
     },
     "uploadTitle": "上传文件",
     "uploadDesc": "上传您的服务菜单、定价和常见问题解答，以便 Nexora 能够准确回答。",

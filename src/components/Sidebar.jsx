@@ -2,9 +2,11 @@ import React from 'react';
 import { LayoutDashboard, MessageSquare, Calendar, Sparkles, PieChart, Settings, LogOut, ChevronRight, Users, Scissors, BarChart2, ShoppingBag } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useBusiness } from '../context/BusinessContext';
 
 export const Sidebar = ({ isAIPanelOpen, onToggleAI }) => {
   const { t } = useTranslation();
+  const { businessType } = useBusiness();
 
   const navItems = [
     { icon: LayoutDashboard, label: t('nav.dashboard'), path: '/' },
@@ -18,6 +20,17 @@ export const Sidebar = ({ isAIPanelOpen, onToggleAI }) => {
     { icon: PieChart, label: t('nav.analytics'), path: '/analytics' },
   ];
 
+  const filteredNavItems = navItems.filter(item => {
+    if (businessType === 'shop') {
+      return item.path !== '/appointments' && item.path !== '/services';
+    }
+    if (businessType === 'cafe') {
+      return item.path !== '/appointments' && item.path !== '/ecommerce';
+    }
+    // Default: 'salon', 'clinic', 'gym' - hide ecommerce (online store)
+    return item.path !== '/ecommerce';
+  });
+
   return (
     <aside className="w-64 h-screen fixed left-0 top-0 flex flex-col bg-[#0a0a0a] border-r border-white/5 z-50">
       <div className="p-6">
@@ -29,7 +42,7 @@ export const Sidebar = ({ isAIPanelOpen, onToggleAI }) => {
         </div>
 
         <nav className="space-y-0.5">
-          {navItems.map((item) => (
+          {filteredNavItems.map((item) => (
             <NavLink
               key={item.path}
               to={item.path}

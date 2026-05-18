@@ -103,7 +103,15 @@
       "knowledge": "Base de Conocimientos",
       "rules": "Reglas de Automatización",
       "integrations": "Integraciones",
-      "security": "Seguridad"
+      "security": "Seguridad",
+      "business": "Detalles del Negocio"
+    },
+    "business": {
+      "title": "Configuración del Negocio",
+      "desc": "Administra los detalles de tu negocio y adapta tu asistente.",
+      "typeLabel": "Tipo de Negocio",
+      "tipTitle": "Entorno SaaS Dinámico",
+      "tipDesc": "Cambiar el tipo de negocio personaliza dinámicamente el menú lateral, los componentes del panel y las funciones de IA para adaptarse perfectamente a tu sector."
     },
     "uploadTitle": "Subir Documentos",
     "uploadDesc": "Sube tus menús, precios y preguntas frecuentes para que Nexora pueda responder.",

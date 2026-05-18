@@ -103,7 +103,15 @@
       "knowledge": "Wissensdatenbank",
       "rules": "Automatisierungsregeln",
       "integrations": "Integrationen",
-      "security": "Sicherheit"
+      "security": "Sicherheit",
+      "business": "Unternehmensdetails"
+    },
+    "business": {
+      "title": "Unternehmenskonfiguration",
+      "desc": "Verwalten Sie Ihre Unternehmensdetails und die KI-Anpassung.",
+      "typeLabel": "Unternehmenstyp",
+      "tipTitle": "Dynamische SaaS-Umgebung",
+      "tipDesc": "Das Ändern Ihres Unternehmenstyps passt das Seitenmenü, die Dashboard-Widgets und die KI-Funktionen dynamisch an Ihre Branche an."
     },
     "uploadTitle": "Dokumente Hochladen",
     "uploadDesc": "Laden Sie Ihre Menüs, Preise und FAQs hoch, damit Nexora antworten kann.",

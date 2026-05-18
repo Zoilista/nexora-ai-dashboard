@@ -13,6 +13,7 @@ import { Customers } from './pages/Customers';
 import { ServiceCatalog } from './pages/ServiceCatalog';
 import { Ecommerce } from './pages/Ecommerce';
 import { OnboardingModal } from './components/OnboardingModal';
+import { BusinessProvider } from './context/BusinessContext';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -28,9 +29,10 @@ function App() {
   }
 
   return (
-    <Router>
-      <Layout>
-        <Routes>
+    <BusinessProvider>
+      <Router>
+        <Layout>
+          <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/inbox" element={<AIInbox />} />
           <Route path="/campaigns" element={<Campaigns />} />
@@ -48,7 +50,8 @@ function App() {
         isOpen={showOnboarding} 
         onClose={() => setShowOnboarding(false)} 
       />
-    </Router>
+      </Router>
+    </BusinessProvider>
   );
 }
 

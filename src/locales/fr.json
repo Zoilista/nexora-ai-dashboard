@@ -103,7 +103,15 @@
       "knowledge": "Base de Connaissances",
       "rules": "Règles d'Automatisation",
       "integrations": "Intégrations",
-      "security": "Sécurité"
+      "security": "Sécurité",
+      "business": "Détails de l'Entreprise"
+    },
+    "business": {
+      "title": "Configuration de l'Entreprise",
+      "desc": "Gérez les détails de votre entreprise et l'adaptation de l'assistant.",
+      "typeLabel": "Type d'Entreprise",
+      "tipTitle": "Environnement SaaS Dynamique",
+      "tipDesc": "Changer votre type d'entreprise personnalise dynamiquement votre menu latéral, les widgets de votre tableau de bord et les fonctionnalités IA pour s'adapter parfaitement à votre secteur."
     },
     "uploadTitle": "Téléverser des Documents",
     "uploadDesc": "Téléversez vos menus, prix et FAQ pour que Nexora puisse répondre.",

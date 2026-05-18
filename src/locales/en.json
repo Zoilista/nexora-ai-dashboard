@@ -107,7 +107,15 @@
       "knowledge": "Knowledge Base",
       "rules": "Automation Rules",
       "integrations": "Integrations",
-      "security": "Security"
+      "security": "Security",
+      "business": "Business Details"
+    },
+    "business": {
+      "title": "Business Configuration",
+      "desc": "Manage your business details and assistant tailoring.",
+      "typeLabel": "Business Type",
+      "tipTitle": "Dynamic SaaS Environment",
+      "tipDesc": "Changing your business type dynamically customizes your sidebar menu, dashboard widgets, and AI features to fit your industry perfectly."
     },
     "uploadTitle": "Upload Documents",
     "uploadDesc": "Upload your service menus, pricing, and FAQ documents so Nexora can answer customer questions accurately.",
