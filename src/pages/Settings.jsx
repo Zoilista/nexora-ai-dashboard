@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, FileText, CheckCircle, BrainCircuit, Sliders, Shield, Zap, Building2 } from 'lucide-react';
+import { Upload, FileText, CheckCircle, BrainCircuit, Sliders, Shield, Zap, Building2, Scissors, Dumbbell, Coffee, ShoppingBag, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useBusiness } from '../context/BusinessContext';
 
@@ -7,6 +7,18 @@ export const Settings = () => {
   const { t } = useTranslation();
   const { businessType, setBusinessType } = useBusiness();
   const [activeTab, setActiveTab] = useState('business');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const businessOptions = [
+    { id: 'salon', label: t('onboarding.types.salon'), icon: Scissors },
+    { id: 'clinic', label: t('onboarding.types.clinic'), icon: Building2 },
+    { id: 'gym', label: t('onboarding.types.gym'), icon: Dumbbell },
+    { id: 'cafe', label: t('onboarding.types.cafe'), icon: Coffee },
+    { id: 'shop', label: t('onboarding.types.shop'), icon: ShoppingBag },
+  ];
+
+  const selectedOption = businessOptions.find(opt => opt.id === businessType) || businessOptions[0];
+  const SelectedIcon = selectedOption.icon;
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500 max-w-4xl mx-auto">
@@ -47,21 +59,58 @@ export const Settings = () => {
           
           <div className="space-y-6">
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-zinc-400">{t('settings.business.typeLabel')}</label>
-              <select
-                value={businessType}
-                onChange={(e) => setBusinessType(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors cursor-pointer"
-              >
-                <option value="salon">{t('onboarding.types.salon')}</option>
-                <option value="clinic">{t('onboarding.types.clinic')}</option>
-                <option value="gym">{t('onboarding.types.gym')}</option>
-                <option value="cafe">{t('onboarding.types.cafe')}</option>
-                <option value="shop">{t('onboarding.types.shop')}</option>
-              </select>
+              <label className="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-2">{t('settings.business.typeLabel')}</label>
+              
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white flex items-center justify-between hover:bg-white/10 hover:border-purple-500/50 transition-all cursor-pointer shadow-md"
+                >
+                  <div className="flex items-center gap-3">
+                    <SelectedIcon size={18} className="text-purple-400" />
+                    <span className="font-medium">{selectedOption.label}</span>
+                  </div>
+                  <ChevronDown size={18} className={`text-zinc-400 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-purple-400' : ''}`} />
+                </button>
+
+                {isDropdownOpen && (
+                  <>
+                    {/* Invisible overlay for click-outside closure */}
+                    <div className="fixed inset-0 z-10" onClick={() => setIsDropdownOpen(false)} />
+                    
+                    <div className="absolute left-0 mt-2 w-full bg-[#161616] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-20 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <div className="p-1 space-y-1">
+                        {businessOptions.map(option => {
+                          const IconComponent = option.icon;
+                          const isSelected = option.id === businessType;
+                          return (
+                            <button
+                              key={option.id}
+                              type="button"
+                              onClick={() => {
+                                setBusinessType(option.id);
+                                setIsDropdownOpen(false);
+                              }}
+                              className={`w-full px-3 py-2.5 rounded-lg flex items-center gap-3 text-sm text-left transition-all ${
+                                isSelected 
+                                  ? 'bg-purple-600 text-white font-bold' 
+                                  : 'text-zinc-300 hover:text-white hover:bg-white/5'
+                              }`}
+                            >
+                              <IconComponent size={16} className={isSelected ? 'text-white' : 'text-zinc-400'} />
+                              <span>{option.label}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 text-sm text-purple-200 leading-relaxed">
+            <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 text-sm text-purple-200 leading-relaxed shadow-sm">
               <strong>💡 {t('settings.business.tipTitle')}</strong>: {t('settings.business.tipDesc')}
             </div>
           </div>

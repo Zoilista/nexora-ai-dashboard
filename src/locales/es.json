@@ -28,7 +28,17 @@
     "aiActionDesc": "Tienes 12 clientes esperando respuestas. He redactado borradores. ¿Enviar ahora?",
     "reviewAndSend": "Revisar y Enviar Todo",
     "upcoming": "Próximas Citas",
-    "noAppointments": "No hay más citas para hoy."
+    "noAppointments": "No hay más citas para hoy.",
+    "totalRevenueShop": "Ventas de Hoy",
+    "newCustomersShop": "Pedidos de Hoy",
+    "pendingMessagesShop": "Envíos Pendientes",
+    "aiActionDescShop": "Tiene 4 pedidos pendientes de envío. ¿Desea que prepare las etiquetas de envío y envíe mensajes de seguimiento automatizados por WhatsApp a los clientes?",
+    "upcomingShop": "Pedidos Recientes",
+    "totalRevenueCafe": "Ingresos de Hoy",
+    "newCustomersCafe": "Clientes de Hoy",
+    "pendingMessagesCafe": "Pedidos Activos",
+    "aiActionDescCafe": "Tiene 3 pedidos digitales pendientes de aprobación en la cocina. ¿Desea que los revise y los envíe al chef?",
+    "upcomingCafe": "Pedidos de Cocina Activos"
   },
   "inbox": {
     "search": "Buscar conversaciones...",
@@ -128,7 +138,8 @@
       "salon": "Salón de Belleza",
       "clinic": "Clínica Dental",
       "gym": "Gimnasio",
-      "cafe": "Cafetería / Restaurante"
+      "cafe": "Cafetería / Restaurante",
+      "shop": "Tienda Online"
     },
     "goal": "¿Cuál es tu objetivo principal?",
     "goalDesc": "Nexora optimizará el panel según tu prioridad.",
@@ -161,5 +172,61 @@
     "campResultDesc": "Tu publicación de Instagram rinde un 24% mejor de lo normal.",
     "suggestedPrompts": "Preguntas Sugeridas",
     "askAnything": "Pregunta a Nexora..."
+  },
+  "customers": {
+    "title": "Clientes",
+    "total": "total",
+    "search": "Buscar clientes...",
+    "visits": "Visitas Totales",
+    "spent": "Gasto Total",
+    "lastVisit": "Última Visita",
+    "aiNote": "Nota de IA del Cliente",
+    "favoriteService": "Servicio Favorito",
+    "sendMessage": "Enviar Mensaje",
+    "bookAppointment": "Reservar Cita",
+    "aiAnalysisBtn": "Análisis Inteligente de IA",
+    "aiAnalysisTitle": "Informe de Información Inteligente de IA",
+    "aiProfile": "Perfil de Personalidad del Cliente",
+    "aiBehavior": "Comportamientos de Compra",
+    "aiUpsells": "Ventas Adicionales Recomendadas por IA",
+    "aiStrategy": "Estrategia de Comunicación"
+  },
+  "services": {
+    "title": "Catálogo de Servicios",
+    "subtitle": "Administra tus servicios y precios. Nexora AI aprende de ellos automáticamente.",
+    "addService": "Añadir Servicio",
+    "serviceName": "Nombre del Servicio",
+    "namePlaceholder": "ej., Facial Hidratante",
+    "category": "Categoría",
+    "duration": "Duración (min)",
+    "price": "Precio ($)",
+    "status": "Estado",
+    "cancel": "Cancelar",
+    "confirm": "Añadir Servicio",
+    "all": "Todos"
+  },
+  "campaignResults": {
+    "title": "Resultados de Campaña",
+    "subtitle": "Sigue el rendimiento de tus campañas enviadas y programadas.",
+    "newCampaign": "Nueva Campaña",
+    "reach": "Alcance Total",
+    "clicks": "Clics",
+    "conversions": "Conversiones",
+    "aiAnalysis": "Análisis de IA",
+    "convRate": "tasa"
+  },
+  "ecommerce": {
+    "title": "Tienda Online",
+    "subtitle": "Administra tus pedidos, productos y rendimiento de la tienda.",
+    "newOrder": "Nuevo Pedido",
+    "totalOrders": "Pedidos Totales",
+    "pendingShipment": "Envío Pendiente",
+    "revenue": "Ingresos",
+    "refunds": "Reembolsos",
+    "orders": "Pedidos",
+    "products": "Productos",
+    "aiSuggestion": "Alerta de Stock de IA",
+    "aiSuggestionDesc": "El 'Set de Serum Facial' está casi agotado (quedan 3 unidades). Haz un nuevo pedido para no perder ventas.",
+    "reorderNow": "Reordenar Ahora"
   }
 }

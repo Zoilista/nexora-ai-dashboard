@@ -28,7 +28,17 @@
     "aiActionDesc": "有12位客户正在等待回复。我已经起草了回复。现在发送吗？",
     "reviewAndSend": "查看并全部发送",
     "upcoming": "即将到来的预约",
-    "noAppointments": "今天没有更多预约。"
+    "noAppointments": "今天没有更多预约。",
+    "totalRevenueShop": "今日销售额",
+    "newCustomersShop": "今日订单",
+    "pendingMessagesShop": "待出货订单",
+    "aiActionDescShop": "您有4个订单等待发货。需要我起草快递单并向客户发送自动 WhatsApp 追踪消息吗？",
+    "upcomingShop": "最近订单",
+    "totalRevenueCafe": "今日营业额",
+    "newCustomersCafe": "今日客流量",
+    "pendingMessagesCafe": "进行中订单",
+    "aiActionDescCafe": "厨房有3个数字订单等待确认。需要我审核并派发给厨师吗？",
+    "upcomingCafe": "厨房待制订单"
   },
   "inbox": {
     "search": "搜索对话...",
@@ -128,7 +138,8 @@
       "salon": "美容院",
       "clinic": "牙科诊所",
       "gym": "健身房",
-      "cafe": "咖啡馆 / 餐厅"
+      "cafe": "咖啡馆 / 餐厅",
+      "shop": "在线商店"
     },
     "goal": "您的主要目标是什么？",
     "goalDesc": "Nexora 将根据您的优先级优化仪表板。",
@@ -161,5 +172,61 @@
     "campResultDesc": "您的周末 Instagram 帖子表现比平均水平好 24%。",
     "suggestedPrompts": "建议提问",
     "askAnything": "向 Nexora 提问..."
+  },
+  "customers": {
+    "title": "客户管理",
+    "total": "总计",
+    "search": "搜索客户...",
+    "visits": "总访问次数",
+    "spent": "总消费金额",
+    "lastVisit": "最近访问时间",
+    "aiNote": "AI 客户画像",
+    "favoriteService": "最常用服务",
+    "sendMessage": "发送消息",
+    "bookAppointment": "预约排单",
+    "aiAnalysisBtn": "AI 智能洞察",
+    "aiAnalysisTitle": "AI 智能洞察报告",
+    "aiProfile": "客户性格画像",
+    "aiBehavior": "购买行为分析",
+    "aiUpsells": "AI 推荐增值机会",
+    "aiStrategy": "专属沟通策略"
+  },
+  "services": {
+    "title": "服务目录管理",
+    "subtitle": "管理您的服务项目和定价。Nexora AI 会自动学习。",
+    "addService": "新增服务项目",
+    "serviceName": "服务项目名称",
+    "namePlaceholder": "例如，面部保湿护理",
+    "category": "类别",
+    "duration": "时长 (分钟)",
+    "price": "价格 ($)",
+    "status": "状态",
+    "cancel": "取消",
+    "confirm": "确认新增",
+    "all": "全部"
+  },
+  "campaignResults": {
+    "title": "营销效果看板",
+    "subtitle": "追踪已发送和计划内营销活动的效果分析。",
+    "newCampaign": "新建活动",
+    "reach": "覆盖人次",
+    "clicks": "点击量",
+    "conversions": "转化量",
+    "aiAnalysis": "AI 分析洞察",
+    "convRate": "率"
+  },
+  "ecommerce": {
+    "title": "在线商店",
+    "subtitle": "管理您的订单、产品和店铺经营表现。",
+    "newOrder": "新建订单",
+    "totalOrders": "总订单数",
+    "pendingShipment": "待出货订单",
+    "revenue": "营业额",
+    "refunds": "退款订单",
+    "orders": "订单列表",
+    "products": "商品管理",
+    "aiSuggestion": "AI 库存预警",
+    "aiSuggestionDesc": "'面部精华套装'已接近售罄 (仅剩3件)。请及时备货以避免销量流失。",
+    "reorderNow": "立即采购备货"
   }
 }

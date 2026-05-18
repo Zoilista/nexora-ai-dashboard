@@ -28,7 +28,17 @@
     "aiActionDesc": "12 clients attendent des réponses. J'ai rédigé des brouillons. Envoyer maintenant ?",
     "reviewAndSend": "Réviser et Tout Envoyer",
     "upcoming": "Prochains Rendez-vous",
-    "noAppointments": "Aucun autre rendez-vous aujourd'hui."
+    "noAppointments": "Aucun autre rendez-vous aujourd'hui.",
+    "totalRevenueShop": "Ventes d'Aujourd'hui",
+    "newCustomersShop": "Commandes d'Aujourd'hui",
+    "pendingMessagesShop": "Expéditions en Attente",
+    "aiActionDescShop": "Vous avez 4 commandes en attente d'expédition. Laissez-moi préparer les étiquettes d'expédition et envoyer des messages de suivi WhatsApp automatisés aux clients ?",
+    "upcomingShop": "Commandes Récentes",
+    "totalRevenueCafe": "Revenu d'Aujourd'hui",
+    "newCustomersCafe": "Invités d'Aujourd'hui",
+    "pendingMessagesCafe": "Commandes Actives",
+    "aiActionDescCafe": "Vous avez 3 commandes numériques en attente d'approbation en cuisine. Laissez-moi les examiner et les envoyer au chef ?",
+    "upcomingCafe": "Commandes de Cuisine Actives"
   },
   "inbox": {
     "search": "Rechercher des conversations...",
@@ -128,7 +138,8 @@
       "salon": "Salon de Beauté",
       "clinic": "Clinique Dentaire",
       "gym": "Studio de Fitness",
-      "cafe": "Café / Restaurant"
+      "cafe": "Café / Restaurant",
+      "shop": "Boutique en Ligne"
     },
     "goal": "Quel est votre objectif principal ?",
     "goalDesc": "Nexora optimisera votre tableau de bord en conséquence.",
@@ -161,5 +172,61 @@
     "campResultDesc": "Votre publication Instagram performe 24% mieux que la moyenne.",
     "suggestedPrompts": "Suggestions",
     "askAnything": "Demandez quoi que ce soit..."
+  },
+  "customers": {
+    "title": "Clients",
+    "total": "total",
+    "search": "Rechercher des clients...",
+    "visits": "Visites Totales",
+    "spent": "Dépenses Totales",
+    "lastVisit": "Dernière Visite",
+    "aiNote": "Note d'IA du Client",
+    "favoriteService": "Service Préféré",
+    "sendMessage": "Envoyer un Message",
+    "bookAppointment": "Prendre Rendez-vous",
+    "aiAnalysisBtn": "Analyse Intelligente de l'IA",
+    "aiAnalysisTitle": "Rapport d'Informations Intelligentes de l'IA",
+    "aiProfile": "Profil de Personnalité du Client",
+    "aiBehavior": "Comportements d'Achat",
+    "aiUpsells": "Ventes Additionnelles Recommandées par l'IA",
+    "aiStrategy": "Stratégie de Communication"
+  },
+  "services": {
+    "title": "Catalogue de Services",
+    "subtitle": "Gérez vos services et tarifs. Nexora AI en apprend automatiquement.",
+    "addService": "Ajouter un Service",
+    "serviceName": "Nom du Service",
+    "namePlaceholder": "ex: Soin Visage Hydratant",
+    "category": "Catégorie",
+    "duration": "Durée (min)",
+    "price": "Prix ($)",
+    "status": "Statut",
+    "cancel": "Annuler",
+    "confirm": "Ajouter le Service",
+    "all": "Tous"
+  },
+  "campaignResults": {
+    "title": "Résultats de Campagne",
+    "subtitle": "Suivez les performances de vos campagnes envoyées et planifiées.",
+    "newCampaign": "Nouvelle Campagne",
+    "reach": "Portée Totale",
+    "clicks": "Clics",
+    "conversions": "Conversions",
+    "aiAnalysis": "Analyse de l'IA",
+    "convRate": "taux"
+  },
+  "ecommerce": {
+    "title": "Boutique en Ligne",
+    "subtitle": "Gérez vos commandes, produits et performances de boutique.",
+    "newOrder": "Nouvelle Commande",
+    "totalOrders": "Commandes Totales",
+    "pendingShipment": "Expédition en Attente",
+    "revenue": "Revenu",
+    "refunds": "Remboursements",
+    "orders": "Commandes",
+    "products": "Produits",
+    "aiSuggestion": "Alerte Stock de l'IA",
+    "aiSuggestionDesc": "Le 'Coffret Sérum Visage' est presque épuisé (3 restants). Commandez à nouveau pour éviter de perdre des ventes.",
+    "reorderNow": "Commander à Nouveau"
   }
 }
