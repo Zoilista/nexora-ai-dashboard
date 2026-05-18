@@ -85,7 +85,20 @@
     "performance": "Kanal Performansı",
     "performanceSub": "Platformlara göre Erişim vs Dönüşüm",
     "reach": "Toplam Erişim",
-    "conversions": "Dönüşümler"
+    "conversions": "Dönüşümler",
+    "weeklyRevenue": "Haftalık Gelir",
+    "weeklyRevenueSub": "Mevcut hafta için günlük gelir",
+    "thisWeek": "Bu hafta",
+    "revenue": "Gelir"
+  },
+  "days": {
+    "mon": "Pzt",
+    "tue": "Sal",
+    "wed": "Çar",
+    "thu": "Per",
+    "fri": "Cum",
+    "sat": "Cmt",
+    "sun": "Paz"
   },
   "settings": {
     "title": "YZ Ayarları ve Bilgi",

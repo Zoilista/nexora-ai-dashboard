@@ -85,7 +85,20 @@
     "performance": "Channel Performance",
     "performanceSub": "Reach vs Conversion across platforms",
     "reach": "Total Reach",
-    "conversions": "Conversions"
+    "conversions": "Conversions",
+    "weeklyRevenue": "Weekly Revenue",
+    "weeklyRevenueSub": "Daily income for the current week",
+    "thisWeek": "This week",
+    "revenue": "Revenue"
+  },
+  "days": {
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun"
   },
   "settings": {
     "title": "AI Settings & Knowledge",

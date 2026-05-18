@@ -81,7 +81,20 @@
     "performance": "Rendimiento de Canales",
     "performanceSub": "Alcance vs Conversión por plataforma",
     "reach": "Alcance Total",
-    "conversions": "Conversiones"
+    "conversions": "Conversiones",
+    "weeklyRevenue": "Ingresos Semanales",
+    "weeklyRevenueSub": "Ingresos diarios para la semana actual",
+    "thisWeek": "Esta semana",
+    "revenue": "Ingresos"
+  },
+  "days": {
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mié",
+    "thu": "Jue",
+    "fri": "Vie",
+    "sat": "Sáb",
+    "sun": "Dom"
   },
   "settings": {
     "title": "Ajustes y Conocimiento",

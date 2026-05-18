@@ -83,12 +83,12 @@ export const Insights = () => {
       <div className="bg-[#111] border border-white/10 p-8 rounded-2xl shadow-lg">
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h3 className="text-lg font-bold text-white">Weekly Revenue</h3>
-            <p className="text-sm text-zinc-400 mt-1">Daily income for the current week</p>
+            <h3 className="text-lg font-bold text-white">{t('insights.weeklyRevenue')}</h3>
+            <p className="text-sm text-zinc-400 mt-1">{t('insights.weeklyRevenueSub')}</p>
           </div>
           <div className="text-right">
             <p className="text-2xl font-bold text-emerald-400">$12,200</p>
-            <p className="text-xs text-zinc-500">This week</p>
+            <p className="text-xs text-zinc-500">{t('insights.thisWeek')}</p>
           </div>
         </div>
         <div style={{ height: 200 }}>
@@ -101,12 +101,13 @@ export const Insights = () => {
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" vertical={false} />
-              <XAxis dataKey="day" stroke="#71717a" fontSize={12} tickLine={false} axisLine={false} />
+              <XAxis dataKey="day" stroke="#71717a" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(tick) => t(`days.${tick.toLowerCase()}`)} />
               <YAxis stroke="#71717a" fontSize={12} tickLine={false} axisLine={false} dx={-10} tickFormatter={(v) => `$${(v/1000).toFixed(1)}k`} />
               <Tooltip
                 contentStyle={{ backgroundColor: '#0a0a0a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', fontSize: '12px' }}
                 itemStyle={{ color: '#fff', fontWeight: 'bold' }}
-                formatter={(v) => [`$${v}`, 'Revenue']}
+                labelFormatter={(label) => t(`days.${label.toLowerCase()}`)}
+                formatter={(v) => [`$${v}`, t('insights.revenue')]}
               />
               <Area type="monotone" dataKey="revenue" stroke="#8b5cf6" strokeWidth={2} fill="url(#colorRevenue)" dot={{ fill: '#8b5cf6', r: 4 }} activeDot={{ r: 6 }} />
             </AreaChart>

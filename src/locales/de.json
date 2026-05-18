@@ -81,7 +81,20 @@
     "performance": "Kanal-Performance",
     "performanceSub": "Reichweite vs. Konversion nach Plattform",
     "reach": "Gesamtreichweite",
-    "conversions": "Konversionen"
+    "conversions": "Konversionen",
+    "weeklyRevenue": "Wöchentlicher Umsatz",
+    "weeklyRevenueSub": "Tägliche Einnahmen für die aktuelle Woche",
+    "thisWeek": "Diese Woche",
+    "revenue": "Umsatz"
+  },
+  "days": {
+    "mon": "Mon",
+    "tue": "Die",
+    "wed": "Mit",
+    "thu": "Don",
+    "fri": "Fre",
+    "sat": "Sam",
+    "sun": "Son"
   },
   "settings": {
     "title": "KI-Einstellungen & Wissen",

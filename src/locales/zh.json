@@ -81,7 +81,20 @@
     "performance": "渠道表现",
     "performanceSub": "各平台的覆盖率与转化率",
     "reach": "总覆盖人数",
-    "conversions": "转化次数"
+    "conversions": "转化次数",
+    "weeklyRevenue": "每周收入",
+    "weeklyRevenueSub": "本周每日收入",
+    "thisWeek": "本周",
+    "revenue": "收入"
+  },
+  "days": {
+    "mon": "周一",
+    "tue": "周二",
+    "wed": "周三",
+    "thu": "周四",
+    "fri": "周五",
+    "sat": "周六",
+    "sun": "周日"
   },
   "settings": {
     "title": "AI 设置与知识库",

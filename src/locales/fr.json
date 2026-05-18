@@ -81,7 +81,20 @@
     "performance": "Performance des Canaux",
     "performanceSub": "Portée vs Conversion par plateforme",
     "reach": "Portée Totale",
-    "conversions": "Conversions"
+    "conversions": "Conversions",
+    "weeklyRevenue": "Chiffre d'Affaires Hebdomadaire",
+    "weeklyRevenueSub": "Revenu quotidien pour la semaine en cours",
+    "thisWeek": "Cette semaine",
+    "revenue": "Revenu"
+  },
+  "days": {
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mer",
+    "thu": "Jeu",
+    "fri": "Ven",
+    "sat": "Sam",
+    "sun": "Dim"
   },
   "settings": {
     "title": "Paramètres et Connaissances",
