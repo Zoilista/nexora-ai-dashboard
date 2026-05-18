@@ -228,5 +228,45 @@
     "aiSuggestion": "AI 库存预警",
     "aiSuggestionDesc": "'面部精华套装'已接近售罄 (仅剩3件)。请及时备货以避免销量流失。",
     "reorderNow": "立即采购备货"
+  },
+  "healthScore": {
+    "title": "企业健康评分",
+    "subtitle": "基于今日实时运营表现",
+    "excellent": "优秀",
+    "good": "良好",
+    "needsAttention": "需要关注",
+    "keyFactors": "关键绩效指标",
+    "aiNote": "AI 洞察"
+  },
+  "aiChat": {
+    "title": "Nexora AI",
+    "placeholder": "向 Nexora 提问任何问题...",
+    "typing": "Nexora 正在思考...",
+    "send": "发送",
+    "quickActions": "快捷操作",
+    "newChat": "新建对话",
+    "greeting": "您好！我是 Nexora AI，您的智能业务助手。我可以帮助您处理营销活动、客户分析、预约管理、收入分析等各类事务。今天有什么我可以帮您的吗？",
+    "cmdNavigate": "正在为您跳转...",
+    "cmdDefault": "正在分析您的业务数据，以下是我的发现：",
+    "cmdCampaigns": "您的营销活动表现出色！上次活动触达了 4,200 人，转化率达 57%，远超行业平均水平。需要我创建一个新活动吗？",
+    "cmdRevenue": "本周营业额为 12,200 美元——比上周增长 14%。最佳表现日为周六（2,800 美元）。需要我分析哪些服务贡献了最多增长吗？",
+    "cmdCustomers": "您有 5 位客户处于"流失风险"状态，另有 2 位 VIP 客户本月过生日——绝佳的增值销售机会。需要我为其中任何一位起草个性化消息吗？",
+    "cmdAppointments": "今天您有 4 个预约，排班占用率达 87%。今天下午有一个 2.5 小时的空档——需要我起草一条限时优惠短信来填满它吗？",
+    "cmdHelp": "我可以协助您完成：收入分析、客户洞察、活动创建、预约管理、库存预警和每周简报。请随时提问！",
+    "btnViewCampaigns": "查看营销活动",
+    "btnViewCustomers": "查看客户列表",
+    "btnViewAppointments": "查看预约排班",
+    "btnCreateCampaign": "创建营销活动"
+  },
+  "weeklyBriefing": {
+    "title": "本周业务总览",
+    "subtitle": "AI 每周简报 — 专为您的业务定制",
+    "dismiss": "明白了，谢谢！",
+    "peakDay": "预计最繁忙日期",
+    "opportunity": "本周最大机会",
+    "forecast": "AI 收入预测",
+    "peakDayValue": "周六",
+    "opportunityValue": "向 3 位流失的 VIP 客户发送个性化忠诚度优惠",
+    "forecastValue": "14,800 美元 — 比上周高出 21%"
   }
 }

@@ -228,5 +228,45 @@
     "aiSuggestion": "Alerta de Stock de IA",
     "aiSuggestionDesc": "El 'Set de Serum Facial' está casi agotado (quedan 3 unidades). Haz un nuevo pedido para no perder ventas.",
     "reorderNow": "Reordenar Ahora"
+  },
+  "healthScore": {
+    "title": "Puntuación de Salud del Negocio",
+    "subtitle": "Basado en el rendimiento en tiempo real de hoy",
+    "excellent": "Excelente",
+    "good": "Bueno",
+    "needsAttention": "Requiere Atención",
+    "keyFactors": "Factores Clave de Rendimiento",
+    "aiNote": "Perspectiva de IA"
+  },
+  "aiChat": {
+    "title": "Nexora IA",
+    "placeholder": "Pregunta a Nexora cualquier cosa...",
+    "typing": "Nexora está pensando...",
+    "send": "Enviar",
+    "quickActions": "Acciones Rápidas",
+    "newChat": "Nueva Conversación",
+    "greeting": "¡Hola! Soy Nexora IA, tu copiloto inteligente de negocios. Puedo ayudarte con campañas, análisis de clientes, citas, análisis de ingresos y mucho más. ¿En qué puedo ayudarte?",
+    "cmdNavigate": "Llevándote allí ahora...",
+    "cmdDefault": "Analizando los datos de tu negocio. Esto es lo que encontré:",
+    "cmdCampaigns": "¡Tus campañas van genial! Tu última campaña llegó a 4.200 personas con una tasa de conversión del 57%. ¿Quieres que cree una nueva?",
+    "cmdRevenue": "Los ingresos de esta semana son $12,200 — un 14% más que la semana pasada. ¿Quieres identificar qué servicios están impulsando más el crecimiento?",
+    "cmdCustomers": "Tienes 5 clientes con estado 'En Riesgo' y 2 VIPs con cumpleaños este mes. ¿Quieres que redacte un mensaje personalizado?",
+    "cmdAppointments": "Tienes 4 citas hoy con una tasa de ocupación del 87%. Hay un hueco de 2,5 horas esta tarde. ¿Quieres un SMS de oferta flash?",
+    "cmdHelp": "Puedo ayudarte con: análisis de ingresos, perspectivas de clientes, creación de campañas, gestión de citas, alertas de stock y briefings semanales.",
+    "btnViewCampaigns": "Ver Campañas",
+    "btnViewCustomers": "Ver Clientes",
+    "btnViewAppointments": "Ver Citas",
+    "btnCreateCampaign": "Crear Campaña"
+  },
+  "weeklyBriefing": {
+    "title": "Tu Semana de un Vistazo",
+    "subtitle": "Briefing Semanal de IA — Personalizado para tu Negocio",
+    "dismiss": "¡Entendido, gracias!",
+    "peakDay": "Día Más Ocupado Previsto",
+    "opportunity": "Principal Oportunidad",
+    "forecast": "Previsión de Ingresos de IA",
+    "peakDayValue": "Sábado",
+    "opportunityValue": "Reactivar a 3 clientes VIP inactivos con una oferta de fidelidad personalizada",
+    "forecastValue": "$14,800 — 21% por encima de la semana pasada"
   }
 }

@@ -242,5 +242,45 @@
     "aiSuggestion": "AI Restock Alert",
     "aiSuggestionDesc": "'Face Serum Bundle' is almost out of stock (3 left). Reorder now to avoid lost sales.",
     "reorderNow": "Reorder Now"
+  },
+  "healthScore": {
+    "title": "Business Health Score",
+    "subtitle": "Based on today's real-time performance",
+    "excellent": "Excellent",
+    "good": "Good",
+    "needsAttention": "Needs Attention",
+    "keyFactors": "Key Performance Factors",
+    "aiNote": "AI Insight"
+  },
+  "aiChat": {
+    "title": "Nexora AI",
+    "placeholder": "Ask Nexora anything...",
+    "typing": "Nexora is thinking...",
+    "send": "Send",
+    "quickActions": "Quick Actions",
+    "newChat": "New Chat",
+    "greeting": "Hi! I'm Nexora AI, your intelligent business copilot. I can help you with campaigns, customer insights, appointments, revenue analysis, and more. What would you like to know?",
+    "cmdNavigate": "Taking you there now...",
+    "cmdDefault": "I'm analyzing your business data. Here's what I found:",
+    "cmdCampaigns": "Your campaigns are doing great! Your last campaign reached 4,200 people with a 57% conversion rate — well above industry average. Want me to create a new one?",
+    "cmdRevenue": "This week's revenue is $12,200 — up 14% vs last week. Your best day was Saturday ($2,800). Would you like me to identify which services are driving the most growth?",
+    "cmdCustomers": "You have 5 customers with 'At Risk' status, and 2 VIPs whose birthdays are this month — great upsell opportunities. Want me to draft a personalized message for any of them?",
+    "cmdAppointments": "You have 4 appointments today with an 87% fill rate. There's a 2.5-hour gap this afternoon — want me to draft a flash-offer SMS to fill it?",
+    "cmdHelp": "Here's what I can help you with: revenue analysis, customer insights, campaign creation, appointment management, stock alerts, and weekly briefings. Just ask!",
+    "btnViewCampaigns": "View Campaigns",
+    "btnViewCustomers": "View Customers",
+    "btnViewAppointments": "View Appointments",
+    "btnCreateCampaign": "Create Campaign"
+  },
+  "weeklyBriefing": {
+    "title": "Your Week at a Glance",
+    "subtitle": "AI Weekly Briefing — Personalized for your business",
+    "dismiss": "Got it, thanks!",
+    "peakDay": "Expected Busiest Day",
+    "opportunity": "Top Opportunity",
+    "forecast": "AI Revenue Forecast",
+    "peakDayValue": "Saturday",
+    "opportunityValue": "Re-engage 3 lapsed VIP clients with a personalized loyalty offer",
+    "forecastValue": "$14,800 — 21% above last week"
   }
 }

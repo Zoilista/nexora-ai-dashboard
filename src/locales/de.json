@@ -228,5 +228,45 @@
     "aiSuggestion": "KI-Strockwarnung",
     "aiSuggestionDesc": "Das 'Gesichtsserum-Set' ist fast ausverkauft (noch 3 Stück). Bestellen Sie nach, um keine Umsätze zu verlieren.",
     "reorderNow": "Jetzt Nachbestellen"
+  },
+  "healthScore": {
+    "title": "Unternehmens-Gesundheitsscore",
+    "subtitle": "Basiert auf der heutigen Echtzeit-Leistung",
+    "excellent": "Ausgezeichnet",
+    "good": "Gut",
+    "needsAttention": "Aufmerksamkeit Erforderlich",
+    "keyFactors": "Wichtige Leistungsfaktoren",
+    "aiNote": "KI-Einblick"
+  },
+  "aiChat": {
+    "title": "Nexora KI",
+    "placeholder": "Fragen Sie Nexora alles...",
+    "typing": "Nexora denkt nach...",
+    "send": "Senden",
+    "quickActions": "Schnellaktionen",
+    "newChat": "Neues Gespräch",
+    "greeting": "Hallo! Ich bin Nexora KI, Ihr intelligenter Business-Copilot. Ich kann Ihnen bei Kampagnen, Kundenanalysen, Terminen, Umsatzanalysen und vielem mehr helfen. Wie kann ich Ihnen heute helfen?",
+    "cmdNavigate": "Ich bringe Sie jetzt dorthin...",
+    "cmdDefault": "Ich analysiere Ihre Geschäftsdaten. Hier ist, was ich gefunden habe:",
+    "cmdCampaigns": "Ihre Kampagnen laufen großartig! Ihre letzte Kampagne erreichte 4.200 Personen mit einer Konversionsrate von 57 %. Möchten Sie, dass ich eine neue erstelle?",
+    "cmdRevenue": "Der Umsatz dieser Woche beträgt 12.200 $ — 14 % mehr als letzte Woche. Soll ich herausfinden, welche Dienste das Wachstum am meisten antreiben?",
+    "cmdCustomers": "Sie haben 5 Kunden mit dem Status 'Gefährdet' und 2 VIPs, deren Geburtstag diesen Monat ist. Soll ich eine personalisierte Nachricht entwerfen?",
+    "cmdAppointments": "Sie haben heute 4 Termine mit einer Auslastung von 87 %. Heute Nachmittag gibt es eine 2,5-stündige Lücke. Möchten Sie eine Flash-Angebots-SMS?",
+    "cmdHelp": "Ich kann bei Folgendem helfen: Umsatzanalyse, Kundeneinblicke, Kampagnenerstellung, Terminverwaltung, Bestandswarnungen und wöchentliche Briefings.",
+    "btnViewCampaigns": "Kampagnen Anzeigen",
+    "btnViewCustomers": "Kunden Anzeigen",
+    "btnViewAppointments": "Termine Anzeigen",
+    "btnCreateCampaign": "Kampagne Erstellen"
+  },
+  "weeklyBriefing": {
+    "title": "Ihre Woche auf einen Blick",
+    "subtitle": "KI-Wochenbriefing — Personalisiert für Ihr Unternehmen",
+    "dismiss": "Verstanden, danke!",
+    "peakDay": "Voraussichtlich Stärkster Tag",
+    "opportunity": "Top-Gelegenheit",
+    "forecast": "KI-Umsatzprognose",
+    "peakDayValue": "Samstag",
+    "opportunityValue": "3 inaktive VIP-Kunden mit einem personalisierten Treueangebot reaktivieren",
+    "forecastValue": "14.800 $ — 21 % über der Vorwoche"
   }
 }

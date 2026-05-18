@@ -242,5 +242,45 @@
     "aiSuggestion": "YZ Stok Uyarısı",
     "aiSuggestionDesc": "'Yüz Serumu Seti' neredeyse tükendi (3 adet kaldı). Satış kaybetmemek için yeniden sipariş verin.",
     "reorderNow": "Şimdi Sipariş Ver"
+  },
+  "healthScore": {
+    "title": "İşletme Sağlığı Skoru",
+    "subtitle": "Bugünün gerçek zamanlı performansına dayanmaktadır",
+    "excellent": "Mükemmel",
+    "good": "İyi",
+    "needsAttention": "Dikkat Gerekiyor",
+    "keyFactors": "Temel Performans Faktörleri",
+    "aiNote": "YZ Analizi"
+  },
+  "aiChat": {
+    "title": "Nexora YZ",
+    "placeholder": "Nexora'ya herhangi bir şey sorun...",
+    "typing": "Nexora düşünüyor...",
+    "send": "Gönder",
+    "quickActions": "Hızlı İşlemler",
+    "newChat": "Yeni Sohbet",
+    "greeting": "Merhaba! Ben Nexora YZ, akıllı işletme asistanınızım. Kampanyalar, müşteri analizleri, randevular, gelir raporları ve çok daha fazlasında yardımcı olabilirim. Size nasıl yardımcı olabilirim?",
+    "cmdNavigate": "Sizi oraya yönlendiriyorum...",
+    "cmdDefault": "İşletme verilerinizi analiz ediyorum. İşte bulduklarım:",
+    "cmdCampaigns": "Kampanyalarınız harika gidiyor! Son kampanyanız 4.200 kişiye ulaştı ve %57 dönüşüm oranıyla sektör ortalamasının çok üzerinde. Yeni bir kampanya oluşturmamı ister misiniz?",
+    "cmdRevenue": "Bu haftanın geliri 12.200$ — geçen haftaya göre %14 artış. En iyi gününüz Cumartesi (2.800$) oldu. Büyümeyi en çok hangi hizmetlerin sağladığını tespit etmemi ister misiniz?",
+    "cmdCustomers": "5 müşteriniz 'Risk Altında' statüsünde ve 2 VIP müşterinizin bu ay doğum günü var — harika fırsatlar bunlar. Herhangi biri için kişiselleştirilmiş bir mesaj hazırlamamı ister misiniz?",
+    "cmdAppointments": "Bugün 4 randevunuz var ve doluluk oranınız %87. Bu öğleden sonra 2,5 saatlik bir boşluk var — bunu doldurmak için flash-teklif SMS'i taslağı hazırlamamı ister misiniz?",
+    "cmdHelp": "Yardımcı olabileceğim konular: gelir analizi, müşteri içgörüleri, kampanya oluşturma, randevu yönetimi, stok uyarıları ve haftalık brifinglar. Sadece sorun!",
+    "btnViewCampaigns": "Kampanyaları Gör",
+    "btnViewCustomers": "Müşterileri Gör",
+    "btnViewAppointments": "Randevuları Gör",
+    "btnCreateCampaign": "Kampanya Oluştur"
+  },
+  "weeklyBriefing": {
+    "title": "Haftanıza Genel Bakış",
+    "subtitle": "YZ Haftalık Brifing — İşletmenize Özel Hazırlandı",
+    "dismiss": "Anladım, teşekkürler!",
+    "peakDay": "En Yoğun Gün Tahmini",
+    "opportunity": "Haftanın En Büyük Fırsatı",
+    "forecast": "YZ Gelir Tahmini",
+    "peakDayValue": "Cumartesi",
+    "opportunityValue": "3 kaybedilmek üzere olan VIP müşteriye kişisel sadakat teklifi gönderin",
+    "forecastValue": "14.800$ — geçen haftaya göre %21 artış"
   }
 }

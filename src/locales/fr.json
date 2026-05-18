@@ -228,5 +228,45 @@
     "aiSuggestion": "Alerte Stock de l'IA",
     "aiSuggestionDesc": "Le 'Coffret Sérum Visage' est presque épuisé (3 restants). Commandez à nouveau pour éviter de perdre des ventes.",
     "reorderNow": "Commander à Nouveau"
+  },
+  "healthScore": {
+    "title": "Score de Santé de l'Entreprise",
+    "subtitle": "Basé sur les performances en temps réel d'aujourd'hui",
+    "excellent": "Excellent",
+    "good": "Bon",
+    "needsAttention": "Attention Requise",
+    "keyFactors": "Facteurs Clés de Performance",
+    "aiNote": "Insight IA"
+  },
+  "aiChat": {
+    "title": "Nexora IA",
+    "placeholder": "Demandez n'importe quoi à Nexora...",
+    "typing": "Nexora réfléchit...",
+    "send": "Envoyer",
+    "quickActions": "Actions Rapides",
+    "newChat": "Nouvelle Conversation",
+    "greeting": "Bonjour ! Je suis Nexora IA, votre copilote business intelligent. Je peux vous aider avec les campagnes, les analyses clients, les rendez-vous, l'analyse des revenus et bien plus encore. Comment puis-je vous aider ?",
+    "cmdNavigate": "Je vous y emmène maintenant...",
+    "cmdDefault": "J'analyse vos données commerciales. Voici ce que j'ai trouvé :",
+    "cmdCampaigns": "Vos campagnes se portent très bien ! Votre dernière campagne a atteint 4 200 personnes avec un taux de conversion de 57 %. Voulez-vous que j'en crée une nouvelle ?",
+    "cmdRevenue": "Le revenu de cette semaine est de 12 200 $ — en hausse de 14 % par rapport à la semaine dernière. Voulez-vous identifier quels services stimulent le plus la croissance ?",
+    "cmdCustomers": "Vous avez 5 clients avec le statut 'À Risque' et 2 VIPs dont l'anniversaire est ce mois-ci. Voulez-vous que je rédige un message personnalisé ?",
+    "cmdAppointments": "Vous avez 4 rendez-vous aujourd'hui avec un taux d'occupation de 87 %. Il y a un créneau de 2,5 heures cet après-midi. Voulez-vous un SMS d'offre flash ?",
+    "cmdHelp": "Je peux vous aider avec : analyse des revenus, insights clients, création de campagnes, gestion des rendez-vous, alertes de stock et briefings hebdomadaires.",
+    "btnViewCampaigns": "Voir les Campagnes",
+    "btnViewCustomers": "Voir les Clients",
+    "btnViewAppointments": "Voir les Rendez-vous",
+    "btnCreateCampaign": "Créer une Campagne"
+  },
+  "weeklyBriefing": {
+    "title": "Votre Semaine en un Coup d'Œil",
+    "subtitle": "Briefing Hebdomadaire IA — Personnalisé pour Votre Entreprise",
+    "dismiss": "Compris, merci !",
+    "peakDay": "Jour le Plus Chargé Prévu",
+    "opportunity": "Principale Opportunité",
+    "forecast": "Prévision de Revenus IA",
+    "peakDayValue": "Samedi",
+    "opportunityValue": "Réengager 3 clients VIP inactifs avec une offre de fidélité personnalisée",
+    "forecastValue": "14 800 $ — 21 % au-dessus de la semaine dernière"
   }
 }

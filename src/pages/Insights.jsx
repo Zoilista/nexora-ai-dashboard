@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, LineChart, Line, Area, AreaChart } from 'recharts';
-import { Lightbulb, TrendingUp, Sparkles, AlertTriangle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Area, AreaChart } from 'recharts';
+import { Lightbulb, TrendingUp, Sparkles, AlertTriangle, Calendar, Target, X, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const barData = [
@@ -20,12 +20,113 @@ const lineData = [
   { day: 'Sun', revenue: 1900 },
 ];
 
+// Get ISO week number helper
+const getWeekNumber = (d) => {
+  const date = new Date(d);
+  date.setHours(0, 0, 0, 0);
+  date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
+  const week1 = new Date(date.getFullYear(), 0, 4);
+  return 1 + Math.round(((date - week1) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
+};
+
+const WeeklyBriefingCard = ({ onDismiss }) => {
+  const { t } = useTranslation();
+  return (
+    <div className="relative bg-gradient-to-br from-[#1a0f2e] to-[#0d1a2e] border border-purple-500/30 rounded-2xl p-6 shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-3 duration-500">
+      {/* Background glow blobs */}
+      <div className="absolute top-0 left-1/4 w-64 h-64 bg-purple-600/10 blur-3xl rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-blue-600/10 blur-3xl rounded-full pointer-events-none" />
+
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="flex items-start justify-between mb-5">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-gradient-to-br from-purple-600 to-blue-600 shadow-lg shadow-purple-500/20">
+              <Sparkles size={18} className="text-white" />
+            </div>
+            <div>
+              <h2 className="text-lg font-display font-bold text-white">{t('weeklyBriefing.title')}</h2>
+              <p className="text-xs text-purple-300/70 mt-0.5">{t('weeklyBriefing.subtitle')}</p>
+            </div>
+          </div>
+          <button
+            onClick={onDismiss}
+            className="text-zinc-500 hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition-colors"
+          >
+            <X size={16} />
+          </button>
+        </div>
+
+        {/* 3 briefing items */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+          {[
+            {
+              icon: Calendar,
+              color: 'text-blue-400',
+              bg: 'bg-blue-500/10 border-blue-500/20',
+              label: t('weeklyBriefing.peakDay'),
+              value: t('weeklyBriefing.peakDayValue')
+            },
+            {
+              icon: Target,
+              color: 'text-emerald-400',
+              bg: 'bg-emerald-500/10 border-emerald-500/20',
+              label: t('weeklyBriefing.opportunity'),
+              value: t('weeklyBriefing.opportunityValue')
+            },
+            {
+              icon: TrendingUp,
+              color: 'text-purple-400',
+              bg: 'bg-purple-500/10 border-purple-500/20',
+              label: t('weeklyBriefing.forecast'),
+              value: t('weeklyBriefing.forecastValue')
+            },
+          ].map((item, i) => (
+            <div key={i} className={`p-4 rounded-xl border ${item.bg}`}>
+              <div className={`${item.color} mb-2`}><item.icon size={18} /></div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-1">{item.label}</p>
+              <p className="text-sm font-bold text-white leading-snug">{item.value}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Dismiss */}
+        <div className="flex justify-end">
+          <button
+            onClick={onDismiss}
+            className="flex items-center gap-1.5 text-xs font-bold text-purple-300 hover:text-white bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 px-4 py-2 rounded-xl transition-all"
+          >
+            {t('weeklyBriefing.dismiss')}
+            <ChevronRight size={13} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
 export const Insights = () => {
   const { t } = useTranslation();
   const [chartPeriod, setChartPeriod] = useState('30');
 
+  // Weekly Briefing Card — show once per week, dismiss stored in localStorage
+  const currentWeek = `${new Date().getFullYear()}-W${getWeekNumber(new Date())}`;
+  const [showBriefing, setShowBriefing] = useState(() => {
+    return localStorage.getItem('nexora_briefing_week') !== currentWeek;
+  });
+
+  const handleDismissBriefing = () => {
+    localStorage.setItem('nexora_briefing_week', currentWeek);
+    setShowBriefing(false);
+  };
+
   return (
     <div className="space-y-8 animate-in fade-in duration-500 max-w-6xl mx-auto">
+      {/* Weekly Briefing Card */}
+      {showBriefing && <WeeklyBriefingCard onDismiss={handleDismissBriefing} />}
+
       <div className="flex items-center gap-4 mb-6">
         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg">
            <Sparkles className="text-white" size={24} />
@@ -35,6 +136,7 @@ export const Insights = () => {
           <p className="text-sm text-zinc-400">{t('insights.subtitle')}</p>
         </div>
       </div>
+
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
            <div className="bg-[#111] p-6 border-t-2 border-emerald-500 rounded-2xl shadow-lg">

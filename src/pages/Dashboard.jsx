@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { DollarSign, Users, MessageSquare, AlertCircle, ArrowRight, CheckCircle2, ShoppingBag, Package, Utensils } from 'lucide-react';
 import { useBusiness } from '../context/BusinessContext';
+import { HealthScoreGauge } from '../components/HealthScoreGauge';
 
 export const Dashboard = () => {
   const { t } = useTranslation();
@@ -57,20 +58,27 @@ export const Dashboard = () => {
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500 max-w-6xl mx-auto">
-      {/* Top Big Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {stats.map((stat, index) => (
-          <div key={index} className="bg-[#111] border border-white/10 p-6 rounded-2xl relative overflow-hidden shadow-md">
-            <div className="absolute top-0 right-0 p-6 opacity-10">
-              <stat.icon size={64} />
+      {/* Health Score + Stats Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Health Score Gauge — spans 1 col */}
+        <div className="lg:col-span-1">
+          <HealthScoreGauge />
+        </div>
+        {/* Stats — spans 2 cols in a 2-col sub-grid */}
+        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {stats.map((stat, index) => (
+            <div key={index} className="bg-[#111] border border-white/10 p-5 rounded-2xl relative overflow-hidden shadow-md">
+              <div className="absolute top-0 right-0 p-5 opacity-10">
+                <stat.icon size={56} />
+              </div>
+              <p className="text-zinc-400 text-xs font-medium mb-2">{stat.label}</p>
+              <h2 className="text-2xl font-display font-bold text-white mb-3">{stat.value}</h2>
+              <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10px] font-bold border ${stat.changeColor}`}>
+                {stat.change}
+              </span>
             </div>
-            <p className="text-zinc-400 text-sm font-medium mb-2">{stat.label}</p>
-            <h2 className="text-3xl font-display font-bold text-white mb-3">{stat.value}</h2>
-            <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold border ${stat.changeColor}`}>
-              {stat.change}
-            </span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Hero Action Card */}
