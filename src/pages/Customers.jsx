@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Search, User, Phone, Mail, Star, ChevronRight, MessageSquare, Calendar, DollarSign, Sparkles, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { useBusiness } from '../context/BusinessContext';
+import { useMockData } from '../hooks/useMockData';
 
 const customerMetadata = [
   { id: 1, key: 'c1', email: 'sarah.j@email.com', phone: '+1 555 0101', totalVisits: 24, totalSpent: 3840, lastVisit: 'May 10, 2026', rating: 5, tags: ['vip', 'regular'] },
@@ -20,13 +22,38 @@ const tagColors = {
 
 export const Customers = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const { businessType } = useBusiness();
   const [search, setSearch] = useState('');
   const [selectedId, setSelectedId] = useState(1);
   const [showAIModal, setShowAIModal] = useState(false);
+  const { data, loading } = useMockData(customerMetadata, 1000);
+
+  if (loading) {
+    return (
+      <div className="h-[calc(100vh-140px)] flex gap-6 animate-pulse">
+        <div className="w-80 bg-[#111] border border-white/5 rounded-2xl p-4 flex flex-col shrink-0">
+          <div className="h-6 w-32 bg-white/5 rounded mb-4"></div>
+          <div className="h-10 w-full bg-white/5 rounded-xl mb-4"></div>
+          <div className="flex-1 space-y-2">
+             {[1,2,3,4,5].map(i => (
+                <div key={i} className="h-16 w-full bg-white/5 rounded-xl"></div>
+             ))}
+          </div>
+        </div>
+        <div className="flex-1 space-y-6">
+           <div className="h-28 w-full bg-[#111] border border-white/5 rounded-2xl"></div>
+           <div className="grid grid-cols-3 gap-4">
+              {[1,2,3].map(i => <div key={i} className="h-24 bg-[#111] border border-white/5 rounded-2xl"></div>)}
+           </div>
+           <div className="h-40 w-full bg-purple-500/5 rounded-2xl"></div>
+        </div>
+      </div>
+    );
+  }
 
   // Generate dynamic localized customer profiles
-  const customerList = customerMetadata.map(c => {
+  const customerList = (data || []).map(c => {
     const favKey = t(`customers.profiles.${c.key}.favorite`);
     // Ensure upsell array safety
     let rawUpsells = t(`customers.profiles.${c.key}.upsells`, { returnObjects: true });
@@ -120,8 +147,18 @@ export const Customers = () => {
                 <Sparkles size={14} className="animate-pulse" />
                 <span>{t('customers.aiAnalysisBtn')}</span>
               </button>
-              <button className="p-2 rounded-xl bg-white/5 border border-white/10 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors" title={t('customers.sendMessage')}><MessageSquare size={18} /></button>
-              <button className="p-2 rounded-xl bg-white/5 border border-white/10 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors" title={t('customers.bookAppointment')}><Calendar size={18} /></button>
+              <button 
+                onClick={() => navigate('/inbox')}
+                className="p-2 rounded-xl bg-white/5 border border-white/10 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors" title={t('customers.sendMessage')}
+              >
+                <MessageSquare size={18} />
+              </button>
+              <button 
+                onClick={() => navigate('/appointments')}
+                className="p-2 rounded-xl bg-white/5 border border-white/10 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors" title={t('customers.bookAppointment')}
+              >
+                <Calendar size={18} />
+              </button>
             </div>
           </div>
         </div>

@@ -4,51 +4,11 @@ import { useBusiness } from '../context/BusinessContext';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 
 const businessScores = {
-  salon: {
-    score: 82,
-    factors: [
-      { label: 'Appointment Fill Rate', value: '87%', positive: true },
-      { label: 'Avg. Client Rating', value: '4.8/5', positive: true },
-      { label: 'Pending Replies', value: '12', positive: false },
-    ],
-    aiNote: 'Your salon is performing well. Responding to the 12 pending messages could push your score above 90.'
-  },
-  clinic: {
-    score: 74,
-    factors: [
-      { label: 'Patient Occupancy', value: '76%', positive: true },
-      { label: 'No-Show Rate', value: '8%', positive: false },
-      { label: 'Satisfaction Score', value: '4.6/5', positive: true },
-    ],
-    aiNote: 'No-show rate is slightly high. Consider sending automated reminders 24h before appointments.'
-  },
-  gym: {
-    score: 68,
-    factors: [
-      { label: 'Active Memberships', value: '142', positive: true },
-      { label: 'Class Fill Rate', value: '61%', positive: false },
-      { label: 'Renewal Rate', value: '74%', positive: true },
-    ],
-    aiNote: 'Class fill rate is below target. A flash-promo campaign could fill the remaining slots.'
-  },
-  cafe: {
-    score: 88,
-    factors: [
-      { label: 'Table Turnover Rate', value: '94%', positive: true },
-      { label: 'Avg. Order Value', value: '$24.50', positive: true },
-      { label: 'Pending Kitchen Orders', value: '3', positive: false },
-    ],
-    aiNote: 'Excellent day! Your table turnover and average order value are both at peak performance.'
-  },
-  shop: {
-    score: 71,
-    factors: [
-      { label: 'Order Fulfillment Rate', value: '78%', positive: false },
-      { label: 'Cart Abandonment', value: '22%', positive: false },
-      { label: 'Customer Return Rate', value: '61%', positive: true },
-    ],
-    aiNote: 'Pending shipments are dragging your score. Processing them now could increase your score by 12 points.'
-  },
+  salon: { score: 82, v: ['87%', '4.8/5', '12'], pos: [true, true, false] },
+  clinic: { score: 74, v: ['76%', '8%', '4.6/5'], pos: [true, false, true] },
+  gym: { score: 68, v: ['142', '61%', '74%'], pos: [true, false, true] },
+  cafe: { score: 88, v: ['94%', '$24.50', '3'], pos: [true, true, false] },
+  shop: { score: 71, v: ['78%', '22%', '61%'], pos: [false, false, true] },
 };
 
 const getColors = (score) => {
@@ -68,9 +28,18 @@ export const HealthScoreGauge = () => {
   const { businessType } = useBusiness();
   const [displayScore, setDisplayScore] = useState(0);
 
-  const data = businessScores[businessType] || businessScores.salon;
-  const targetScore = data.score;
+  const rawData = businessScores[businessType] || businessScores.salon;
+  const targetScore = rawData.score;
   const colors = getColors(targetScore);
+
+  // Build i18n-keyed factors and note
+  const bt = businessType in businessScores ? businessType : 'salon';
+  const factors = [
+    { label: t(`healthScore.factors.${bt}.f1`), value: rawData.v[0], positive: rawData.pos[0] },
+    { label: t(`healthScore.factors.${bt}.f2`), value: rawData.v[1], positive: rawData.pos[1] },
+    { label: t(`healthScore.factors.${bt}.f3`), value: rawData.v[2], positive: rawData.pos[2] },
+  ];
+  const aiNote = t(`healthScore.factors.${bt}.note`);
 
   // SVG semi-circle arc parameters
   const cx = 90, cy = 85, r = 70, strokeWidth = 12;
@@ -140,7 +109,7 @@ export const HealthScoreGauge = () => {
         {/* Factors list */}
         <div className="flex-1 space-y-2.5 min-w-0">
           <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-1">{t('healthScore.keyFactors')}</p>
-          {data.factors.map((f, i) => (
+          {factors.map((f, i) => (
             <div key={i} className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-1.5 min-w-0">
                 {f.positive
@@ -159,7 +128,7 @@ export const HealthScoreGauge = () => {
       {/* AI Note */}
       <div className="mt-4 px-4 py-3 rounded-xl bg-purple-500/5 border border-purple-500/10">
         <span className="text-[10px] font-bold uppercase tracking-widest text-purple-400 mr-2">{t('healthScore.aiNote')}:</span>
-        <span className="text-xs text-zinc-300 leading-relaxed">{data.aiNote}</span>
+        <span className="text-xs text-zinc-300 leading-relaxed">{aiNote}</span>
       </div>
     </div>
   );

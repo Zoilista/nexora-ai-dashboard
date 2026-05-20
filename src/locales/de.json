@@ -399,7 +399,25 @@
     "good": "Gut",
     "needsAttention": "Aufmerksamkeit Erforderlich",
     "keyFactors": "Wichtige Leistungsfaktoren",
-    "aiNote": "KI-Einblick"
+    "aiNote": "KI-Einblick",
+    "factors": {
+      "salon": { "f1": "Terminauslastung", "f2": "Durchschn. Kundenbewertung", "f3": "Ausstehende Antworten", "note": "Ihr Salon läuft gut. Die 12 ausstehenden Nachrichten zu beantworten könnte Ihren Score über 90 bringen." },
+      "clinic": { "f1": "Patientenbelegung", "f2": "Nichterscheinungsrate", "f3": "Zufriedenheitsscore", "note": "Die Nichterscheinungsrate ist etwas hoch. Erwägen Sie automatische Erinnerungen 24h vor Terminen." },
+      "gym": { "f1": "Aktive Mitgliedschaften", "f2": "Kursbelegungsrate", "f3": "Erneuerungsrate", "note": "Die Kursbelegungsrate liegt unter dem Ziel. Eine Flash-Promo-Kampagne könnte die restlichen Plätze füllen." },
+      "cafe": { "f1": "Tischumschlagsrate", "f2": "Durchschn. Bestellwert", "f3": "Ausstehende Küchenbest.", "note": "Ausgezeichneter Tag! Ihr Tischumschlag und Ihr durchschnittlicher Bestellwert sind auf Höchstleistung." },
+      "shop": { "f1": "Erfüllungsrate", "f2": "Warenkorbabbruch", "f3": "Wiederkehrquote", "note": "Ausstehende Lieferungen senken Ihren Score. Sie jetzt zu verarbeiten könnte Ihren Score um 12 Punkte erhöhen." }
+    }
+  },
+  "notifications": {
+    "title": "Benachrichtigungen",
+    "markAllRead": "Alle als gelesen markieren",
+    "empty": "Keine neuen Benachrichtigungen.",
+    "n1": "Neue Nachricht von Sarah J.",
+    "n2": "Kampagne 'Sommerangebot' beendet.",
+    "n3": "Neue Buchung: Emma (14:00 Uhr)",
+    "minAgo": "Min. zuvor",
+    "hourAgo": "Std. zuvor",
+    "hoursAgo": "Std. zuvor"
   },
   "aiChat": {
     "title": "Nexora KI",

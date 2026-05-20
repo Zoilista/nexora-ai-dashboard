@@ -1,11 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { DollarSign, Users, MessageSquare, AlertCircle, ArrowRight, CheckCircle2, ShoppingBag, Package, Utensils } from 'lucide-react';
 import { useBusiness } from '../context/BusinessContext';
 import { HealthScoreGauge } from '../components/HealthScoreGauge';
 
 export const Dashboard = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const { businessType } = useBusiness();
 
   // Define widgets details based on businessType
@@ -76,6 +78,18 @@ export const Dashboard = () => {
               <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10px] font-bold border ${stat.changeColor}`}>
                 {stat.change}
               </span>
+              <div className="absolute bottom-0 right-0 w-32 h-16 pointer-events-none opacity-20">
+                <svg viewBox="0 0 100 30" preserveAspectRatio="none" className="w-full h-full">
+                  <path 
+                    d={index === 0 ? "M0 30 Q 20 25, 40 10 T 80 15 T 100 5" : index === 1 ? "M0 25 Q 30 30, 50 15 T 80 5 T 100 10" : "M0 10 Q 20 5, 40 20 T 70 25 T 100 15"} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="3" 
+                    strokeLinecap="round"
+                    className={stat.changeColor.includes('emerald') ? 'text-emerald-500' : stat.changeColor.includes('orange') ? 'text-orange-500' : 'text-purple-500'} 
+                  />
+                </svg>
+              </div>
             </div>
           ))}
         </div>
@@ -94,7 +108,10 @@ export const Dashboard = () => {
             <p className="text-sm text-zinc-300 mb-6 max-w-xl leading-relaxed">{aiDesc}</p>
             
             <div className="flex flex-wrap gap-3">
-              <button className="bg-white text-black hover:bg-zinc-200 font-bold py-2.5 px-6 rounded-xl flex items-center gap-2 transition-all shadow-md text-sm">
+              <button 
+                onClick={() => navigate('/campaigns')}
+                className="bg-white text-black hover:bg-zinc-200 font-bold py-2.5 px-6 rounded-xl flex items-center gap-2 transition-all shadow-md text-sm"
+              >
                 <CheckCircle2 size={18} />
                 {t('dashboard.reviewAndSend')}
               </button>

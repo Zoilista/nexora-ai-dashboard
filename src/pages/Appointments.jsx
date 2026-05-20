@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar as CalendarIcon, Clock, User, AlertCircle, Plus, X, ChevronDown } from 'lucide-react';
+import { Calendar as CalendarIcon, Clock, User, AlertCircle, Plus, X, ChevronDown, List as ListIcon, Grid as GridIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useBusiness } from '../context/BusinessContext';
+import { EmptyState } from '../components/EmptyState';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
 const businessApts = {
   salon: [
@@ -48,7 +53,9 @@ export const Appointments = () => {
   const { t } = useTranslation();
   const { businessType } = useBusiness();
   const [showModal, setShowModal] = useState(false);
+  const [selectedApt, setSelectedApt] = useState(null);
   const [appointmentList, setAppointmentList] = useState([]);
+  const [viewMode, setViewMode] = useState('list');
 
   // Reset or change list on businessType change
   useEffect(() => {
@@ -105,13 +112,29 @@ export const Appointments = () => {
             <p className="text-sm text-zinc-400 font-medium">May 12, 2026</p>
           </div>
         </div>
-        <button 
-          onClick={() => setShowModal(true)}
-          className="bg-white text-black font-bold py-2.5 px-5 rounded-xl hover:bg-zinc-200 transition-all flex items-center gap-2 text-sm shadow-md"
-        >
-          <Plus size={16} />
-          {t('appointments.newBooking')}
-        </button>
+        <div className="flex items-center gap-3">
+          <div className="flex bg-[#050505] p-1 rounded-xl border border-white/10 hidden sm:flex">
+             <button 
+               onClick={() => setViewMode('list')}
+               className={`p-1.5 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:text-white'}`}
+             >
+               <ListIcon size={18} />
+             </button>
+             <button 
+               onClick={() => setViewMode('calendar')}
+               className={`p-1.5 rounded-lg transition-colors ${viewMode === 'calendar' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:text-white'}`}
+             >
+               <GridIcon size={18} />
+             </button>
+          </div>
+          <button 
+            onClick={() => setShowModal(true)}
+            className="bg-white text-black font-bold py-2.5 px-5 rounded-xl hover:bg-zinc-200 transition-all flex items-center gap-2 text-sm shadow-md"
+          >
+            <Plus size={16} />
+            {t('appointments.newBooking')}
+          </button>
+        </div>
       </div>
 
       {/* AI Suggestion */}
@@ -130,35 +153,90 @@ export const Appointments = () => {
         </button>
       </div>
 
-      {/* List View */}
-      <div className="bg-[#111] border border-white/10 rounded-2xl overflow-hidden shadow-lg">
-        {appointmentList.map((apt) => (
-          <div key={apt.id} className="flex items-center gap-6 p-6 border-b border-white/10 last:border-0 hover:bg-white/5 transition-colors">
-            <div className="text-xl font-bold text-white w-16">{apt.time}</div>
-            
-            <div className="flex-1">
-              <h4 className="text-base font-bold text-white mb-1">{apt.client}</h4>
-              <div className="flex items-center gap-3 text-zinc-400 text-xs font-medium">
-                <span className="flex items-center gap-1"><User size={14} /> {t('appointments.newClient') || 'Client'}</span>
-                <span className="w-1 h-1 rounded-full bg-zinc-600" />
-                <span className="flex items-center gap-1"><Clock size={14} /> {apt.duration}</span>
+      {/* Main View Area */}
+      {appointmentList.length === 0 ? (
+        <EmptyState 
+          icon={CalendarIcon} 
+          title={t('appointments.emptyTitle') || 'No appointments yet'} 
+          description={t('appointments.emptyDesc') || 'You have no appointments scheduled for today.'} 
+          action={
+            <button 
+              onClick={() => setShowModal(true)}
+              className="bg-purple-600 text-white font-bold py-2.5 px-6 rounded-xl hover:bg-purple-500 transition-colors shadow-lg mt-2 flex items-center gap-2 mx-auto"
+            >
+              <Plus size={16} />
+              {t('appointments.newBooking')}
+            </button>
+          }
+        />
+      ) : viewMode === 'list' ? (
+        <div className="bg-[#111] border border-white/10 rounded-2xl overflow-hidden shadow-lg">
+          {appointmentList.map((apt) => (
+            <div key={apt.id} onClick={() => setSelectedApt(apt)} className="flex items-center gap-6 p-6 border-b border-white/10 last:border-0 hover:bg-white/5 transition-colors cursor-pointer group flex-wrap sm:flex-nowrap">
+              <div className="text-xl font-bold text-white w-16 group-hover:text-purple-400 transition-colors">{apt.time}</div>
+              
+              <div className="flex-1 min-w-[200px]">
+                <h4 className="text-base font-bold text-white mb-1">{apt.client}</h4>
+                <div className="flex items-center gap-3 text-zinc-400 text-xs font-medium">
+                  <span className="flex items-center gap-1"><User size={14} /> {t('appointments.newClient') || 'Client'}</span>
+                  <span className="w-1 h-1 rounded-full bg-zinc-600" />
+                  <span className="flex items-center gap-1"><Clock size={14} /> {apt.duration}</span>
+                </div>
+              </div>
+
+              <div className="text-sm text-zinc-300 font-medium px-4 py-1.5 bg-white/5 rounded-lg border border-white/10 shrink-0">
+                {t(`appointments.services.${businessType}.${apt.serviceKey}`)}
+              </div>
+              
+              <div className={`shrink-0 px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest border ${
+                apt.status === 'arrived' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' :
+                apt.status === 'confirmed' ? 'bg-blue-500/10 text-blue-400 border-blue-500/30' : 
+                'bg-orange-500/10 text-orange-400 border-orange-500/30'
+              }`}>
+                {t(`appointments.status.${apt.status}`)}
               </div>
             </div>
-
-            <div className="text-sm text-zinc-300 font-medium px-4 py-1.5 bg-white/5 rounded-lg border border-white/10">
-              {t(`appointments.services.${businessType}.${apt.serviceKey}`)}
-            </div>
-            
-            <div className={`px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest border ${
-              apt.status === 'arrived' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' :
-              apt.status === 'confirmed' ? 'bg-blue-500/10 text-blue-400 border-blue-500/30' : 
-              'bg-orange-500/10 text-orange-400 border-orange-500/30'
-            }`}>
-              {t(`appointments.status.${apt.status}`)}
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div className="bg-[#111] border border-white/10 rounded-2xl p-6 shadow-lg overflow-x-auto" style={{ minHeight: '600px' }}>
+           <style>{`
+             .fc-theme-standard td, .fc-theme-standard th { border-color: rgba(255,255,255,0.1); }
+             .fc .fc-toolbar-title { font-size: 1.25rem; font-weight: bold; color: white; }
+             .fc .fc-button-primary { background-color: #8b5cf6; border-color: #8b5cf6; }
+             .fc .fc-button-primary:not(:disabled):active, .fc .fc-button-primary:not(:disabled).fc-button-active { background-color: #7c3aed; border-color: #7c3aed; }
+             .fc-timegrid-slot-label { color: #a1a1aa; font-size: 0.8rem; }
+             .fc-event { cursor: pointer; border-radius: 0.5rem; overflow: hidden; font-size: 0.75rem; padding: 2px; }
+             .fc-v-event { background-color: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.5); color: #c4b5fd; }
+             .fc-v-event .fc-event-main { color: white; font-weight: bold; }
+           `}</style>
+           <FullCalendar
+            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+            initialView="timeGridDay"
+            headerToolbar={{ left: 'prev,next today', center: 'title', right: 'dayGridMonth,timeGridWeek,timeGridDay' }}
+            events={appointmentList.map(apt => {
+              const today = new Date().toISOString().split('T')[0];
+              const startStr = `${today}T${apt.time}:00`;
+              const durationMins = parseInt(apt.duration) || 60;
+              const endDate = new Date(new Date(startStr).getTime() + durationMins * 60000);
+              return {
+                id: String(apt.id),
+                title: `${apt.client} - ${t(`appointments.services.${businessType}.${apt.serviceKey}`)}`,
+                start: startStr,
+                end: endDate.toISOString(),
+                extendedProps: { ...apt }
+              };
+            })}
+            eventClick={(info) => {
+              setSelectedApt(info.event.extendedProps);
+            }}
+            height="100%"
+            allDaySlot={false}
+            slotMinTime="08:00:00"
+            slotMaxTime="20:00:00"
+           />
+        </div>
+      )}
 
       {/* New Booking Modal */}
       {showModal && (
@@ -249,6 +327,51 @@ export const Appointments = () => {
                 <button type="submit" className="px-6 py-2.5 rounded-xl font-bold text-sm bg-purple-600 text-white hover:bg-purple-500 transition-colors">{t('appointments.confirm')}</button>
              </div>
           </form>
+        </div>
+      )}
+      {/* Appointment Details Modal */}
+      {selectedApt && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-200">
+          <div className="bg-[#111] border border-white/10 w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden">
+             <div className="p-6 border-b border-white/10 flex items-center justify-between">
+                <h3 className="text-xl font-bold text-white">{t('appointments.details') || 'Appointment Details'}</h3>
+                <button type="button" onClick={() => setSelectedApt(null)} className="text-zinc-500 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors">
+                  <X size={20} />
+                </button>
+             </div>
+             <div className="p-6 space-y-5">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/40 to-blue-500/40 flex items-center justify-center text-lg font-bold text-white border border-white/10">
+                    {selectedApt.client.split(' ').map(n => n[0]).join('')}
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold text-white leading-tight">{selectedApt.client}</p>
+                    <p className="text-xs text-zinc-400 flex items-center gap-1 mt-0.5"><Clock size={12}/> {selectedApt.time} ({selectedApt.duration})</p>
+                  </div>
+                </div>
+                
+                <div className="p-4 bg-white/5 rounded-xl border border-white/10">
+                   <p className="text-xs text-zinc-400 font-bold uppercase tracking-widest mb-1">{t('appointments.service')}</p>
+                   <p className="text-sm text-white font-medium">{t(`appointments.services.${businessType}.${selectedApt.serviceKey}`)}</p>
+                </div>
+
+                <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
+                   <p className="text-xs text-zinc-400 font-bold uppercase tracking-widest">{t('appointments.statusLabel') || 'Status'}</p>
+                   <div className={`px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest border ${
+                     selectedApt.status === 'arrived' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' :
+                     selectedApt.status === 'confirmed' ? 'bg-blue-500/10 text-blue-400 border-blue-500/30' : 
+                     'bg-orange-500/10 text-orange-400 border-orange-500/30'
+                   }`}>
+                     {t(`appointments.status.${selectedApt.status}`)}
+                   </div>
+                </div>
+             </div>
+             <div className="p-6 border-t border-white/10 bg-[#0a0a0a] flex gap-3">
+                <button type="button" onClick={() => setSelectedApt(null)} className="flex-1 py-2.5 rounded-xl font-bold text-sm bg-white text-black hover:bg-zinc-200 transition-colors">
+                  {t('customers.close') || 'Close'}
+                </button>
+             </div>
+          </div>
         </div>
       )}
     </div>

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Search, Bell, Globe, User, ChevronDown, CheckCircle2, MessageSquare } from 'lucide-react';
+import { Search, Bell, Globe, User, ChevronDown, CheckCircle2, MessageSquare, Menu, Sun, Moon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../context/ThemeContext';
 
 const languages = [
   { code: 'en', name: 'English' },
@@ -11,17 +12,28 @@ const languages = [
   { code: 'zh', name: '中文' }
 ];
 
-const mockNotifications = [
-  { id: 1, type: 'message', text: 'New message from Sarah J.', time: '2 min ago', read: false },
-  { id: 2, type: 'system', text: 'Campaign "Summer Sale" finished.', time: '1 hour ago', read: false },
-  { id: 3, type: 'booking', text: 'New booking: Emma (14:00)', time: '3 hours ago', read: true },
+const notifMeta = [
+  { id: 1, type: 'message', key: 'n1', time: '2', unit: 'minAgo', read: false },
+  { id: 2, type: 'system',  key: 'n2', time: '1', unit: 'hourAgo', read: false },
+  { id: 3, type: 'booking', key: 'n3', time: '3', unit: 'hoursAgo', read: true },
 ];
 
-export const TopBar = () => {
+export const TopBar = ({ onMenuClick }) => {
   const { t, i18n } = useTranslation();
+  const { theme, toggleTheme } = useTheme();
   const [showLangMenu, setShowLangMenu] = useState(false);
   const [showNotifMenu, setShowNotifMenu] = useState(false);
-  const [notifications, setNotifications] = useState(mockNotifications);
+  // Read state persisted in localStorage
+  const [readIds, setReadIds] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('nexora_read_notifs') || '[]'); } catch { return []; }
+  });
+
+  const notifications = notifMeta.map(n => ({
+    ...n,
+    text: t(`notifications.${n.key}`),
+    timeStr: `${n.time} ${t(`notifications.${n.unit}`)}`,
+    read: readIds.includes(n.id),
+  }));
 
   const notifRef = useRef(null);
   const langRef = useRef(null);
@@ -46,14 +58,19 @@ export const TopBar = () => {
   const unreadCount = notifications.filter(n => !n.read).length;
 
   const markAllRead = () => {
-    setNotifications(notifications.map(n => ({ ...n, read: true })));
+    const allIds = notifMeta.map(n => n.id);
+    setReadIds(allIds);
+    localStorage.setItem('nexora_read_notifs', JSON.stringify(allIds));
   };
 
   return (
-    <header className="h-20 flex items-center justify-between px-8 bg-[#050505] sticky top-0 z-40 w-full">
+    <header className="h-20 flex items-center justify-between px-8 bg-zinc-50 dark:bg-[#050505] sticky top-0 z-40 w-full border-b border-black/5 dark:border-transparent transition-colors duration-300">
       <div className="flex items-center gap-10 flex-1 min-w-0">
-        <div className="shrink-0">
-          <h1 className="text-xl font-bold tracking-tight text-white">{t('topbar.greeting', { time: getTimeGreeting() })}, Görkem</h1>
+        <div className="shrink-0 flex items-center gap-2">
+          <button onClick={onMenuClick} className="lg:hidden p-2 -ml-2 text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors">
+            <Menu size={24} />
+          </button>
+          <h1 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white hidden sm:block">{t('topbar.greeting', { time: getTimeGreeting() })}, Görkem</h1>
         </div>
 
         <div className="flex-1 max-w-sm relative group hidden md:block">
@@ -98,6 +115,13 @@ export const TopBar = () => {
 
         <div className="flex items-center gap-4">
           
+          <button 
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-white/5 text-zinc-400 hover:text-white transition-colors"
+          >
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+
           {/* Notifications */}
           <div className="relative" ref={notifRef}>
             <button 
@@ -113,16 +137,16 @@ export const TopBar = () => {
             {showNotifMenu && (
               <div className="absolute top-full right-0 mt-2 w-80 bg-[#111] border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-50 animate-in fade-in zoom-in-95 duration-200">
                 <div className="flex items-center justify-between p-4 border-b border-white/10">
-                  <h3 className="font-bold text-white">Notifications</h3>
+                  <h3 className="font-bold text-white">{t('notifications.title')}</h3>
                   {unreadCount > 0 && (
                     <button onClick={markAllRead} className="text-xs text-purple-400 hover:text-purple-300 transition-colors font-medium">
-                      Mark all as read
+                      {t('notifications.markAllRead')}
                     </button>
                   )}
                 </div>
                 <div className="max-h-[300px] overflow-y-auto">
                   {notifications.length === 0 ? (
-                    <div className="p-8 text-center text-zinc-500 text-sm">No new notifications.</div>
+                    <div className="p-8 text-center text-zinc-500 text-sm">{t('notifications.empty')}</div>
                   ) : (
                     notifications.map(notif => (
                       <div key={notif.id} className={`p-4 border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors cursor-pointer flex gap-3 ${!notif.read ? 'bg-purple-500/5' : ''}`}>
@@ -131,7 +155,7 @@ export const TopBar = () => {
                         </div>
                         <div>
                           <p className={`text-sm ${!notif.read ? 'font-bold text-white' : 'text-zinc-300'}`}>{notif.text}</p>
-                          <p className="text-[10px] text-zinc-500 mt-1">{notif.time}</p>
+                          <p className="text-[10px] text-zinc-500 mt-1">{notif.timeStr}</p>
                         </div>
                       </div>
                     ))

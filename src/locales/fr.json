@@ -399,7 +399,25 @@
     "good": "Bon",
     "needsAttention": "Attention Requise",
     "keyFactors": "Facteurs Clés de Performance",
-    "aiNote": "Insight IA"
+    "aiNote": "Insight IA",
+    "factors": {
+      "salon": { "f1": "Taux d'Occupation des RDV", "f2": "Note Moyenne Clients", "f3": "Réponses en Attente", "note": "Votre salon fonctionne bien. Répondre aux 12 messages en attente pourrait faire passer votre score au-dessus de 90." },
+      "clinic": { "f1": "Occupation des Patients", "f2": "Taux d'Absences", "f3": "Score de Satisfaction", "note": "Le taux d'absences est légèrement élevé. Envisagez d'envoyer des rappels automatiques 24h avant." },
+      "gym": { "f1": "Adhésions Actives", "f2": "Taux de Remplissage", "f3": "Taux de Renouvellement", "note": "Le taux de remplissage des cours est sous l'objectif. Une campagne flash pourrait remplir les places restantes." },
+      "cafe": { "f1": "Rotation des Tables", "f2": "Valeur Moy. de Commande", "f3": "Commandes en Attente", "note": "Excellente journée! La rotation des tables et la valeur moyenne des commandes sont au maximum." },
+      "shop": { "f1": "Taux d'Exécution", "f2": "Abandon de Panier", "f3": "Taux de Retour", "note": "Les expéditions en attente font baisser votre score. Les traiter maintenant pourrait augmenter votre score de 12 points." }
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markAllRead": "Tout marquer comme lu",
+    "empty": "Aucune nouvelle notification.",
+    "n1": "Nouveau message de Sarah J.",
+    "n2": "Campagne 'Summer Sale' terminée.",
+    "n3": "Nouvelle réservation: Emma (14h00)",
+    "minAgo": "min",
+    "hourAgo": "heure",
+    "hoursAgo": "heures"
   },
   "aiChat": {
     "title": "Nexora IA",

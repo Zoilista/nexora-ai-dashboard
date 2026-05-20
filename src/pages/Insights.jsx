@@ -224,14 +224,18 @@ export const Insights = () => {
              <h3 className="text-lg font-bold text-white">{t('insights.performance')}</h3>
              <p className="text-sm text-zinc-400 mt-1">{t('insights.performanceSub')}</p>
            </div>
-           <select
-             value={chartPeriod}
-             onChange={(e) => setChartPeriod(e.target.value)}
-             className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none cursor-pointer"
-           >
-             <option value="30">30 Days</option>
-             <option value="90">90 Days</option>
-           </select>
+           <div className="flex gap-1 bg-white/5 border border-white/10 rounded-xl p-1">
+             {[{ val: '30', label: '30 ' + t('insights.days') }, { val: '90', label: '90 ' + t('insights.days') }].map(opt => (
+               <button
+                 key={opt.val}
+                 type="button"
+                 onClick={() => setChartPeriod(opt.val)}
+                 className={`px-4 py-1.5 rounded-lg text-sm font-semibold transition-all ${chartPeriod === opt.val ? 'bg-white/15 text-white shadow-sm' : 'text-zinc-400 hover:text-white'}`}
+               >
+                 {opt.label}
+               </button>
+             ))}
+           </div>
          </div>
 
          <div style={{ height: 300 }}>

@@ -4,15 +4,21 @@ import { TopBar } from './TopBar';
 import { AIAssistantPanel } from './AIAssistantPanel';
 
 export const Layout = ({ children }) => {
-  const [isAIPanelOpen, setIsAIPanelOpen] = useState(true);
+  const [isAIPanelOpen, setIsAIPanelOpen] = useState(false); // Default to closed on mobile/initially to save space
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-[#050505] text-white overflow-hidden">
-      <Sidebar isAIPanelOpen={isAIPanelOpen} onToggleAI={() => setIsAIPanelOpen(!isAIPanelOpen)} />
+    <div className="flex min-h-screen bg-zinc-50 dark:bg-[#050505] text-zinc-900 dark:text-white overflow-hidden relative transition-colors duration-300">
+      <Sidebar 
+        isAIPanelOpen={isAIPanelOpen} 
+        onToggleAI={() => setIsAIPanelOpen(!isAIPanelOpen)} 
+        isOpen={isMobileMenuOpen}
+        setIsOpen={setIsMobileMenuOpen}
+      />
       
-      <div className={`flex-1 flex flex-col min-w-0 ml-64 relative h-screen overflow-y-auto transition-all duration-500 ease-in-out ${isAIPanelOpen ? 'mr-[360px]' : 'mr-0'}`}>
-        <TopBar />
-        <main className="flex-1 p-8 max-w-7xl mx-auto w-full transition-all duration-500">
+      <div className={`flex-1 flex flex-col min-w-0 lg:ml-64 relative h-screen overflow-y-auto transition-all duration-500 ease-in-out ${isAIPanelOpen ? 'lg:mr-[360px]' : 'mr-0'}`}>
+        <TopBar onMenuClick={() => setIsMobileMenuOpen(true)} />
+        <main className="flex-1 p-4 lg:p-8 max-w-7xl mx-auto w-full transition-all duration-500">
           {children}
         </main>
       </div>

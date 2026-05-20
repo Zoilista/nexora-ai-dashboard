@@ -6,8 +6,23 @@ import { useBusiness } from '../context/BusinessContext';
 export const Settings = () => {
   const { t } = useTranslation();
   const { businessType, setBusinessType } = useBusiness();
-  const [activeTab, setActiveTab] = useState('business');
+  const [activeTab, setActiveTab] = useState('profile');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // Profile State
+  const [profile, setProfile] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('nexora_profile')) || { name: 'Görkem', email: 'gorkem@example.com', phone: '+1 234 567 890' };
+    } catch {
+      return { name: 'Görkem', email: 'gorkem@example.com', phone: '+1 234 567 890' };
+    }
+  });
+
+  const saveProfile = (e) => {
+    e.preventDefault();
+    localStorage.setItem('nexora_profile', JSON.stringify(profile));
+    alert(t('settings.profileSaved') || 'Profile saved successfully!');
+  };
 
   // Chatbot Sandbox State
   const [messages, setMessages] = useState([
@@ -73,6 +88,7 @@ export const Settings = () => {
 
       <div className="flex gap-2 border-b border-white/10 pb-px overflow-x-auto">
         {[
+          { id: 'profile', label: t('settings.tabs.profile') || 'Profile', icon: UserIcon },
           { id: 'business', label: t('settings.tabs.business'), icon: Building2 },
           { id: 'knowledge', label: t('settings.tabs.knowledge'), icon: BrainCircuit },
           { id: 'rules', label: t('settings.tabs.rules'), icon: Sliders },
@@ -93,6 +109,50 @@ export const Settings = () => {
           </button>
         ))}
       </div>
+
+      {activeTab === 'profile' && (
+        <form onSubmit={saveProfile} className="bg-[#111] p-6 rounded-2xl border border-white/10 shadow-lg max-w-xl">
+          <div className="mb-6">
+            <h3 className="text-lg font-bold text-white">{t('settings.profile.title') || 'Personal Profile'}</h3>
+            <p className="text-sm text-zinc-400">{t('settings.profile.desc') || 'Manage your personal information.'}</p>
+          </div>
+          
+          <div className="space-y-4">
+            <div>
+              <label className="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-2">{t('settings.profile.name') || 'Full Name'}</label>
+              <input 
+                type="text" 
+                value={profile.name}
+                onChange={e => setProfile({...profile, name: e.target.value})}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors" 
+              />
+            </div>
+            <div>
+              <label className="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-2">{t('settings.profile.email') || 'Email Address'}</label>
+              <input 
+                type="email" 
+                value={profile.email}
+                onChange={e => setProfile({...profile, email: e.target.value})}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors" 
+              />
+            </div>
+            <div>
+              <label className="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-2">{t('settings.profile.phone') || 'Phone Number'}</label>
+              <input 
+                type="tel" 
+                value={profile.phone}
+                onChange={e => setProfile({...profile, phone: e.target.value})}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors" 
+              />
+            </div>
+            <div className="pt-2">
+               <button type="submit" className="bg-purple-600 text-white font-semibold py-2.5 px-6 rounded-xl hover:bg-purple-500 transition-colors text-sm w-full">
+                 {t('settings.profile.save') || 'Save Profile'}
+               </button>
+            </div>
+          </div>
+        </form>
+      )}
 
       {activeTab === 'business' && (
         <div className="bg-[#111] p-6 rounded-2xl border border-white/10 shadow-lg max-w-xl">

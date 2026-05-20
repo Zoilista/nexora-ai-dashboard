@@ -80,15 +80,24 @@
     }
   },
   "campaigns": {
-    "title": "Kampanya Oluşturucu",
-    "subtitle": "Saniyeler içinde platforma özel kampanyalar yaratın.",
+    "title": "YZ Kampanya Oluşturucu",
+    "subtitle": "Yapay zeka destekli veri odaklı kampanyalar oluşturun.",
     "platform": "Platform",
     "goal": "Kampanya Hedefi",
-    "goalPlaceholder": "örn. Yeni yaz cilt bakımı paketini tanıt",
-    "recommended": "Önerilen",
-    "keyPoints": "Temel Satış Noktaları",
-    "keyPointsPlaceholder": "örn. 50 faktör güneş kremi dahil, mevcut müşterilere %20 indirim.",
-    "generate": "Gönderi Oluştur",
+    "goalPlaceholder": "örn. Salı randevularını doldur, yeni hizmet tanıt",
+    "recommended": "YZ önerisi",
+    "keyPoints": "Öne Çıkarılacak Noktalar",
+    "keyPointsPlaceholder": "örn. Cilt bakımında %20 indirim, bu hafta geçerli, sınırlı kontenjan",
+    "generate": "Kampanya Oluştur",
+    "generating": "Oluşturuluyor...",
+    "preview": "YZ Kampanya Önizleme",
+    "previewSubtitle": "Yayınlamaya hazır:",
+    "suggestedTime": "Optimum Paylaşım Saati",
+    "hashtags": "Önerilen Hashtagler",
+    "copy": "Metni Kopyala",
+    "copied": "Kopyalandı!",
+    "editAndSave": "Düzenle & Taslak Kaydet",
+    "regenerate": "Yeniden Oluştur",
     "livePreview": "Canlı Önizleme",
     "sponsored": "Sponsorlu",
     "shopNow": "Şimdi Alışveriş Yap"
@@ -166,7 +175,14 @@
     "weeklyRevenue": "Haftalık Gelir",
     "weeklyRevenueSub": "Mevcut hafta için günlük gelir",
     "thisWeek": "Bu hafta",
-    "revenue": "Gelir"
+    "revenue": "Gelir",
+    "days": "Gün",
+    "comparison": "Dönem Karşılaştırması",
+    "comparisonSub": "Bu ay ile geçen ayın karşılaştırması",
+    "vsLastMonth": "geçen aya göre",
+    "totalRevenue": "Toplam Gelir",
+    "totalCustomers": "Toplam Müşteri",
+    "totalBookings": "Toplam Rezervasyon"
   },
   "days": {
     "mon": "Pzt",
@@ -445,7 +461,50 @@
     "good": "İyi",
     "needsAttention": "Dikkat Gerekiyor",
     "keyFactors": "Temel Performans Faktörleri",
-    "aiNote": "YZ Analizi"
+    "aiNote": "YZ Analizi",
+    "factors": {
+      "salon": {
+        "f1": "Randevu Doluluk Oranı",
+        "f2": "Ort. Müşteri Puanı",
+        "f3": "Bekleyen Yanıtlar",
+        "note": "Salononuz iyi performans gösteriyor. 12 bekleyen mesajı yanıtlamak skorunuzu 90'ın üzerine çıkarabilir."
+      },
+      "clinic": {
+        "f1": "Hasta Doluluk Oranı",
+        "f2": "Randevu İptali Oranı",
+        "f3": "Memnuniyet Skoru",
+        "note": "İptal oranı biraz yüksek. 24 saat önceden otomatik hatırlatma göndermayı düşünün."
+      },
+      "gym": {
+        "f1": "Aktif Üye Sayısı",
+        "f2": "Ders Doluluk Oranı",
+        "f3": "Yenileme Oranı",
+        "note": "Ders doluluk oranı hedefin altında. Bir flaş promosyon kampanyası boş yerleri doldurabilir."
+      },
+      "cafe": {
+        "f1": "Masa Devir Hızı",
+        "f2": "Ort. Sipariş Tutarı",
+        "f3": "Bekleyen Mutfak Siparişleri",
+        "note": "Harika bir gün! Masa devir hızınız ve ortalama sipariş tutarınız zirve performansta."
+      },
+      "shop": {
+        "f1": "Sipariş Karşılama Oranı",
+        "f2": "Sepet Terk Oranı",
+        "f3": "Müşteri Geri Dönüş Oranı",
+        "note": "Bekleyen sevkiyatlar skorunuzu düşürüyor. Bunları şimdi işleme almak skorunuzu 12 puan artırabilir."
+      }
+    }
+  },
+  "notifications": {
+    "title": "Bildirimler",
+    "markAllRead": "Tümünü okundu işaretle",
+    "empty": "Yeni bildirim yok.",
+    "n1": "Sarah J.'den yeni mesaj.",
+    "n2": "'Yaz İndirimi' kampanyası tamamlandı.",
+    "n3": "Yeni rezervasyon: Emma (14:00)",
+    "minAgo": "dk önce",
+    "hourAgo": "saat önce",
+    "hoursAgo": "saat önce"
   },
   "aiChat": {
     "title": "Nexora YZ",

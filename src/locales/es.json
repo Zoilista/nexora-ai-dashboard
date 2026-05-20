@@ -162,7 +162,14 @@
     "weeklyRevenue": "Ingresos Semanales",
     "weeklyRevenueSub": "Ingresos diarios para la semana actual",
     "thisWeek": "Esta semana",
-    "revenue": "Ingresos"
+    "revenue": "Ingresos",
+    "days": "Días",
+    "comparison": "Comparación de Período",
+    "comparisonSub": "Este mes vs el mes pasado",
+    "vsLastMonth": "vs mes anterior",
+    "totalRevenue": "Ingresos Totales",
+    "totalCustomers": "Clientes Totales",
+    "totalBookings": "Reservas Totales"
   },
   "days": {
     "mon": "Lun",
@@ -399,7 +406,25 @@
     "good": "Bueno",
     "needsAttention": "Requiere Atención",
     "keyFactors": "Factores Clave de Rendimiento",
-    "aiNote": "Perspectiva de IA"
+    "aiNote": "Perspectiva de IA",
+    "factors": {
+      "salon": { "f1": "Tasa de Ocupación de Citas", "f2": "Calif. Media de Clientes", "f3": "Respuestas Pendientes", "note": "Tu salón funciona bien. Responder los 12 mensajes pendientes podría llevar tu puntuación por encima de 90." },
+      "clinic": { "f1": "Ocupación de Pacientes", "f2": "Tasa de No Presentación", "f3": "Puntuación de Satisfacción", "note": "La tasa de no presentación es ligeramente alta. Considera enviar recordatorios automáticos 24h antes." },
+      "gym": { "f1": "Membrecías Activas", "f2": "Tasa de Ocupación de Clases", "f3": "Tasa de Renovación", "note": "La tasa de ocupación de clases está por debajo del objetivo. Una campaña flash podría llenar los lugares restantes." },
+      "cafe": { "f1": "Rotación de Mesas", "f2": "Valor Medio de Pedido", "f3": "Pedidos Pendientes", "note": "\u00a1Excelente día! La rotación de mesas y el valor medio del pedido están en rendimiento máximo." },
+      "shop": { "f1": "Tasa de Cumplimiento", "f2": "Abandono de Carrito", "f3": "Tasa de Retorno", "note": "Los envíos pendientes están bajando tu puntuación. Procesarlos ahora podría aumentar tu puntuación 12 puntos." }
+    }
+  },
+  "notifications": {
+    "title": "Notificaciones",
+    "markAllRead": "Marcar todo como leído",
+    "empty": "Sin nuevas notificaciones.",
+    "n1": "Nuevo mensaje de Sarah J.",
+    "n2": "Campaña 'Verano' terminada.",
+    "n3": "Nueva reserva: Emma (14:00)",
+    "minAgo": "min",
+    "hourAgo": "hora",
+    "hoursAgo": "horas"
   },
   "aiChat": {
     "title": "Nexora IA",

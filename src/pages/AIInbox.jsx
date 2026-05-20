@@ -24,6 +24,17 @@ export const AIInbox = () => {
   const [activeContact, setActiveContact] = useState(contactsList[0]);
   const [autopilot, setAutopilot] = useState(false);
   const [activeTab, setActiveTab] = useState('all');
+  const [inputText, setInputText] = useState('');
+  const [threadMessages, setThreadMessages] = useState({});
+
+  const handleSend = (text) => {
+    if (!text.trim()) return;
+    setThreadMessages(prev => ({
+      ...prev,
+      [activeContact.id]: [...(prev[activeContact.id] || []), text]
+    }));
+    setInputText('');
+  };
 
   // Update active contact details on language switch to remain in sync
   useEffect(() => {
@@ -133,6 +144,15 @@ export const AIInbox = () => {
              <span className="text-[10px] font-medium text-zinc-500 mt-1.5 pl-1">{activeContact.time} • {activeContact.source}</span>
            </div>
 
+           {(threadMessages[activeContact.id] || []).map((msg, idx) => (
+             <div key={idx} className="flex flex-col items-end w-full">
+               <div className="bg-purple-600 p-3.5 rounded-xl rounded-tr-sm text-sm text-white border border-purple-500/20 leading-relaxed max-w-[70%] text-left">
+                 {msg}
+               </div>
+               <span className="text-[10px] font-medium text-zinc-500 mt-1.5 pr-1">{t('inbox.justNow')}</span>
+             </div>
+           ))}
+
            {/* Draft UI */}
            <div className="p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 to-blue-500/5 border border-purple-500/20 relative overflow-hidden mt-6">
              <div className="flex items-center gap-2 mb-3">
@@ -147,7 +167,10 @@ export const AIInbox = () => {
              </p>
              
              <div className="flex gap-3">
-               <button className="flex-1 bg-purple-500 text-white font-semibold py-2.5 rounded-lg hover:bg-purple-600 transition-colors flex justify-center items-center gap-2 text-xs">
+               <button 
+                 onClick={() => handleSend(activeContact.draft)}
+                 className="flex-1 bg-purple-500 text-white font-semibold py-2.5 rounded-lg hover:bg-purple-600 transition-colors flex justify-center items-center gap-2 text-xs"
+               >
                  <Check size={16} />
                  {t('inbox.approveSend')}
                </button>
@@ -164,10 +187,16 @@ export const AIInbox = () => {
           <div className="relative group">
              <input 
               type="text" 
+              value={inputText}
+              onChange={e => setInputText(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && handleSend(inputText)}
               placeholder={t('inbox.typeMessage')}
               className="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 pl-4 pr-12 text-sm text-white focus:outline-none focus:border-purple-500/50 transition-all placeholder:text-zinc-500"
              />
-             <button className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-purple-500 transition-colors">
+             <button 
+              onClick={() => handleSend(inputText)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-purple-500 transition-colors"
+             >
                <Send size={14} />
              </button>
           </div>

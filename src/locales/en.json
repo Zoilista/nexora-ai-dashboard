@@ -80,15 +80,24 @@
     }
   },
   "campaigns": {
-    "title": "Campaign Generator",
-    "subtitle": "Create platform-specific campaigns in seconds.",
+    "title": "AI Campaign Generator",
+    "subtitle": "Create data-driven campaigns powered by AI.",
     "platform": "Platform",
     "goal": "Campaign Goal",
-    "goalPlaceholder": "e.g., Promote new summer skincare bundle",
-    "recommended": "Recommended",
-    "keyPoints": "Key Selling Points",
-    "keyPointsPlaceholder": "e.g., Includes SPF 50, 20% off for existing customers.",
-    "generate": "Generate Post",
+    "goalPlaceholder": "e.g. Fill Tuesday slots, promote new service",
+    "recommended": "AI recommended",
+    "keyPoints": "Key Points to Highlight",
+    "keyPointsPlaceholder": "e.g. 20% off facial, valid this week only, limited slots",
+    "generate": "Generate Campaign",
+    "generating": "Generating...",
+    "preview": "AI Campaign Preview",
+    "previewSubtitle": "Ready to post on",
+    "suggestedTime": "Optimal Post Time",
+    "hashtags": "Suggested Hashtags",
+    "copy": "Copy Text",
+    "copied": "Copied!",
+    "editAndSave": "Edit & Save Draft",
+    "regenerate": "Regenerate",
     "livePreview": "Live Preview",
     "sponsored": "Sponsored",
     "shopNow": "Shop Now"
@@ -166,7 +175,14 @@
     "weeklyRevenue": "Weekly Revenue",
     "weeklyRevenueSub": "Daily income for the current week",
     "thisWeek": "This week",
-    "revenue": "Revenue"
+    "revenue": "Revenue",
+    "days": "Days",
+    "comparison": "Period Comparison",
+    "comparisonSub": "This month vs last month",
+    "vsLastMonth": "vs last month",
+    "totalRevenue": "Total Revenue",
+    "totalCustomers": "Total Customers",
+    "totalBookings": "Total Bookings"
   },
   "days": {
     "mon": "Mon",
@@ -445,8 +461,52 @@
     "good": "Good",
     "needsAttention": "Needs Attention",
     "keyFactors": "Key Performance Factors",
-    "aiNote": "AI Insight"
+    "aiNote": "AI Insight",
+    "factors": {
+      "salon": {
+        "f1": "Appointment Fill Rate",
+        "f2": "Avg. Client Rating",
+        "f3": "Pending Replies",
+        "note": "Your salon is performing well. Responding to the 12 pending messages could push your score above 90."
+      },
+      "clinic": {
+        "f1": "Patient Occupancy",
+        "f2": "No-Show Rate",
+        "f3": "Satisfaction Score",
+        "note": "No-show rate is slightly high. Consider sending automated reminders 24h before appointments."
+      },
+      "gym": {
+        "f1": "Active Memberships",
+        "f2": "Class Fill Rate",
+        "f3": "Renewal Rate",
+        "note": "Class fill rate is below target. A flash-promo campaign could fill the remaining slots."
+      },
+      "cafe": {
+        "f1": "Table Turnover Rate",
+        "f2": "Avg. Order Value",
+        "f3": "Pending Kitchen Orders",
+        "note": "Excellent day! Your table turnover and average order value are both at peak performance."
+      },
+      "shop": {
+        "f1": "Order Fulfillment Rate",
+        "f2": "Cart Abandonment",
+        "f3": "Customer Return Rate",
+        "note": "Pending shipments are dragging your score. Processing them now could increase your score by 12 points."
+      }
+    }
   },
+  "notifications": {
+    "title": "Notifications",
+    "markAllRead": "Mark all as read",
+    "empty": "No new notifications.",
+    "n1": "New message from Sarah J.",
+    "n2": "Campaign 'Summer Sale' finished.",
+    "n3": "New booking: Emma (14:00)",
+    "minAgo": "min ago",
+    "hourAgo": "hour ago",
+    "hoursAgo": "hours ago"
+  },
+
   "aiChat": {
     "title": "Nexora AI",
     "placeholder": "Ask Nexora anything...",
