@@ -69,12 +69,12 @@ export const Dashboard = () => {
         {/* Stats — spans 2 cols in a 2-col sub-grid */}
         <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {stats.map((stat, index) => (
-            <div key={index} className="bg-[#111] border border-white/10 p-5 rounded-2xl relative overflow-hidden shadow-md">
+            <div key={index} className="bg-bg-panel border border-border-main p-5 rounded-2xl relative overflow-hidden shadow-md">
               <div className="absolute top-0 right-0 p-5 opacity-10">
                 <stat.icon size={56} />
               </div>
-              <p className="text-zinc-400 text-xs font-medium mb-2">{stat.label}</p>
-              <h2 className="text-2xl font-display font-bold text-white mb-3">{stat.value}</h2>
+              <p className="text-text-muted text-xs font-medium mb-2">{stat.label}</p>
+              <h2 className="text-2xl font-display font-bold text-text-main mb-3">{stat.value}</h2>
               <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10px] font-bold border ${stat.changeColor}`}>
                 {stat.change}
               </span>
@@ -100,11 +100,11 @@ export const Dashboard = () => {
         <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 blur-[80px] rounded-full pointer-events-none" />
         
         <div className="flex items-start gap-4 relative z-10">
-          <div className="p-3 rounded-xl bg-purple-500 text-white shadow-lg shrink-0">
+          <div className="p-3 rounded-xl bg-purple-500 text-text-main shadow-lg shrink-0">
             <AlertCircle size={24} />
           </div>
           <div className="flex-1">
-            <h3 className="text-xl font-display font-bold text-white mb-2">{t('dashboard.aiActionRequired')}</h3>
+            <h3 className="text-xl font-display font-bold text-text-main mb-2">{t('dashboard.aiActionRequired')}</h3>
             <p className="text-sm text-zinc-300 mb-6 max-w-xl leading-relaxed">{aiDesc}</p>
             
             <div className="flex flex-wrap gap-3">
@@ -121,20 +121,20 @@ export const Dashboard = () => {
       </div>
 
       {/* Simple Upcoming List */}
-      <div className="bg-[#111] border border-white/10 rounded-2xl p-8 shadow-md">
-        <h3 className="text-lg font-bold text-white mb-6">{upcomingTitle}</h3>
+      <div className="bg-bg-panel border border-border-main rounded-2xl p-8 shadow-md">
+        <h3 className="text-lg font-bold text-text-main mb-6">{upcomingTitle}</h3>
         
         <div className="space-y-3">
           {upcomingItems.map((apt, i) => (
-            <div key={i} className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+            <div key={i} className="flex items-center justify-between p-4 rounded-xl bg-bg-panel-hover border border-border-main hover:bg-white/10 transition-colors">
               <div className="flex items-center gap-4">
                 <div className="text-sm font-bold text-purple-400 w-24 shrink-0">{apt.time}</div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">{apt.name}</h4>
-                  <p className="text-xs text-zinc-400">{apt.service}</p>
+                  <h4 className="text-sm font-bold text-text-main">{apt.name}</h4>
+                  <p className="text-xs text-text-muted">{apt.service}</p>
                 </div>
               </div>
-              <button className="text-zinc-500 hover:text-white p-2">
+              <button className="text-zinc-500 hover:text-text-main p-2">
                 <ArrowRight size={18} />
               </button>
             </div>

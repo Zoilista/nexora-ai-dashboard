@@ -37,8 +37,8 @@ export const OnboardingModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-300">
-      <div className="bg-[#0a0a0a] border border-white/10 w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col relative">
-        <div className="absolute top-0 left-0 w-full h-1 bg-white/5">
+      <div className="bg-bg-panel border border-border-main w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col relative">
+        <div className="absolute top-0 left-0 w-full h-1 bg-bg-panel-hover">
           <div className="h-full bg-purple-500 transition-all duration-500 ease-out" style={{ width: `${(step / 2) * 100}%` }} />
         </div>
 
@@ -50,7 +50,7 @@ export const OnboardingModal = ({ isOpen, onClose }) => {
             {step > 1 && (
               <button 
                 onClick={() => setStep(1)} 
-                className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors font-medium"
+                className="flex items-center gap-2 text-sm text-text-muted hover:text-text-main transition-colors font-medium"
               >
                 <ChevronLeft size={16} />
                 {t('onboarding.back')}
@@ -61,8 +61,8 @@ export const OnboardingModal = ({ isOpen, onClose }) => {
           {step === 1 && (
             <div className="space-y-8 animate-in slide-in-from-right-4 duration-500">
               <div className="space-y-2">
-                <h2 className="text-3xl font-display font-bold text-white tracking-tight">{t('onboarding.welcome')}</h2>
-                <p className="text-sm text-zinc-400 leading-relaxed">{t('onboarding.welcomeDesc')}</p>
+                <h2 className="text-3xl font-display font-bold text-text-main tracking-tight">{t('onboarding.welcome')}</h2>
+                <p className="text-sm text-text-muted leading-relaxed">{t('onboarding.welcomeDesc')}</p>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
@@ -73,11 +73,11 @@ export const OnboardingModal = ({ isOpen, onClose }) => {
                     className={`p-6 rounded-2xl border flex flex-col items-center gap-4 transition-all duration-300 group ${
                       businessType === type.id 
                         ? 'bg-purple-500/10 border-purple-500 shadow-[0_0_20px_rgba(139,92,246,0.15)] scale-[1.02]' 
-                        : 'bg-white/5 border-white/10 hover:bg-white/10'
+                        : 'bg-bg-panel-hover border-border-main hover:bg-white/10'
                     }`}
                   >
-                    <type.icon size={32} className={businessType === type.id ? 'text-purple-400' : 'text-zinc-400'} />
-                    <span className={`text-sm font-semibold ${businessType === type.id ? 'text-white' : 'text-zinc-300'}`}>{t(type.labelKey)}</span>
+                    <type.icon size={32} className={businessType === type.id ? 'text-purple-400' : 'text-text-muted'} />
+                    <span className={`text-sm font-semibold ${businessType === type.id ? 'text-text-main' : 'text-zinc-300'}`}>{t(type.labelKey)}</span>
                   </button>
                 ))}
               </div>
@@ -87,8 +87,8 @@ export const OnboardingModal = ({ isOpen, onClose }) => {
           {step === 2 && (
             <div className="space-y-8 animate-in slide-in-from-right-4 duration-500">
               <div className="space-y-2">
-                <h2 className="text-3xl font-display font-bold text-white tracking-tight">{t('onboarding.goal')}</h2>
-                <p className="text-sm text-zinc-400 leading-relaxed">{t('onboarding.goalDesc')}</p>
+                <h2 className="text-3xl font-display font-bold text-text-main tracking-tight">{t('onboarding.goal')}</h2>
+                <p className="text-sm text-text-muted leading-relaxed">{t('onboarding.goalDesc')}</p>
               </div>
 
               <div className="grid grid-cols-1 gap-4">
@@ -96,10 +96,10 @@ export const OnboardingModal = ({ isOpen, onClose }) => {
                   <button
                     key={goal.id}
                     onClick={handleComplete}
-                    className="p-6 rounded-2xl bg-white/5 border border-white/10 text-left hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300 group"
+                    className="p-6 rounded-2xl bg-bg-panel-hover border border-border-main text-left hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300 group"
                   >
-                    <h3 className="text-lg font-bold text-white group-hover:text-purple-400 transition-colors mb-1">{t(goal.titleKey)}</h3>
-                    <p className="text-sm text-zinc-400">{t(goal.descKey)}</p>
+                    <h3 className="text-lg font-bold text-text-main group-hover:text-purple-400 transition-colors mb-1">{t(goal.titleKey)}</h3>
+                    <p className="text-sm text-text-muted">{t(goal.descKey)}</p>
                   </button>
                 ))}
               </div>
@@ -107,7 +107,7 @@ export const OnboardingModal = ({ isOpen, onClose }) => {
           )}
         </div>
 
-        <div className="p-6 border-t border-white/5 bg-[#050505] flex justify-end">
+        <div className="p-6 border-t border-border-main bg-bg-main flex justify-end">
           {step === 1 && (
             <button 
               onClick={handleNext}

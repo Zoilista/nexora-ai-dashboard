@@ -62,10 +62,10 @@ export const HealthScoreGauge = () => {
   }, [targetScore]);
 
   return (
-    <div className="bg-[#111] border border-white/10 rounded-2xl p-6 shadow-lg animate-in fade-in duration-500">
+    <div className="bg-bg-panel border border-border-main rounded-2xl p-6 shadow-lg animate-in fade-in duration-500">
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h3 className="text-base font-bold text-white">{t('healthScore.title')}</h3>
+          <h3 className="text-base font-bold text-text-main">{t('healthScore.title')}</h3>
           <p className="text-xs text-zinc-500 mt-0.5">{t('healthScore.subtitle')}</p>
         </div>
         <span className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border ${colors.badge}`}>
@@ -115,7 +115,7 @@ export const HealthScoreGauge = () => {
                 {f.positive
                   ? <TrendingUp size={12} className="text-emerald-400 shrink-0" />
                   : <TrendingDown size={12} className="text-orange-400 shrink-0" />}
-                <span className="text-xs text-zinc-400 truncate">{f.label}</span>
+                <span className="text-xs text-text-muted truncate">{f.label}</span>
               </div>
               <span className={`text-xs font-bold shrink-0 ${f.positive ? 'text-emerald-400' : 'text-orange-400'}`}>
                 {f.value}

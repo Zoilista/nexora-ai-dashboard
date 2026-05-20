@@ -41,16 +41,16 @@ export const Sidebar = ({ isAIPanelOpen, onToggleAI, isOpen, setIsOpen }) => {
         />
       )}
       
-      <aside className={`w-64 h-screen fixed left-0 top-0 flex flex-col bg-zinc-100 dark:bg-[#0a0a0a] border-r border-black/5 dark:border-white/5 z-50 transition-all duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+      <aside className={`w-64 h-screen fixed left-0 top-0 flex flex-col bg-bg-panel border-r border-border-main z-50 transition-all duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         <div className="p-6">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg">
-                <Sparkles className="text-white w-4 h-4" />
+                <Sparkles className="text-text-main w-4 h-4" />
               </div>
-              <span className="font-display text-xl font-bold tracking-tight text-zinc-900 dark:text-white">Nexora<span className="text-purple-500">.</span></span>
+              <span className="font-display text-xl font-bold tracking-tight text-text-main">Nexora<span className="text-purple-500">.</span></span>
             </div>
-            <button className="lg:hidden text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
+            <button className="lg:hidden text-text-muted hover:text-black dark:hover:text-text-main transition-colors" onClick={() => setIsOpen(false)}>
               <X size={20} />
             </button>
           </div>
@@ -62,7 +62,7 @@ export const Sidebar = ({ isAIPanelOpen, onToggleAI, isOpen, setIsOpen }) => {
               to={item.path}
               className={({ isActive }) => 
                 `relative flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-200 group text-sm font-medium overflow-hidden ${
-                  isActive ? 'bg-white/10 text-white' : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                  isActive ? 'bg-white/10 text-text-main' : 'text-text-muted hover:text-text-main hover:bg-bg-panel-hover'
                 }`
               }
             >
@@ -82,18 +82,18 @@ export const Sidebar = ({ isAIPanelOpen, onToggleAI, isOpen, setIsOpen }) => {
       </div>
 
       <div className="mt-auto p-6 space-y-4">
-        <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+        <div className="p-4 rounded-xl bg-bg-panel-hover border border-border-main">
           <p className="text-[10px] text-purple-400 font-bold uppercase tracking-wider mb-2">{t('nav.readiness')}</p>
           <div className="h-1.5 w-full bg-black/50 rounded-full overflow-hidden mb-2">
             <div className="h-full w-[80%] bg-purple-500 rounded-full" />
           </div>
-          <p className="text-[10px] text-zinc-400">{t('nav.knowledgeBase')} 80% {t('nav.optimized')}</p>
+          <p className="text-[10px] text-text-muted">{t('nav.knowledgeBase')} 80% {t('nav.optimized')}</p>
         </div>
 
         <div className="space-y-2">
           <button 
             onClick={onToggleAI}
-            className={`flex items-center justify-between px-3 py-2.5 rounded-xl transition-all w-full text-sm font-medium border ${!isAIPanelOpen ? 'bg-purple-500/10 text-purple-400 border-purple-500/30 hover:bg-purple-500/20' : 'bg-white/5 text-zinc-400 border-transparent hover:bg-white/10 hover:text-white'}`}
+            className={`flex items-center justify-between px-3 py-2.5 rounded-xl transition-all w-full text-sm font-medium border ${!isAIPanelOpen ? 'bg-purple-500/10 text-purple-400 border-purple-500/30 hover:bg-purple-500/20' : 'bg-bg-panel-hover text-text-muted border-transparent hover:bg-white/10 hover:text-text-main'}`}
           >
             <div className="flex items-center gap-3">
               <Sparkles size={18} />
@@ -107,11 +107,11 @@ export const Sidebar = ({ isAIPanelOpen, onToggleAI, isOpen, setIsOpen }) => {
           <div className="h-px bg-white/10 w-full" />
 
           <NavLink to="/settings"
-            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-zinc-400 hover:text-white hover:bg-white/5 transition-all text-sm font-medium">
+            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-muted hover:text-text-main hover:bg-bg-panel-hover transition-all text-sm font-medium">
             <Settings size={18} />
             <span>{t('nav.settings')}</span>
           </NavLink>
-          <button className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-zinc-400 hover:text-red-400 hover:bg-red-500/10 transition-all w-full text-sm font-medium">
+          <button className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-muted hover:text-red-400 hover:bg-red-500/10 transition-all w-full text-sm font-medium">
             <LogOut size={18} />
             <span>{t('nav.logout')}</span>
           </button>

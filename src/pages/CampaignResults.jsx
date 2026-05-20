@@ -12,7 +12,7 @@ const campaignHistory = [
 const statusColors = {
   published: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
   scheduled: 'bg-blue-500/10 text-blue-400 border-blue-500/30',
-  draft: 'bg-zinc-500/10 text-zinc-400 border-zinc-500/30',
+  draft: 'bg-zinc-500/10 text-text-muted border-zinc-500/30',
 };
 
 const scoreColors = {
@@ -35,8 +35,8 @@ export const CampaignResults = () => {
     <div className="max-w-6xl mx-auto space-y-6 animate-in fade-in duration-500">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-display font-bold text-white mb-1">{t('campaignResults.title')}</h1>
-          <p className="text-sm text-zinc-400">{t('campaignResults.subtitle')}</p>
+          <h1 className="text-2xl font-display font-bold text-text-main mb-1">{t('campaignResults.title')}</h1>
+          <p className="text-sm text-text-muted">{t('campaignResults.subtitle')}</p>
         </div>
         <Link to="/campaigns" className="bg-white text-black font-bold py-2.5 px-5 rounded-xl hover:bg-zinc-200 transition-colors flex items-center gap-2 text-sm shadow-lg">
           <Plus size={16} />{t('campaignResults.newCampaign')}
@@ -47,12 +47,12 @@ export const CampaignResults = () => {
         <div className="w-72 space-y-2 shrink-0">
           {campaignHistory.map(campaign => (
             <button key={campaign.id} onClick={() => setSelected(campaign)}
-              className={`w-full p-4 rounded-2xl text-left border transition-all ${selected.id === campaign.id ? 'bg-purple-500/10 border-purple-500/20' : 'bg-[#111] border-white/10 hover:bg-white/5'}`}>
+              className={`w-full p-4 rounded-2xl text-left border transition-all ${selected.id === campaign.id ? 'bg-purple-500/10 border-purple-500/20' : 'bg-bg-panel border-border-main hover:bg-bg-panel-hover'}`}>
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[10px] text-zinc-500 font-semibold">{campaign.platform}</span>
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${statusColors[campaign.statusKey]}`}>{getCampaignStatus(campaign)}</span>
               </div>
-              <p className="text-sm font-bold text-white mb-1 leading-snug">{getCampaignTitle(campaign)}</p>
+              <p className="text-sm font-bold text-text-main mb-1 leading-snug">{getCampaignTitle(campaign)}</p>
               <p className="text-xs text-zinc-500">{getCampaignDate(campaign)}</p>
             </button>
           ))}
@@ -65,10 +65,10 @@ export const CampaignResults = () => {
               { icon: MousePointerClick, label: t('campaignResults.clicks'), value: selected.clicks ? selected.clicks.toLocaleString() : '—', color: 'text-purple-400' },
               { icon: CheckCircle2, label: t('campaignResults.conversions'), value: selected.conversions ? selected.conversions.toLocaleString() : '—', color: 'text-emerald-400' },
             ].map((stat, i) => (
-              <div key={i} className="bg-[#111] border border-white/10 rounded-2xl p-5 shadow-md">
+              <div key={i} className="bg-bg-panel border border-border-main rounded-2xl p-5 shadow-md">
                 <stat.icon size={20} className={`${stat.color} mb-2`} />
                 <p className="text-xs text-zinc-500 mb-1">{stat.label}</p>
-                <p className="text-2xl font-bold text-white">{stat.value}</p>
+                <p className="text-2xl font-bold text-text-main">{stat.value}</p>
                 {selected.reach && stat.label === t('campaignResults.conversions') && (
                   <p className="text-xs text-zinc-500 mt-1">{((selected.conversions / selected.reach) * 100).toFixed(1)}% {t('campaignResults.convRate')}</p>
                 )}
@@ -76,12 +76,12 @@ export const CampaignResults = () => {
             ))}
           </div>
 
-          <div className="bg-[#111] border border-white/10 rounded-2xl p-6 shadow-md">
+          <div className="bg-bg-panel border border-border-main rounded-2xl p-6 shadow-md">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-bold text-white">{getCampaignTitle(selected)}</h3>
+              <h3 className="font-bold text-text-main">{getCampaignTitle(selected)}</h3>
               <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${statusColors[selected.statusKey]}`}>{getCampaignStatus(selected)}</span>
             </div>
-            <div className="flex items-center gap-4 text-sm text-zinc-400 flex-wrap">
+            <div className="flex items-center gap-4 text-sm text-text-muted flex-wrap">
               <span>{selected.platform}</span>
               <span className="w-1 h-1 rounded-full bg-zinc-600" />
               <span className="flex items-center gap-1"><Clock size={14} />{getCampaignDate(selected)}</span>

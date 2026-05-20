@@ -42,16 +42,16 @@ const WeeklyBriefingCard = ({ onDismiss }) => {
         <div className="flex items-start justify-between mb-5">
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-gradient-to-br from-purple-600 to-blue-600 shadow-lg shadow-purple-500/20">
-              <Sparkles size={18} className="text-white" />
+              <Sparkles size={18} className="text-text-main" />
             </div>
             <div>
-              <h2 className="text-lg font-display font-bold text-white">{t('weeklyBriefing.title')}</h2>
+              <h2 className="text-lg font-display font-bold text-text-main">{t('weeklyBriefing.title')}</h2>
               <p className="text-xs text-purple-300/70 mt-0.5">{t('weeklyBriefing.subtitle')}</p>
             </div>
           </div>
           <button
             onClick={onDismiss}
-            className="text-zinc-500 hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition-colors"
+            className="text-zinc-500 hover:text-text-main p-1.5 rounded-lg hover:bg-bg-panel-hover transition-colors"
           >
             <X size={16} />
           </button>
@@ -85,7 +85,7 @@ const WeeklyBriefingCard = ({ onDismiss }) => {
             <div key={i} className={`p-4 rounded-xl border ${item.bg}`}>
               <div className={`${item.color} mb-2`}><item.icon size={18} /></div>
               <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-1">{item.label}</p>
-              <p className="text-sm font-bold text-white leading-snug">{item.value}</p>
+              <p className="text-sm font-bold text-text-main leading-snug">{item.value}</p>
             </div>
           ))}
         </div>
@@ -94,7 +94,7 @@ const WeeklyBriefingCard = ({ onDismiss }) => {
         <div className="flex justify-end">
           <button
             onClick={onDismiss}
-            className="flex items-center gap-1.5 text-xs font-bold text-purple-300 hover:text-white bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 px-4 py-2 rounded-xl transition-all"
+            className="flex items-center gap-1.5 text-xs font-bold text-purple-300 hover:text-text-main bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 px-4 py-2 rounded-xl transition-all"
           >
             {t('weeklyBriefing.dismiss')}
             <ChevronRight size={13} />
@@ -129,35 +129,35 @@ export const Insights = () => {
 
       <div className="flex items-center gap-4 mb-6">
         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg">
-           <Sparkles className="text-white" size={24} />
+           <Sparkles className="text-text-main" size={24} />
         </div>
         <div>
-          <h1 className="text-2xl font-display font-bold text-white mb-1">{t('insights.title')}</h1>
-          <p className="text-sm text-zinc-400">{t('insights.subtitle')}</p>
+          <h1 className="text-2xl font-display font-bold text-text-main mb-1">{t('insights.title')}</h1>
+          <p className="text-sm text-text-muted">{t('insights.subtitle')}</p>
         </div>
       </div>
 
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-           <div className="bg-[#111] p-6 border-t-2 border-emerald-500 rounded-2xl shadow-lg">
+           <div className="bg-bg-panel p-6 border-t-2 border-emerald-500 rounded-2xl shadow-lg">
               <div className="flex items-center gap-3 mb-4">
                  <div className="p-2.5 rounded-lg bg-emerald-500/20 text-emerald-400">
                    <TrendingUp size={20} />
                  </div>
-                 <h3 className="font-bold text-white text-lg">{t('insights.growth')}</h3>
+                 <h3 className="font-bold text-text-main text-lg">{t('insights.growth')}</h3>
               </div>
               <p className="text-sm text-zinc-300 leading-relaxed">
                 {t('insights.growthDesc')}
               </p>
            </div>
 
-           <div className="bg-[#111] p-6 border-t-2 border-orange-500 rounded-2xl shadow-lg flex flex-col justify-between">
+           <div className="bg-bg-panel p-6 border-t-2 border-orange-500 rounded-2xl shadow-lg flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                    <div className="p-2.5 rounded-lg bg-orange-500/20 text-orange-400">
                      <AlertTriangle size={20} />
                    </div>
-                   <h3 className="font-bold text-white text-lg">{t('insights.improvement')}</h3>
+                   <h3 className="font-bold text-text-main text-lg">{t('insights.improvement')}</h3>
                 </div>
                 <p className="text-sm text-zinc-300 leading-relaxed mb-4">
                   {t('insights.improvementDesc')}
@@ -168,12 +168,12 @@ export const Insights = () => {
               </button>
            </div>
 
-           <div className="bg-[#111] p-6 border-t-2 border-blue-500 rounded-2xl shadow-lg">
+           <div className="bg-bg-panel p-6 border-t-2 border-blue-500 rounded-2xl shadow-lg">
               <div className="flex items-center gap-3 mb-4">
                  <div className="p-2.5 rounded-lg bg-blue-500/20 text-blue-400">
                    <Lightbulb size={20} />
                  </div>
-                 <h3 className="font-bold text-white text-lg">{t('insights.recommendation')}</h3>
+                 <h3 className="font-bold text-text-main text-lg">{t('insights.recommendation')}</h3>
               </div>
               <p className="text-sm text-zinc-300 leading-relaxed">
                 {t('insights.recommendationDesc')}
@@ -182,11 +182,11 @@ export const Insights = () => {
       </div>
 
       {/* Weekly Revenue Line Chart */}
-      <div className="bg-[#111] border border-white/10 p-8 rounded-2xl shadow-lg">
+      <div className="bg-bg-panel border border-border-main p-8 rounded-2xl shadow-lg">
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h3 className="text-lg font-bold text-white">{t('insights.weeklyRevenue')}</h3>
-            <p className="text-sm text-zinc-400 mt-1">{t('insights.weeklyRevenueSub')}</p>
+            <h3 className="text-lg font-bold text-text-main">{t('insights.weeklyRevenue')}</h3>
+            <p className="text-sm text-text-muted mt-1">{t('insights.weeklyRevenueSub')}</p>
           </div>
           <div className="text-right">
             <p className="text-2xl font-bold text-emerald-400">$12,200</p>
@@ -218,19 +218,19 @@ export const Insights = () => {
       </div>
 
       {/* Channel Performance Bar Chart */}
-      <div className="bg-[#111] border border-white/10 p-8 rounded-2xl shadow-lg">
+      <div className="bg-bg-panel border border-border-main p-8 rounded-2xl shadow-lg">
          <div className="flex justify-between items-center mb-6">
            <div>
-             <h3 className="text-lg font-bold text-white">{t('insights.performance')}</h3>
-             <p className="text-sm text-zinc-400 mt-1">{t('insights.performanceSub')}</p>
+             <h3 className="text-lg font-bold text-text-main">{t('insights.performance')}</h3>
+             <p className="text-sm text-text-muted mt-1">{t('insights.performanceSub')}</p>
            </div>
-           <div className="flex gap-1 bg-white/5 border border-white/10 rounded-xl p-1">
+           <div className="flex gap-1 bg-bg-panel-hover border border-border-main rounded-xl p-1">
              {[{ val: '30', label: '30 ' + t('insights.days') }, { val: '90', label: '90 ' + t('insights.days') }].map(opt => (
                <button
                  key={opt.val}
                  type="button"
                  onClick={() => setChartPeriod(opt.val)}
-                 className={`px-4 py-1.5 rounded-lg text-sm font-semibold transition-all ${chartPeriod === opt.val ? 'bg-white/15 text-white shadow-sm' : 'text-zinc-400 hover:text-white'}`}
+                 className={`px-4 py-1.5 rounded-lg text-sm font-semibold transition-all ${chartPeriod === opt.val ? 'bg-white/15 text-text-main shadow-sm' : 'text-text-muted hover:text-text-main'}`}
                >
                  {opt.label}
                </button>

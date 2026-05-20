@@ -115,16 +115,16 @@ export const AIAssistantPanel = ({ isOpen, setIsOpen }) => {
 
   return (
     <aside className={`fixed right-0 top-0 h-screen transition-all duration-500 ease-in-out z-50 ${isOpen ? 'w-[360px] translate-x-0' : 'w-[360px] translate-x-full'}`}>
-      <div className="h-full bg-[#0a0a0a] border-l border-white/5 flex flex-col shadow-2xl">
+      <div className="h-full bg-bg-panel border-l border-border-main flex flex-col shadow-2xl">
 
         {/* Header */}
-        <div className="px-5 py-4 flex items-center justify-between border-b border-white/5 shrink-0">
+        <div className="px-5 py-4 flex items-center justify-between border-b border-border-main shrink-0">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center shadow-lg shadow-purple-500/20">
-              <Sparkles size={14} className="text-white" />
+              <Sparkles size={14} className="text-text-main" />
             </div>
             <div>
-              <span className="font-display font-bold text-sm text-white block">{t('aiChat.title')}</span>
+              <span className="font-display font-bold text-sm text-text-main block">{t('aiChat.title')}</span>
               <span className="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-pulse" />
                 Online
@@ -135,11 +135,11 @@ export const AIAssistantPanel = ({ isOpen, setIsOpen }) => {
             <button
               onClick={handleReset}
               title={t('aiChat.newChat')}
-              className="p-1.5 rounded-lg text-zinc-500 hover:text-white hover:bg-white/5 transition-colors"
+              className="p-1.5 rounded-lg text-zinc-500 hover:text-text-main hover:bg-bg-panel-hover transition-colors"
             >
               <RotateCcw size={15} />
             </button>
-            <button onClick={() => setIsOpen(false)} className="p-1.5 rounded-lg text-zinc-500 hover:text-white hover:bg-white/5 transition-colors">
+            <button onClick={() => setIsOpen(false)} className="p-1.5 rounded-lg text-zinc-500 hover:text-text-main hover:bg-bg-panel-hover transition-colors">
               <X size={16} />
             </button>
           </div>
@@ -151,14 +151,14 @@ export const AIAssistantPanel = ({ isOpen, setIsOpen }) => {
             <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               {msg.role === 'ai' && (
                 <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center shrink-0 mr-2 mt-0.5 shadow-sm">
-                  <Sparkles size={10} className="text-white" />
+                  <Sparkles size={10} className="text-text-main" />
                 </div>
               )}
               <div className="max-w-[80%] space-y-2">
                 <div className={`px-4 py-3 rounded-2xl text-sm leading-relaxed ${
                   msg.role === 'user'
-                    ? 'bg-purple-600 text-white rounded-tr-sm shadow-md shadow-purple-500/20'
-                    : 'bg-white/5 text-zinc-200 rounded-tl-sm border border-white/5'
+                    ? 'bg-purple-600 text-text-main rounded-tr-sm shadow-md shadow-purple-500/20'
+                    : 'bg-bg-panel-hover text-zinc-200 rounded-tl-sm border border-border-main'
                 }`}>
                   {msg.text}
                 </div>
@@ -180,9 +180,9 @@ export const AIAssistantPanel = ({ isOpen, setIsOpen }) => {
           {isTyping && (
             <div className="flex justify-start">
               <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center shrink-0 mr-2 mt-0.5">
-                <Sparkles size={10} className="text-white" />
+                <Sparkles size={10} className="text-text-main" />
               </div>
-              <div className="bg-white/5 border border-white/5 rounded-2xl rounded-tl-sm">
+              <div className="bg-bg-panel-hover border border-border-main rounded-2xl rounded-tl-sm">
                 <TypingDots />
               </div>
             </div>
@@ -198,7 +198,7 @@ export const AIAssistantPanel = ({ isOpen, setIsOpen }) => {
               <button
                 key={key}
                 onClick={() => handleSend(key)}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 bg-white/5 hover:bg-white/10 border border-white/5 rounded-xl text-xs text-zinc-400 hover:text-white transition-all text-left"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 bg-bg-panel-hover hover:bg-white/10 border border-border-main rounded-xl text-xs text-text-muted hover:text-text-main transition-all text-left"
               >
                 <span>{icon}</span>
                 <span className="truncate capitalize">{key}</span>
@@ -208,7 +208,7 @@ export const AIAssistantPanel = ({ isOpen, setIsOpen }) => {
         </div>
 
         {/* Input */}
-        <div className="p-4 shrink-0 border-t border-white/5">
+        <div className="p-4 shrink-0 border-t border-border-main">
           <div className="relative flex items-center">
             <input
               ref={inputRef}
@@ -217,12 +217,12 @@ export const AIAssistantPanel = ({ isOpen, setIsOpen }) => {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && handleSend()}
               placeholder={t('aiChat.placeholder')}
-              className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-4 pr-12 text-sm text-white focus:outline-none focus:border-purple-500/50 focus:bg-white/[0.07] transition-all placeholder:text-zinc-600"
+              className="w-full bg-bg-panel-hover border border-border-main rounded-2xl py-3 pl-4 pr-12 text-sm text-text-main focus:outline-none focus:border-purple-500/50 focus:bg-white/[0.07] transition-all placeholder:text-zinc-600"
             />
             <button
               onClick={() => handleSend()}
               disabled={!input.trim()}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl bg-purple-600 hover:bg-purple-500 disabled:bg-white/10 disabled:text-zinc-600 text-white flex items-center justify-center transition-all shadow-md"
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl bg-purple-600 hover:bg-purple-500 disabled:bg-white/10 disabled:text-zinc-600 text-text-main flex items-center justify-center transition-all shadow-md"
             >
               <Send size={14} className="ml-0.5" />
             </button>

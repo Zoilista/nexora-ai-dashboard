@@ -32,8 +32,8 @@ export const Ecommerce = () => {
     <div className="max-w-5xl mx-auto space-y-6 animate-in fade-in duration-500">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-display font-bold text-white mb-1">{t('ecommerce.title')}</h1>
-          <p className="text-sm text-zinc-400">{t('ecommerce.subtitle')}</p>
+          <h1 className="text-2xl font-display font-bold text-text-main mb-1">{t('ecommerce.title')}</h1>
+          <p className="text-sm text-text-muted">{t('ecommerce.subtitle')}</p>
         </div>
         <button className="bg-white text-black font-bold py-2.5 px-5 rounded-xl hover:bg-zinc-200 transition-colors flex items-center gap-2 text-sm shadow-lg">
           <Plus size={16} />{t('ecommerce.newOrder')}
@@ -48,10 +48,10 @@ export const Ecommerce = () => {
           { icon: DollarSign, label: t('ecommerce.revenue'), value: '$4,820', color: 'text-emerald-400', change: '+$320 today' },
           { icon: RefreshCw, label: t('ecommerce.refunds'), value: '3', color: 'text-red-400', change: 'This month' },
         ].map((stat, i) => (
-          <div key={i} className="bg-[#111] border border-white/10 p-5 rounded-2xl shadow-md">
+          <div key={i} className="bg-bg-panel border border-border-main p-5 rounded-2xl shadow-md">
             <stat.icon size={20} className={`${stat.color} mb-2`} />
             <p className="text-xs text-zinc-500 mb-1">{stat.label}</p>
-            <p className="text-2xl font-bold text-white">{stat.value}</p>
+            <p className="text-2xl font-bold text-text-main">{stat.value}</p>
             <p className="text-xs text-zinc-500 mt-1">{stat.change}</p>
           </div>
         ))}
@@ -60,30 +60,30 @@ export const Ecommerce = () => {
       {/* AI Restock Alert */}
       <div className="bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/30 p-5 rounded-2xl flex justify-between items-center shadow-md">
         <div className="flex items-center gap-4">
-          <div className="p-3 rounded-xl bg-orange-500 text-white shadow-lg shrink-0"><AlertCircle size={22} /></div>
+          <div className="p-3 rounded-xl bg-orange-500 text-text-main shadow-lg shrink-0"><AlertCircle size={22} /></div>
           <div>
-            <h3 className="font-bold text-white mb-1">{t('ecommerce.aiSuggestion')}</h3>
+            <h3 className="font-bold text-text-main mb-1">{t('ecommerce.aiSuggestion')}</h3>
             <p className="text-sm text-zinc-300">{t('ecommerce.aiSuggestionDesc')}</p>
           </div>
         </div>
-        <button className="bg-orange-500 text-white font-bold py-2.5 px-6 rounded-xl hover:bg-orange-600 transition-colors text-sm whitespace-nowrap">
+        <button className="bg-orange-500 text-text-main font-bold py-2.5 px-6 rounded-xl hover:bg-orange-600 transition-colors text-sm whitespace-nowrap">
           {t('ecommerce.reorderNow')}
         </button>
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-2 border-b border-white/10 pb-px">
+      <div className="flex gap-2 border-b border-border-main pb-px">
         {[{ id: 'orders', label: t('ecommerce.orders') }, { id: 'products', label: t('ecommerce.products') }].map(tab => (
           <button key={tab.id} onClick={() => setActiveTab(tab.id)}
-            className={`px-5 py-2.5 border-b-2 text-sm font-semibold transition-all ${activeTab === tab.id ? 'border-purple-500 text-white' : 'border-transparent text-zinc-400 hover:text-white'}`}>
+            className={`px-5 py-2.5 border-b-2 text-sm font-semibold transition-all ${activeTab === tab.id ? 'border-purple-500 text-text-main' : 'border-transparent text-text-muted hover:text-text-main'}`}>
             {tab.label}
           </button>
         ))}
       </div>
 
       {activeTab === 'orders' && (
-        <div className="bg-[#111] border border-white/10 rounded-2xl overflow-hidden shadow-lg">
-          <div className="grid grid-cols-12 gap-4 px-6 py-3 border-b border-white/5">
+        <div className="bg-bg-panel border border-border-main rounded-2xl overflow-hidden shadow-lg">
+          <div className="grid grid-cols-12 gap-4 px-6 py-3 border-b border-border-main">
             <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.orderId')}</span>
             <span className="col-span-3 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.customer')}</span>
             <span className="col-span-3 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.product')}</span>
@@ -93,10 +93,10 @@ export const Ecommerce = () => {
           {orders.map(order => {
             const cfg = statusConfig[order.status] || statusConfig.delivered;
             return (
-              <div key={order.id} className="grid grid-cols-12 gap-4 px-6 py-4 items-center border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors">
+              <div key={order.id} className="grid grid-cols-12 gap-4 px-6 py-4 items-center border-b border-border-main last:border-0 hover:bg-bg-panel-hover transition-colors">
                 <div className="col-span-2 text-xs font-mono text-purple-400 font-bold">{order.id}</div>
-                <div className="col-span-3 text-sm font-medium text-white">{order.customer}</div>
-                <div className="col-span-3 text-sm text-zinc-400">{order.product}</div>
+                <div className="col-span-3 text-sm font-medium text-text-main">{order.customer}</div>
+                <div className="col-span-3 text-sm text-text-muted">{order.product}</div>
                 <div className="col-span-2 text-sm font-bold text-emerald-400">${order.amount}</div>
                 <div className="col-span-2">
                   <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${cfg.color}`}>{t(`ecommerce.statuses.${order.status}`)}</span>
@@ -108,8 +108,8 @@ export const Ecommerce = () => {
       )}
 
       {activeTab === 'products' && (
-        <div className="bg-[#111] border border-white/10 rounded-2xl overflow-hidden shadow-lg">
-          <div className="grid grid-cols-12 gap-4 px-6 py-3 border-b border-white/5">
+        <div className="bg-bg-panel border border-border-main rounded-2xl overflow-hidden shadow-lg">
+          <div className="grid grid-cols-12 gap-4 px-6 py-3 border-b border-border-main">
             <span className="col-span-4 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.product')}</span>
             <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.category')}</span>
             <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.price')}</span>
@@ -117,18 +117,18 @@ export const Ecommerce = () => {
             <span className="col-span-2 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{t('ecommerce.sold')}</span>
           </div>
           {products.map(product => (
-            <div key={product.id} className="grid grid-cols-12 gap-4 px-6 py-4 items-center border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors">
+            <div key={product.id} className="grid grid-cols-12 gap-4 px-6 py-4 items-center border-b border-border-main last:border-0 hover:bg-bg-panel-hover transition-colors">
               <div className="col-span-4 flex items-center gap-3">
                 <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400 shrink-0"><Package size={16} /></div>
-                <span className="text-sm font-bold text-white">{product.name}</span>
+                <span className="text-sm font-bold text-text-main">{product.name}</span>
               </div>
               <div className="col-span-2"><span className="text-xs px-2.5 py-1 rounded-full bg-white/10 text-zinc-300 font-medium">{product.category}</span></div>
               <div className="col-span-2 text-sm font-bold text-emerald-400">${product.price}</div>
               <div className="col-span-2">
-                <span className={`text-sm font-bold ${product.stock <= 5 ? 'text-red-400' : 'text-white'}`}>{product.stock}</span>
+                <span className={`text-sm font-bold ${product.stock <= 5 ? 'text-red-400' : 'text-text-main'}`}>{product.stock}</span>
                 {product.stock <= 5 && <span className="ml-1 text-[10px] text-red-400">{t('ecommerce.low')}</span>}
               </div>
-              <div className="col-span-2 text-sm text-zinc-400">{product.sold} {t('ecommerce.units')}</div>
+              <div className="col-span-2 text-sm text-text-muted">{product.sold} {t('ecommerce.units')}</div>
             </div>
           ))}
         </div>

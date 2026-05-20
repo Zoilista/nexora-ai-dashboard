@@ -102,27 +102,27 @@ export const Appointments = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in duration-500 relative">
       
-      <div className="flex justify-between items-center bg-[#111] border border-white/10 p-4 rounded-2xl shadow-lg">
+      <div className="flex justify-between items-center bg-bg-panel border border-border-main p-4 rounded-2xl shadow-lg">
         <div className="flex items-center gap-4">
           <div className="p-3 rounded-xl bg-purple-500/20 text-purple-400">
             <CalendarIcon size={24} />
           </div>
           <div>
-            <h2 className="text-xl font-display font-bold text-white">{t('appointments.today')}</h2>
-            <p className="text-sm text-zinc-400 font-medium">May 12, 2026</p>
+            <h2 className="text-xl font-display font-bold text-text-main">{t('appointments.today')}</h2>
+            <p className="text-sm text-text-muted font-medium">May 12, 2026</p>
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <div className="flex bg-[#050505] p-1 rounded-xl border border-white/10 hidden sm:flex">
+          <div className="flex bg-bg-main p-1 rounded-xl border border-border-main hidden sm:flex">
              <button 
                onClick={() => setViewMode('list')}
-               className={`p-1.5 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:text-white'}`}
+               className={`p-1.5 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-white/10 text-text-main' : 'text-zinc-500 hover:text-text-main'}`}
              >
                <ListIcon size={18} />
              </button>
              <button 
                onClick={() => setViewMode('calendar')}
-               className={`p-1.5 rounded-lg transition-colors ${viewMode === 'calendar' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:text-white'}`}
+               className={`p-1.5 rounded-lg transition-colors ${viewMode === 'calendar' ? 'bg-white/10 text-text-main' : 'text-zinc-500 hover:text-text-main'}`}
              >
                <GridIcon size={18} />
              </button>
@@ -140,15 +140,15 @@ export const Appointments = () => {
       {/* AI Suggestion */}
       <div className="bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/30 p-6 rounded-2xl flex justify-between items-center shadow-md">
         <div className="flex items-center gap-4">
-          <div className="p-3 rounded-xl bg-orange-500 text-white shadow-lg">
+          <div className="p-3 rounded-xl bg-orange-500 text-text-main shadow-lg">
             <AlertCircle size={24} />
           </div>
           <div>
-            <h3 className="text-lg font-bold text-white mb-1">{t('appointments.aiSuggestion')}</h3>
+            <h3 className="text-lg font-bold text-text-main mb-1">{t('appointments.aiSuggestion')}</h3>
             <p className="text-sm text-zinc-300 leading-relaxed">{t('appointments.aiSuggestionDesc')}</p>
           </div>
         </div>
-        <button className="bg-orange-500 text-white font-bold py-2.5 px-6 rounded-xl hover:bg-orange-600 transition-colors text-sm whitespace-nowrap">
+        <button className="bg-orange-500 text-text-main font-bold py-2.5 px-6 rounded-xl hover:bg-orange-600 transition-colors text-sm whitespace-nowrap">
           {t('appointments.sendCampaign')}
         </button>
       </div>
@@ -162,7 +162,7 @@ export const Appointments = () => {
           action={
             <button 
               onClick={() => setShowModal(true)}
-              className="bg-purple-600 text-white font-bold py-2.5 px-6 rounded-xl hover:bg-purple-500 transition-colors shadow-lg mt-2 flex items-center gap-2 mx-auto"
+              className="bg-purple-600 text-text-main font-bold py-2.5 px-6 rounded-xl hover:bg-purple-500 transition-colors shadow-lg mt-2 flex items-center gap-2 mx-auto"
             >
               <Plus size={16} />
               {t('appointments.newBooking')}
@@ -170,21 +170,21 @@ export const Appointments = () => {
           }
         />
       ) : viewMode === 'list' ? (
-        <div className="bg-[#111] border border-white/10 rounded-2xl overflow-hidden shadow-lg">
+        <div className="bg-bg-panel border border-border-main rounded-2xl overflow-hidden shadow-lg">
           {appointmentList.map((apt) => (
-            <div key={apt.id} onClick={() => setSelectedApt(apt)} className="flex items-center gap-6 p-6 border-b border-white/10 last:border-0 hover:bg-white/5 transition-colors cursor-pointer group flex-wrap sm:flex-nowrap">
-              <div className="text-xl font-bold text-white w-16 group-hover:text-purple-400 transition-colors">{apt.time}</div>
+            <div key={apt.id} onClick={() => setSelectedApt(apt)} className="flex items-center gap-6 p-6 border-b border-border-main last:border-0 hover:bg-bg-panel-hover transition-colors cursor-pointer group flex-wrap sm:flex-nowrap">
+              <div className="text-xl font-bold text-text-main w-16 group-hover:text-purple-400 transition-colors">{apt.time}</div>
               
               <div className="flex-1 min-w-[200px]">
-                <h4 className="text-base font-bold text-white mb-1">{apt.client}</h4>
-                <div className="flex items-center gap-3 text-zinc-400 text-xs font-medium">
+                <h4 className="text-base font-bold text-text-main mb-1">{apt.client}</h4>
+                <div className="flex items-center gap-3 text-text-muted text-xs font-medium">
                   <span className="flex items-center gap-1"><User size={14} /> {t('appointments.newClient') || 'Client'}</span>
                   <span className="w-1 h-1 rounded-full bg-zinc-600" />
                   <span className="flex items-center gap-1"><Clock size={14} /> {apt.duration}</span>
                 </div>
               </div>
 
-              <div className="text-sm text-zinc-300 font-medium px-4 py-1.5 bg-white/5 rounded-lg border border-white/10 shrink-0">
+              <div className="text-sm text-zinc-300 font-medium px-4 py-1.5 bg-bg-panel-hover rounded-lg border border-border-main shrink-0">
                 {t(`appointments.services.${businessType}.${apt.serviceKey}`)}
               </div>
               
@@ -199,7 +199,7 @@ export const Appointments = () => {
           ))}
         </div>
       ) : (
-        <div className="bg-[#111] border border-white/10 rounded-2xl p-6 shadow-lg overflow-x-auto" style={{ minHeight: '600px' }}>
+        <div className="bg-bg-panel border border-border-main rounded-2xl p-6 shadow-lg overflow-x-auto" style={{ minHeight: '600px' }}>
            <style>{`
              .fc-theme-standard td, .fc-theme-standard th { border-color: rgba(255,255,255,0.1); }
              .fc .fc-toolbar-title { font-size: 1.25rem; font-weight: bold; color: white; }
@@ -241,41 +241,41 @@ export const Appointments = () => {
       {/* New Booking Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <form onSubmit={handleConfirmBooking} className="bg-[#111] border border-white/10 w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden">
-             <div className="p-6 border-b border-white/10 flex items-center justify-between">
-                <h3 className="text-xl font-bold text-white">{t('appointments.newBooking')}</h3>
-                <button type="button" onClick={() => setShowModal(false)} className="text-zinc-500 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors">
+          <form onSubmit={handleConfirmBooking} className="bg-bg-panel border border-border-main w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden">
+             <div className="p-6 border-b border-border-main flex items-center justify-between">
+                <h3 className="text-xl font-bold text-text-main">{t('appointments.newBooking')}</h3>
+                <button type="button" onClick={() => setShowModal(false)} className="text-zinc-500 hover:text-text-main p-2 rounded-lg hover:bg-bg-panel-hover transition-colors">
                   <X size={20} />
                 </button>
              </div>
              <div className="p-6 space-y-4">
                 <div>
-                  <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 block">{t('appointments.clientName')}</label>
+                  <label className="text-xs font-bold text-text-muted uppercase tracking-widest mb-2 block">{t('appointments.clientName')}</label>
                   <input 
                     type="text" 
                     required
                     value={clientName}
                     onChange={(e) => setClientName(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors" 
+                    className="w-full bg-bg-panel-hover border border-border-main rounded-xl px-4 py-3 text-sm text-text-main focus:outline-none focus:border-purple-500 transition-colors" 
                     placeholder={t('appointments.clientPlaceholder')} 
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 block">{t('appointments.service')}</label>
+                  <label className="text-xs font-bold text-text-muted uppercase tracking-widest mb-2 block">{t('appointments.service')}</label>
                   <div className="relative">
                     <button
                       type="button"
                       onClick={() => setIsServiceDropdownOpen(!isServiceDropdownOpen)}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white flex items-center justify-between hover:bg-white/10 hover:border-purple-500/50 transition-all cursor-pointer shadow-md"
+                      className="w-full bg-bg-panel-hover border border-border-main rounded-xl px-4 py-3 text-sm text-text-main flex items-center justify-between hover:bg-white/10 hover:border-purple-500/50 transition-all cursor-pointer shadow-md"
                     >
                       <span>{t(`appointments.services.${businessType}.${serviceKey}`)}</span>
-                      <ChevronDown size={18} className={`text-zinc-400 transition-transform duration-300 ${isServiceDropdownOpen ? 'rotate-180 text-purple-400' : ''}`} />
+                      <ChevronDown size={18} className={`text-text-muted transition-transform duration-300 ${isServiceDropdownOpen ? 'rotate-180 text-purple-400' : ''}`} />
                     </button>
 
                     {isServiceDropdownOpen && (
                       <>
                         <div className="fixed inset-0 z-10" onClick={() => setIsServiceDropdownOpen(false)} />
-                        <div className="absolute left-0 mt-2 w-full bg-[#161616] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-20 animate-in fade-in slide-in-from-top-2 duration-200">
+                        <div className="absolute left-0 mt-2 w-full bg-[#161616] border border-border-main rounded-xl shadow-2xl overflow-hidden z-20 animate-in fade-in slide-in-from-top-2 duration-200">
                           <div className="p-1 space-y-1">
                             {keys.map((k) => (
                               <button
@@ -287,8 +287,8 @@ export const Appointments = () => {
                                 }}
                                 className={`w-full px-3 py-2.5 rounded-lg flex items-center gap-3 text-sm text-left transition-all ${
                                   serviceKey === k 
-                                    ? 'bg-purple-600 text-white font-bold' 
-                                    : 'text-zinc-300 hover:text-white hover:bg-white/5'
+                                    ? 'bg-purple-600 text-text-main font-bold' 
+                                    : 'text-zinc-300 hover:text-text-main hover:bg-bg-panel-hover'
                                 }`}
                               >
                                 <span>{t(`appointments.services.${businessType}.${k}`)}</span>
@@ -302,29 +302,29 @@ export const Appointments = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 block">{t('appointments.date')}</label>
+                    <label className="text-xs font-bold text-text-muted uppercase tracking-widest mb-2 block">{t('appointments.date')}</label>
                     <input 
                       type="date" 
                       value={date}
                       onChange={(e) => setDate(e.target.value)}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors" 
+                      className="w-full bg-bg-panel-hover border border-border-main rounded-xl px-4 py-3 text-sm text-text-main focus:outline-none focus:border-purple-500 transition-colors" 
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 block">{t('appointments.time')}</label>
+                    <label className="text-xs font-bold text-text-muted uppercase tracking-widest mb-2 block">{t('appointments.time')}</label>
                     <input 
                       type="time" 
                       required
                       value={time}
                       onChange={(e) => setTime(e.target.value)}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition-colors" 
+                      className="w-full bg-bg-panel-hover border border-border-main rounded-xl px-4 py-3 text-sm text-text-main focus:outline-none focus:border-purple-500 transition-colors" 
                     />
                   </div>
                 </div>
              </div>
-             <div className="p-6 border-t border-white/10 bg-[#0a0a0a] flex justify-end gap-3">
-                <button type="button" onClick={() => setShowModal(false)} className="px-6 py-2.5 rounded-xl font-bold text-sm text-zinc-300 hover:bg-white/5 transition-colors">{t('appointments.cancel')}</button>
-                <button type="submit" className="px-6 py-2.5 rounded-xl font-bold text-sm bg-purple-600 text-white hover:bg-purple-500 transition-colors">{t('appointments.confirm')}</button>
+             <div className="p-6 border-t border-border-main bg-bg-panel flex justify-end gap-3">
+                <button type="button" onClick={() => setShowModal(false)} className="px-6 py-2.5 rounded-xl font-bold text-sm text-zinc-300 hover:bg-bg-panel-hover transition-colors">{t('appointments.cancel')}</button>
+                <button type="submit" className="px-6 py-2.5 rounded-xl font-bold text-sm bg-purple-600 text-text-main hover:bg-purple-500 transition-colors">{t('appointments.confirm')}</button>
              </div>
           </form>
         </div>
@@ -332,31 +332,31 @@ export const Appointments = () => {
       {/* Appointment Details Modal */}
       {selectedApt && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-[#111] border border-white/10 w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden">
-             <div className="p-6 border-b border-white/10 flex items-center justify-between">
-                <h3 className="text-xl font-bold text-white">{t('appointments.details') || 'Appointment Details'}</h3>
-                <button type="button" onClick={() => setSelectedApt(null)} className="text-zinc-500 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors">
+          <div className="bg-bg-panel border border-border-main w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden">
+             <div className="p-6 border-b border-border-main flex items-center justify-between">
+                <h3 className="text-xl font-bold text-text-main">{t('appointments.details') || 'Appointment Details'}</h3>
+                <button type="button" onClick={() => setSelectedApt(null)} className="text-zinc-500 hover:text-text-main p-2 rounded-lg hover:bg-bg-panel-hover transition-colors">
                   <X size={20} />
                 </button>
              </div>
              <div className="p-6 space-y-5">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/40 to-blue-500/40 flex items-center justify-center text-lg font-bold text-white border border-white/10">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/40 to-blue-500/40 flex items-center justify-center text-lg font-bold text-text-main border border-border-main">
                     {selectedApt.client.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
-                    <p className="text-lg font-bold text-white leading-tight">{selectedApt.client}</p>
-                    <p className="text-xs text-zinc-400 flex items-center gap-1 mt-0.5"><Clock size={12}/> {selectedApt.time} ({selectedApt.duration})</p>
+                    <p className="text-lg font-bold text-text-main leading-tight">{selectedApt.client}</p>
+                    <p className="text-xs text-text-muted flex items-center gap-1 mt-0.5"><Clock size={12}/> {selectedApt.time} ({selectedApt.duration})</p>
                   </div>
                 </div>
                 
-                <div className="p-4 bg-white/5 rounded-xl border border-white/10">
-                   <p className="text-xs text-zinc-400 font-bold uppercase tracking-widest mb-1">{t('appointments.service')}</p>
-                   <p className="text-sm text-white font-medium">{t(`appointments.services.${businessType}.${selectedApt.serviceKey}`)}</p>
+                <div className="p-4 bg-bg-panel-hover rounded-xl border border-border-main">
+                   <p className="text-xs text-text-muted font-bold uppercase tracking-widest mb-1">{t('appointments.service')}</p>
+                   <p className="text-sm text-text-main font-medium">{t(`appointments.services.${businessType}.${selectedApt.serviceKey}`)}</p>
                 </div>
 
-                <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
-                   <p className="text-xs text-zinc-400 font-bold uppercase tracking-widest">{t('appointments.statusLabel') || 'Status'}</p>
+                <div className="flex items-center justify-between p-4 bg-bg-panel-hover rounded-xl border border-border-main">
+                   <p className="text-xs text-text-muted font-bold uppercase tracking-widest">{t('appointments.statusLabel') || 'Status'}</p>
                    <div className={`px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest border ${
                      selectedApt.status === 'arrived' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' :
                      selectedApt.status === 'confirmed' ? 'bg-blue-500/10 text-blue-400 border-blue-500/30' : 
@@ -366,7 +366,7 @@ export const Appointments = () => {
                    </div>
                 </div>
              </div>
-             <div className="p-6 border-t border-white/10 bg-[#0a0a0a] flex gap-3">
+             <div className="p-6 border-t border-border-main bg-bg-panel flex gap-3">
                 <button type="button" onClick={() => setSelectedApt(null)} className="flex-1 py-2.5 rounded-xl font-bold text-sm bg-white text-black hover:bg-zinc-200 transition-colors">
                   {t('customers.close') || 'Close'}
                 </button>

@@ -8,7 +8,7 @@ export const Layout = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-zinc-50 dark:bg-[#050505] text-zinc-900 dark:text-white overflow-hidden relative transition-colors duration-300">
+    <div className="flex min-h-screen bg-bg-main text-text-main overflow-hidden relative transition-colors duration-300">
       <Sidebar 
         isAIPanelOpen={isAIPanelOpen} 
         onToggleAI={() => setIsAIPanelOpen(!isAIPanelOpen)} 

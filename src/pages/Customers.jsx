@@ -32,19 +32,19 @@ export const Customers = () => {
   if (loading) {
     return (
       <div className="h-[calc(100vh-140px)] flex gap-6 animate-pulse">
-        <div className="w-80 bg-[#111] border border-white/5 rounded-2xl p-4 flex flex-col shrink-0">
-          <div className="h-6 w-32 bg-white/5 rounded mb-4"></div>
-          <div className="h-10 w-full bg-white/5 rounded-xl mb-4"></div>
+        <div className="w-80 bg-bg-panel border border-border-main rounded-2xl p-4 flex flex-col shrink-0">
+          <div className="h-6 w-32 bg-bg-panel-hover rounded mb-4"></div>
+          <div className="h-10 w-full bg-bg-panel-hover rounded-xl mb-4"></div>
           <div className="flex-1 space-y-2">
              {[1,2,3,4,5].map(i => (
-                <div key={i} className="h-16 w-full bg-white/5 rounded-xl"></div>
+                <div key={i} className="h-16 w-full bg-bg-panel-hover rounded-xl"></div>
              ))}
           </div>
         </div>
         <div className="flex-1 space-y-6">
-           <div className="h-28 w-full bg-[#111] border border-white/5 rounded-2xl"></div>
+           <div className="h-28 w-full bg-bg-panel border border-border-main rounded-2xl"></div>
            <div className="grid grid-cols-3 gap-4">
-              {[1,2,3].map(i => <div key={i} className="h-24 bg-[#111] border border-white/5 rounded-2xl"></div>)}
+              {[1,2,3].map(i => <div key={i} className="h-24 bg-bg-panel border border-border-main rounded-2xl"></div>)}
            </div>
            <div className="h-40 w-full bg-purple-500/5 rounded-2xl"></div>
         </div>
@@ -81,28 +81,28 @@ export const Customers = () => {
   return (
     <div className="h-[calc(100vh-140px)] flex gap-6 animate-in fade-in duration-500">
       {/* Sidebar List */}
-      <div className="w-80 bg-[#111] border border-white/10 rounded-2xl flex flex-col overflow-hidden shrink-0 shadow-lg">
-        <div className="p-4 border-b border-white/10">
+      <div className="w-80 bg-bg-panel border border-border-main rounded-2xl flex flex-col overflow-hidden shrink-0 shadow-lg">
+        <div className="p-4 border-b border-border-main">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="font-bold text-white text-lg">{t('customers.title')}</h2>
-            <span className="text-xs text-zinc-500 bg-white/5 px-2 py-1 rounded-md">{customerList.length} {t('customers.total')}</span>
+            <h2 className="font-bold text-text-main text-lg">{t('customers.title')}</h2>
+            <span className="text-xs text-zinc-500 bg-bg-panel-hover px-2 py-1 rounded-md">{customerList.length} {t('customers.total')}</span>
           </div>
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" size={16} />
             <input type="text" placeholder={t('customers.search')} value={search} onChange={e => setSearch(e.target.value)}
-              className="w-full bg-white/5 rounded-xl py-2 pl-9 pr-4 text-sm text-white focus:outline-none focus:bg-white/10 transition-all placeholder:text-zinc-500" />
+              className="w-full bg-bg-panel-hover rounded-xl py-2 pl-9 pr-4 text-sm text-text-main focus:outline-none focus:bg-white/10 transition-all placeholder:text-zinc-500" />
           </div>
         </div>
         <div className="flex-1 overflow-y-auto p-2 space-y-1 no-scrollbar">
           {filtered.map(customer => (
             <button key={customer.id} onClick={() => setSelectedId(customer.id)}
-              className={`w-full p-3 rounded-xl text-left transition-all border ${selectedId === customer.id ? 'bg-purple-500/10 border-purple-500/20' : 'bg-transparent border-transparent hover:bg-white/5'}`}>
+              className={`w-full p-3 rounded-xl text-left transition-all border ${selectedId === customer.id ? 'bg-purple-500/10 border-purple-500/20' : 'bg-transparent border-transparent hover:bg-bg-panel-hover'}`}>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500/40 to-blue-500/40 flex items-center justify-center shrink-0 font-bold text-sm text-white">
+                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500/40 to-blue-500/40 flex items-center justify-center shrink-0 font-bold text-sm text-text-main">
                   {customer.name.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm font-bold text-white truncate">{customer.name}</p>
+                  <p className="text-sm font-bold text-text-main truncate">{customer.name}</p>
                   <p className="text-xs text-zinc-500 truncate">{customer.favoriteService}</p>
                 </div>
                 <div className="shrink-0 flex flex-col gap-1">
@@ -120,21 +120,21 @@ export const Customers = () => {
 
       {/* Main Details Panel */}
       <div className="flex-1 space-y-6 overflow-y-auto min-w-0 pr-1 no-scrollbar">
-        <div className="bg-[#111] border border-white/10 rounded-2xl p-6 shadow-lg">
+        <div className="bg-bg-panel border border-border-main rounded-2xl p-6 shadow-lg">
           <div className="flex items-start gap-5">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/30 to-blue-500/30 flex items-center justify-center shrink-0 text-2xl font-bold text-white border border-white/10">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/30 to-blue-500/30 flex items-center justify-center shrink-0 text-2xl font-bold text-text-main border border-border-main">
               {selected.name.split(' ').map(n => n[0]).join('')}
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3 flex-wrap mb-2">
-                <h2 className="text-xl font-bold text-white">{selected.name}</h2>
+                <h2 className="text-xl font-bold text-text-main">{selected.name}</h2>
                 {selected.tags.map(tag => (
                   <span key={tag} className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${tagColors[tag]}`}>
                     {t(`customers.tags.${tag}`)}
                   </span>
                 ))}
               </div>
-              <div className="flex items-center gap-4 text-sm text-zinc-400 flex-wrap">
+              <div className="flex items-center gap-4 text-sm text-text-muted flex-wrap">
                 <span className="flex items-center gap-1"><Mail size={14} />{selected.email}</span>
                 <span className="flex items-center gap-1"><Phone size={14} />{selected.phone}</span>
               </div>
@@ -142,20 +142,20 @@ export const Customers = () => {
             <div className="flex gap-2 shrink-0 items-center">
               <button 
                 onClick={() => setShowAIModal(true)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold transition-all text-xs mr-2 shadow-md hover:shadow-purple-500/10"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-text-main font-bold transition-all text-xs mr-2 shadow-md hover:shadow-purple-500/10"
               >
                 <Sparkles size={14} className="animate-pulse" />
                 <span>{t('customers.aiAnalysisBtn')}</span>
               </button>
               <button 
                 onClick={() => navigate('/inbox')}
-                className="p-2 rounded-xl bg-white/5 border border-white/10 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors" title={t('customers.sendMessage')}
+                className="p-2 rounded-xl bg-bg-panel-hover border border-border-main text-text-muted hover:text-text-main hover:bg-white/10 transition-colors" title={t('customers.sendMessage')}
               >
                 <MessageSquare size={18} />
               </button>
               <button 
                 onClick={() => navigate('/appointments')}
-                className="p-2 rounded-xl bg-white/5 border border-white/10 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors" title={t('customers.bookAppointment')}
+                className="p-2 rounded-xl bg-bg-panel-hover border border-border-main text-text-muted hover:text-text-main hover:bg-white/10 transition-colors" title={t('customers.bookAppointment')}
               >
                 <Calendar size={18} />
               </button>
@@ -169,10 +169,10 @@ export const Customers = () => {
             { icon: DollarSign, label: t('customers.spent'), value: `$${selected.totalSpent.toLocaleString()}`, color: 'text-emerald-400' },
             { icon: Star, label: t('customers.lastVisit'), value: selected.lastVisit, color: 'text-yellow-400' },
           ].map((stat, i) => (
-            <div key={i} className="bg-[#111] border border-white/10 rounded-2xl p-5 shadow-lg">
+            <div key={i} className="bg-bg-panel border border-border-main rounded-2xl p-5 shadow-lg">
               <div className={`${stat.color} mb-2`}><stat.icon size={20} /></div>
               <p className="text-xs text-zinc-500 mb-1">{stat.label}</p>
-              <p className="text-xl font-bold text-white">{stat.value}</p>
+              <p className="text-xl font-bold text-text-main">{stat.value}</p>
             </div>
           ))}
         </div>
@@ -185,11 +185,11 @@ export const Customers = () => {
           <p className="text-sm text-zinc-300 leading-relaxed">{selected.aiNote}</p>
         </div>
 
-        <div className="bg-[#111] border border-white/10 rounded-2xl p-5 shadow-lg">
-          <h3 className="text-sm font-bold text-white mb-4">{t('customers.favoriteService')}</h3>
-          <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/5">
+        <div className="bg-bg-panel border border-border-main rounded-2xl p-5 shadow-lg">
+          <h3 className="text-sm font-bold text-text-main mb-4">{t('customers.favoriteService')}</h3>
+          <div className="flex items-center justify-between p-4 bg-bg-panel-hover rounded-xl border border-border-main">
             <div>
-              <p className="text-sm font-bold text-white">{selected.favoriteService}</p>
+              <p className="text-sm font-bold text-text-main">{selected.favoriteService}</p>
               <div className="flex items-center gap-1 mt-1">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} size={12} className={i < selected.rating ? 'text-yellow-400 fill-yellow-400' : 'text-zinc-600'} />
@@ -204,25 +204,25 @@ export const Customers = () => {
       {/* AI Analysis Report Modal */}
       {showAIModal && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-200 text-left">
-          <div className="bg-[#111] border border-white/10 w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden">
-             <div className="p-6 border-b border-white/10 flex items-center justify-between">
+          <div className="bg-bg-panel border border-border-main w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden">
+             <div className="p-6 border-b border-border-main flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-lg bg-purple-500/20 text-purple-400 animate-pulse">
                     <Sparkles size={20} />
                   </div>
-                  <h3 className="text-xl font-bold text-white">{t('customers.aiAnalysisTitle')}</h3>
+                  <h3 className="text-xl font-bold text-text-main">{t('customers.aiAnalysisTitle')}</h3>
                 </div>
-                <button onClick={() => setShowAIModal(false)} className="text-zinc-500 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors">
+                <button onClick={() => setShowAIModal(false)} className="text-zinc-500 hover:text-text-main p-2 rounded-lg hover:bg-bg-panel-hover transition-colors">
                   <X size={20} />
                 </button>
              </div>
              
              <div className="p-6 space-y-6 overflow-y-auto max-h-[70vh]">
                {/* Client Name & Profile Tag */}
-               <div className="flex items-center justify-between border-b border-white/5 pb-4">
+               <div className="flex items-center justify-between border-b border-border-main pb-4">
                  <div>
-                   <h4 className="text-lg font-bold text-white">{selected.name}</h4>
-                   <p className="text-xs text-zinc-400 mt-0.5">{selected.email} • {selected.phone}</p>
+                   <h4 className="text-lg font-bold text-text-main">{selected.name}</h4>
+                   <p className="text-xs text-text-muted mt-0.5">{selected.email} • {selected.phone}</p>
                  </div>
                  <div className="px-3 py-1.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-xs font-bold text-purple-300">
                    {selected.personality}
@@ -232,7 +232,7 @@ export const Customers = () => {
                {/* Detailed AI Analysis */}
                <div className="space-y-2">
                  <h5 className="text-xs font-bold uppercase tracking-wider text-purple-400">{t('customers.aiNote')}</h5>
-                 <p className="text-sm text-zinc-300 bg-white/5 border border-white/5 p-4 rounded-xl leading-relaxed">
+                 <p className="text-sm text-zinc-300 bg-bg-panel-hover border border-border-main p-4 rounded-xl leading-relaxed">
                    {selected.analysis}
                  </p>
                </div>
@@ -253,7 +253,7 @@ export const Customers = () => {
                {/* Communication Strategy */}
                <div className="space-y-2">
                  <h5 className="text-xs font-bold uppercase tracking-wider text-purple-400">{t('customers.aiStrategy')}</h5>
-                 <div className="p-4 rounded-xl bg-white/5 border border-white/5 text-sm text-zinc-300 leading-relaxed flex gap-3">
+                 <div className="p-4 rounded-xl bg-bg-panel-hover border border-border-main text-sm text-zinc-300 leading-relaxed flex gap-3">
                    <div className="p-1 rounded-full bg-blue-500/10 text-blue-400 shrink-0 h-fit mt-0.5">
                      <Star size={14} />
                    </div>
@@ -262,7 +262,7 @@ export const Customers = () => {
                </div>
              </div>
 
-             <div className="p-6 border-t border-white/10 bg-[#0a0a0a] flex justify-end">
+             <div className="p-6 border-t border-border-main bg-bg-panel flex justify-end">
                <button onClick={() => setShowAIModal(false)} className="px-6 py-2.5 rounded-xl font-bold text-sm bg-white text-black hover:bg-zinc-200 transition-colors">
                  {t('customers.close')}
                </button>

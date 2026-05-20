@@ -84,18 +84,18 @@ export const Campaigns = () => {
       
       <div className="flex items-center gap-4 mb-8">
         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg">
-          <Sparkles className="text-white" size={24} />
+          <Sparkles className="text-text-main" size={24} />
         </div>
         <div>
-          <h1 className="text-2xl font-display font-bold text-white mb-1">{t('campaigns.title')}</h1>
-          <p className="text-sm text-zinc-400">{t('campaigns.subtitle')}</p>
+          <h1 className="text-2xl font-display font-bold text-text-main mb-1">{t('campaigns.title')}</h1>
+          <p className="text-sm text-text-muted">{t('campaigns.subtitle')}</p>
         </div>
       </div>
 
-      <div className="bg-[#111] border border-white/10 rounded-2xl p-8 shadow-xl">
+      <div className="bg-bg-panel border border-border-main rounded-2xl p-8 shadow-xl">
         <form className="space-y-6" onSubmit={handleGenerate}>
            <div className="space-y-3">
-              <label className="text-[11px] text-zinc-400 font-bold uppercase tracking-widest">{t('campaigns.platform')}</label>
+              <label className="text-[11px] text-text-muted font-bold uppercase tracking-widest">{t('campaigns.platform')}</label>
               <div className="flex gap-3">
                  {['Instagram', 'Facebook', 'TikTok'].map(p => (
                    <button 
@@ -104,8 +104,8 @@ export const Campaigns = () => {
                      onClick={() => setPlatform(p)}
                      className={`flex-1 py-3 rounded-xl border text-sm font-semibold transition-all ${
                        platform === p 
-                        ? 'bg-purple-500/10 border-purple-500 text-white' 
-                        : 'bg-white/5 border-transparent text-zinc-400 hover:bg-white/10'
+                        ? 'bg-purple-500/10 border-purple-500 text-text-main' 
+                        : 'bg-bg-panel-hover border-transparent text-text-muted hover:bg-white/10'
                      }`}
                    >
                      {p}
@@ -115,7 +115,7 @@ export const Campaigns = () => {
            </div>
 
            <div className="space-y-3">
-             <label className="text-[11px] text-zinc-400 font-bold uppercase tracking-widest flex justify-between">
+             <label className="text-[11px] text-text-muted font-bold uppercase tracking-widest flex justify-between">
                <span>{t('campaigns.goal')}</span>
              </label>
              <input 
@@ -123,12 +123,12 @@ export const Campaigns = () => {
                value={goal}
                onChange={e => setGoal(e.target.value)}
                placeholder={t('campaigns.goalPlaceholder')}
-               className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all"
+               className="w-full bg-bg-panel-hover border border-border-main rounded-xl py-3 px-4 text-sm text-text-main focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all"
              />
            </div>
 
            <div className="space-y-3">
-             <label className="text-[11px] text-zinc-400 font-bold uppercase tracking-widest">
+             <label className="text-[11px] text-text-muted font-bold uppercase tracking-widest">
                {t('campaigns.keyPoints')}
              </label>
              <textarea 
@@ -136,12 +136,12 @@ export const Campaigns = () => {
                value={keyPoints}
                onChange={e => setKeyPoints(e.target.value)}
                placeholder={t('campaigns.keyPointsPlaceholder')}
-               className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all resize-none"
+               className="w-full bg-bg-panel-hover border border-border-main rounded-xl py-3 px-4 text-sm text-text-main focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all resize-none"
              />
            </div>
 
            <div className="pt-2">
-              <button type="submit" disabled={isGenerating} className="w-full bg-purple-500 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-purple-600 disabled:opacity-60 disabled:cursor-not-allowed transition-colors shadow-lg flex justify-center items-center gap-2">
+              <button type="submit" disabled={isGenerating} className="w-full bg-purple-500 text-text-main font-bold text-sm py-3.5 rounded-xl hover:bg-purple-600 disabled:opacity-60 disabled:cursor-not-allowed transition-colors shadow-lg flex justify-center items-center gap-2">
                 {isGenerating ? (
                   <>
                     <RefreshCw size={18} className="animate-spin" />
@@ -167,14 +167,14 @@ export const Campaigns = () => {
                 <Sparkles size={18} />
               </div>
               <div>
-                <h3 className="font-bold text-white text-base">{t('campaigns.preview')}</h3>
-                <p className="text-xs text-zinc-400">{t('campaigns.previewSubtitle')} {preview.platform}</p>
+                <h3 className="font-bold text-text-main text-base">{t('campaigns.preview')}</h3>
+                <p className="text-xs text-text-muted">{t('campaigns.previewSubtitle')} {preview.platform}</p>
               </div>
             </div>
             <button
               type="button"
               onClick={handleGenerate}
-              className="flex items-center gap-1.5 text-xs font-bold text-zinc-400 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-1.5 rounded-xl transition-all"
+              className="flex items-center gap-1.5 text-xs font-bold text-text-muted hover:text-text-main bg-bg-panel-hover hover:bg-white/10 border border-border-main px-3 py-1.5 rounded-xl transition-all"
             >
               <RefreshCw size={12} />
               {t('campaigns.regenerate')}
@@ -182,7 +182,7 @@ export const Campaigns = () => {
           </div>
 
           {/* Post Text */}
-          <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-5 mb-4 relative">
+          <div className="bg-bg-panel border border-border-main rounded-xl p-5 mb-4 relative">
             <p className="text-sm text-zinc-200 leading-relaxed whitespace-pre-line">{preview.text}</p>
           </div>
 
@@ -204,7 +204,7 @@ export const Campaigns = () => {
           {/* Optimal Time */}
           <div className="flex items-center gap-2 mb-5 p-3 bg-blue-500/5 border border-blue-500/15 rounded-xl">
             <Clock size={14} className="text-blue-400 shrink-0" />
-            <span className="text-xs font-bold text-zinc-400">{t('campaigns.suggestedTime')}:</span>
+            <span className="text-xs font-bold text-text-muted">{t('campaigns.suggestedTime')}:</span>
             <span className="text-xs font-bold text-blue-300">{preview.time}</span>
           </div>
 
@@ -214,7 +214,7 @@ export const Campaigns = () => {
             onClick={handleCopy}
             className={`w-full py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all ${
               copied 
-                ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/20' 
+                ? 'bg-emerald-500 text-text-main shadow-lg shadow-emerald-500/20' 
                 : 'bg-white text-black hover:bg-zinc-100 shadow-md'
             }`}
           >
